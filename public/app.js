@@ -1,20 +1,24 @@
-// Tự động định tuyến API: Khi chạy trên Netlify hoặc domain bên ngoài, tự động kết nối về máy chủ Backend
-const API_BASE = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.hostname.includes('trycloudflare.com'))
-  ? ''
-  : 'https://refinance-precisely-position-divisions.trycloudflare.com';
+/* ========================================================
+   SHOPNGHIAZ - FRONTEND CONTROLLER & APP ENGINE
+   ======================================================== */
+
+// 1. Tự động tương thích cả khi chạy Localhost lẫn triển khai Netlify
+const API_BASE = (window.location.hostname.includes('netlify.app')) 
+  ? 'https://shopnghiaz.onrender.com' 
+  : '';
 
 const _rawFetch = window.fetch;
 window.fetch = function(url, options) {
-  if (typeof url === 'string' && url.startsWith('/api/')) {
-    url = API_BASE + url;
+  if (typeof url === 'string' && url.startsWith('/api/') && API_BASE) {
+    return _rawFetch(API_BASE + url, options);
   }
   return _rawFetch(url, options);
 };
 
-// Chuẩn hóa đường dẫn ảnh: Tự động trỏ về domain máy chủ nếu chạy trên Netlify
+// Chuẩn hóa đường dẫn ảnh: Tự động trỏ về domain máy chủ nếu cần
 function formatImageUrl(url) {
   if (!url || typeof url !== 'string' || url.trim() === '') {
-    return 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60';
+    return 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60';
   }
   if (url.startsWith('/uploads/')) {
     return API_BASE ? API_BASE + url : url;
@@ -22,153 +26,118 @@ function formatImageUrl(url) {
   return url;
 }
 
-let currentDownloadLink = '';
-function copyDownloadLink() {
-  if (currentDownloadLink) {
-    navigator.clipboard.writeText(currentDownloadLink);
-    showToast('Đã sao chép link tải sản phẩm!', 'success');
-  }
-}
-
-// State management
-let currentUser = JSON.parse(localStorage.getItem('shophqk_user') || 'null');
+// Global State
+let currentUser = null;
 let allProducts = [];
-let currentCategory = 'all';
-let currentTxId = null;
-let currentMemo = '';
-let targetAdjustUser = null;
-let currentBalanceMode = 'add';
-let currentAuthTab = 'login';
+let currentCategory = 'Tất cả';
+let currentSettings = {
+  shopName: 'ShopNghiaZ',
+  shopTitle: 'Shop định vị uy tín số 1 Việt Nam',
+  shopDesc: 'SHOP ĐỊNH VỊ UY TÍN - GIÁ RẺ - TỰ ĐỘNG SỐ 1 VIỆT NAM. Bảo hành trọn đời, hỗ trợ 24/7.',
+  shopNotice: '🔥 CHÀO MỪNG ĐẾN VỚI SHOPNGHIAZ! NẠP TIỀN QUA VIETQR DUYỆT NHANH CHÓNG 24/7! 🔥',
+  shopNoticeActive: true,
+  contactZalo: '0868915360',
+  contactPhone: '0868915360',
+  contactTelegram: 'NghiazXdinhvi',
+  contactFacebook: 'https://facebook.com',
+  bankId: 'MOMO',
+  accountNo: '0349340730',
+  accountName: 'VU TRONG NGHIA',
+  categories: ['Tất cả', 'Định Vị Android', 'Định Vị iOS', 'Tài khoản VIP', 'Phần mềm bản quyền', 'Game & Code']
+};
+
 let currentUploadedBase64 = null;
 let currentSelectedFile = null;
 let editingProductId = null;
+let currentAuthTab = 'login';
+let currentBalanceMode = 'add';
+let currentDownloadLink = '';
+let currentTxId = '';
+let currentMemo = '';
 
-let currentSettings = {
-  shopName: "ShopHQK",
-  shopTitle: "Cửa Hàng Số Tiện Lợi ShopHQK",
-  shopDesc: "Cung cấp tài khoản, phần mềm và dịch vụ trực tuyến bản quyền toàn quốc. Nạp tiền nhận ngay số dư qua quét mã VietQR chỉ trong vài giây.",
-  shopNotice: "⚡ Ưu đãi nạp tiền: Khuyến mãi nạp tự động qua VietQR duyệt siêu tốc! Hỗ trợ 24/7.",
-  shopNoticeActive: true,
-  contactZalo: "0349340730",
-  contactPhone: "0349340730",
-  contactTelegram: "hqk_support",
-  contactFacebook: "https://facebook.com",
-  logoText: "ShopHQK",
-  bankId: "MOMO",
-  accountNo: "0349340730",
-  accountName: "SHOPHQK STORE",
-  categories: ["Tất cả", "Tài khoản", "Phần mềm", "Game", "Thẻ cào", "Khác"]
-};
-
-// Initialize
+// Khởi chạy khi DOM sẵn sàng
 document.addEventListener('DOMContentLoaded', () => {
-  lucide.createIcons();
-  updateAuthUI();
-  loadShopSettings();
-  loadProducts();
-
-  if (currentUser) {
-    refreshUserBalance();
+  try {
+    const saved = localStorage.getItem('shopnghiaz_user');
+    if (saved) {
+      currentUser = JSON.parse(saved);
+    }
+  } catch (e) {
+    currentUser = null;
   }
 
-  // Khởi động đồng bộ thời gian thực (Real-time Auto-sync cho mọi thiết bị mỗi 3.5s)
-  startRealtimeSync();
+  updateAuthUI();
+  loadSettings();
+  loadProducts();
+  refreshUserBalance();
+
+  if (window.lucide && typeof lucide.createIcons === 'function') {
+    lucide.createIcons();
+  }
 });
 
-// Đồng bộ dữ liệu đa thiết bị tự động
-function startRealtimeSync() {
-  setInterval(async () => {
-    try {
-      // 1. Tự động đồng bộ sản phẩm nếu Admin thêm/sửa/xóa
-      const pRes = await fetch('/api/products');
-      const pData = await pRes.json();
-      if (pData.success) {
-        if (JSON.stringify(pData.data) !== JSON.stringify(allProducts)) {
-          allProducts = pData.data;
-          renderProducts();
-          if (!document.getElementById('admSectionProduct').classList.contains('hidden')) {
-            renderAdminProductsList();
-          }
-        }
-      }
-
-      // 2. Tự động cập nhật số dư của User khi Admin duyệt/cộng tiền
-      if (currentUser) {
-        const uRes = await fetch(`/api/auth/me/${currentUser.username}`);
-        const uData = await uRes.json();
-        if (uData.success) {
-          if (currentUser.balance !== uData.data.balance || currentUser.role !== uData.data.role) {
-            currentUser.balance = uData.data.balance;
-            currentUser.role = uData.data.role;
-            localStorage.setItem('shophqk_user', JSON.stringify(currentUser));
-            updateAuthUI();
-          }
-        }
-      }
-    } catch (err) {
-      // Bỏ qua lỗi kết nối tạm thời
-    }
-  }, 3500);
-}
-
-// ---------------- TOAST NOTIFICATIONS ----------------
+// ---------------- TOAST THÔNG BÁO ----------------
 function showToast(message, type = 'info') {
   const container = document.getElementById('toastContainer');
   if (!container) return;
 
   const toast = document.createElement('div');
   const bgColors = {
-    success: 'bg-emerald-950/95 border-emerald-500 text-emerald-200',
-    error: 'bg-rose-950/95 border-rose-500 text-rose-200',
-    warning: 'bg-amber-950/95 border-amber-500 text-amber-200',
-    info: 'bg-slate-900/95 border-indigo-500 text-slate-200'
+    success: 'bg-emerald-950/90 border-emerald-500/50 text-emerald-200',
+    error: 'bg-rose-950/90 border-rose-500/50 text-rose-200',
+    warning: 'bg-amber-950/90 border-amber-500/50 text-amber-200',
+    info: 'bg-slate-900/90 border-teal-500/50 text-teal-200'
   };
 
   const icons = {
-    success: 'check-circle',
-    error: 'alert-circle',
-    warning: 'alert-triangle',
-    info: 'info'
+    success: '<i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>',
+    error: '<i data-lucide="alert-circle" class="w-4 h-4 text-rose-400"></i>',
+    warning: '<i data-lucide="alert-triangle" class="w-4 h-4 text-amber-400"></i>',
+    info: '<i data-lucide="info" class="w-4 h-4 text-teal-400"></i>'
   };
 
-  toast.className = `toast max-w-sm w-full p-3.5 rounded-xl border shadow-xl flex items-center gap-2.5 text-xs font-semibold backdrop-blur-md ${bgColors[type] || bgColors.info}`;
+  toast.className = `toast flex items-center gap-2 px-3.5 py-2.5 rounded-xl border shadow-xl text-xs backdrop-blur-md ${bgColors[type] || bgColors.info}`;
   toast.innerHTML = `
-    <i data-lucide="${icons[type] || 'info'}" class="w-4 h-4 shrink-0"></i>
-    <span class="flex-1 leading-snug">${message}</span>
-    <button onclick="this.parentElement.remove()" class="text-slate-400 hover:text-white p-0.5"><i data-lucide="x" class="w-3.5 h-3.5"></i></button>
+    <span class="shrink-0">${icons[type] || icons.info}</span>
+    <span class="font-medium">${message}</span>
   `;
 
   container.appendChild(toast);
-  lucide.createIcons();
+  if (window.lucide) lucide.createIcons();
 
   setTimeout(() => {
-    if (toast.parentElement) {
-      toast.style.opacity = '0';
-      toast.style.transform = 'translateY(8px)';
-      toast.style.transition = 'all 0.2s ease-out';
-      setTimeout(() => toast.remove(), 200);
-    }
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(-10px)';
+    toast.style.transition = 'all 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
   }, 3500);
 }
 
-// ---------------- MODAL HELPERS ----------------
+// ---------------- MODAL CONTROLS ----------------
 function openModal(id) {
-  const m = document.getElementById(id);
-  if (m) {
-    m.classList.remove('hidden');
-    const inner = m.firstElementChild;
-    if (inner) inner.classList.add('modal-animate');
-    lucide.createIcons();
+  const modal = document.getElementById(id);
+  if (modal) {
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    if (window.lucide) lucide.createIcons();
   }
 }
 
 function closeModal(id) {
-  const m = document.getElementById(id);
-  if (m) m.classList.add('hidden');
+  const modal = document.getElementById(id);
+  if (modal) {
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
 }
 
-// ---------------- CẤU HÌNH SHOP DYNAMIC ----------------
-async function loadShopSettings() {
+function dismissNotice() {
+  const banner = document.getElementById('shopNoticeBanner');
+  if (banner) banner.classList.add('hidden');
+}
+
+// ---------------- LOAD CẤU HÌNH SHOP ----------------
+async function loadSettings() {
   try {
     const res = await fetch('/api/settings');
     const data = await res.json();
@@ -184,22 +153,22 @@ async function loadShopSettings() {
 function applyShopSettingsToUI() {
   const s = currentSettings;
 
-  // 1. Tên Shop & Thương hiệu
+  // 1. Tên Shop
   const navShopName = document.getElementById('navShopName');
-  if (navShopName) navShopName.innerText = s.shopName || 'ShopHQK';
+  if (navShopName) navShopName.innerText = s.shopName || 'ShopNghiaZ';
   const footerShopName = document.getElementById('footerShopName');
-  if (footerShopName) footerShopName.innerText = s.shopName || 'ShopHQK';
+  if (footerShopName) footerShopName.innerText = s.shopName || 'ShopNghiaZ';
   const heroHighlight = document.getElementById('heroShopHighlight');
-  if (heroHighlight) heroHighlight.innerText = s.shopName || 'ShopHQK';
+  if (heroHighlight) heroHighlight.innerText = s.shopName || 'ShopNghiaZ';
 
   // 2. Tiêu đề & Mô tả
   const heroTitle = document.getElementById('heroShopTitle');
   if (heroTitle && s.shopTitle) {
-    const sName = s.shopName || 'Shophqk';
+    const sName = s.shopName || 'ShopNghiaZ';
     if (s.shopTitle.toLowerCase().includes(sName.toLowerCase())) {
-      heroTitle.innerHTML = s.shopTitle.replace(new RegExp(sName, 'i'), `<span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">${sName}</span>`);
+      heroTitle.innerHTML = s.shopTitle.replace(new RegExp(sName, 'i'), `<span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">${sName}</span>`);
     } else {
-      heroTitle.innerHTML = `${s.shopTitle} <span class="bg-gradient-to-r from-indigo-400 to-cyan-400 bg-clip-text text-transparent">${sName}</span>`;
+      heroTitle.innerHTML = `${s.shopTitle} <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">${sName}</span>`;
     }
   }
   const heroDesc = document.getElementById('heroShopDesc');
@@ -208,60 +177,55 @@ function applyShopSettingsToUI() {
   // 3. Thông báo đầu trang
   const noticeBanner = document.getElementById('shopNoticeBanner');
   const noticeText = document.getElementById('shopNoticeText');
-  if (noticeBanner) {
-    if (s.shopNoticeActive && s.shopNotice && s.shopNotice.trim() !== '') {
-      noticeBanner.classList.remove('hidden');
-      if (noticeText) noticeText.innerText = s.shopNotice;
-    } else {
+  if (noticeBanner && noticeText) {
+    if (s.shopNoticeActive === false) {
       noticeBanner.classList.add('hidden');
+    } else {
+      noticeBanner.classList.remove('hidden');
+      noticeText.innerText = s.shopNotice || '⚡ Ưu đãi nạp tiền: Quét mã VietQR duyệt nhanh chóng 24/7!';
     }
   }
 
-  // 4. Liên hệ CSKH
-  const heroContact = document.getElementById('heroContactBtn');
-  if (heroContact) {
-    if (s.contactZalo) heroContact.href = `https://zalo.me/${s.contactZalo.replace(/[^0-9]/g, '')}`;
-    else if (s.contactTelegram) heroContact.href = `https://t.me/${s.contactTelegram.replace('@', '')}`;
+  // 4. Liên hệ ở Footer
+  const footerContacts = document.getElementById('footerContacts');
+  if (footerContacts) {
+    let contactsHtml = '';
+    if (s.contactZalo) {
+      contactsHtml += `<a href="https://zalo.me/${s.contactZalo}" target="_blank" class="px-2.5 py-1 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/25 transition">Zalo: ${s.contactZalo}</a>`;
+    }
+    if (s.contactTelegram) {
+      contactsHtml += `<a href="https://t.me/${s.contactTelegram.replace('@','')}" target="_blank" class="px-2.5 py-1 rounded-lg bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/25 transition">Telegram: ${s.contactTelegram}</a>`;
+    }
+    if (s.contactFacebook) {
+      contactsHtml += `<a href="${s.contactFacebook}" target="_blank" class="px-2.5 py-1 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-teal-400 border border-teal-500/25 transition">Fanpage Facebook</a>`;
+    }
+    footerContacts.innerHTML = contactsHtml || '<span class="text-slate-500">Hỗ trợ 24/7 toàn quốc</span>';
   }
-  const footerZalo = document.getElementById('footerZalo');
-  if (footerZalo) footerZalo.innerText = `Zalo: ${s.contactZalo || 'Đang cập nhật'}`;
-  const footerTele = document.getElementById('footerTelegram');
-  if (footerTele) footerTele.innerText = `Telegram: ${s.contactTelegram || 'Đang cập nhật'}`;
 
-  // 5. Cập nhật các danh mục
   renderCategoryPills();
-  renderAdminCategoriesList();
-
-  // 6. Điền dữ liệu vào form Admin nếu đang mở
   fillAdminSettingsForms();
-  lucide.createIcons();
-}
-
-function dismissNotice() {
-  const b = document.getElementById('shopNoticeBanner');
-  if (b) b.classList.add('hidden');
 }
 
 function renderCategoryPills() {
-  const container = document.getElementById('categoryFilters');
-  const admCatSelect = document.getElementById('admProdCategory');
+  const container = document.getElementById('categoryPillsContainer');
   if (!container) return;
 
-  const cats = Array.isArray(currentSettings.categories) ? currentSettings.categories : ["Tất cả", "Tài khoản", "Phần mềm", "Game", "Thẻ cào", "Khác"];
-
-  // Render pills
-  container.innerHTML = cats.map(c => {
-    const isAll = c.toLowerCase() === 'tất cả';
-    const catVal = isAll ? 'all' : c;
-    const isActive = currentCategory === catVal;
+  const cats = Array.isArray(currentSettings.categories) ? currentSettings.categories : ['Tất cả'];
+  container.innerHTML = cats.map(cat => {
+    const isActive = cat.toLowerCase() === currentCategory.toLowerCase();
     return `
-      <button onclick="filterCategory('${catVal}')" class="cat-pill shrink-0 px-3.5 py-1.5 text-xs font-bold rounded-xl transition ${isActive ? 'active bg-indigo-600 text-white shadow-sm' : 'bg-slate-800/80 hover:bg-slate-800 text-slate-300'}">
-        ${c}
+      <button onclick="filterCategory('${cat}')" class="shrink-0 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition ${
+        isActive 
+          ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-bold shadow-md shadow-emerald-500/20' 
+          : 'bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-emerald-500/40'
+      }">
+        ${cat}
       </button>
     `;
   }).join('');
 
-  // Render dropdown options in Product Add Form
+  // Cập nhật select danh mục trong form thêm sản phẩm
+  const admCatSelect = document.getElementById('admProdCategory');
   if (admCatSelect) {
     admCatSelect.innerHTML = cats.filter(c => c.toLowerCase() !== 'tất cả').map(c => `
       <option value="${c}">${c}</option>
@@ -271,7 +235,6 @@ function renderCategoryPills() {
 
 function fillAdminSettingsForms() {
   const s = currentSettings;
-  // Form Thông Tin Shop
   const nameInp = document.getElementById('cfgShopName');
   if (nameInp) nameInp.value = s.shopName || '';
   const titleInp = document.getElementById('cfgShopTitle');
@@ -289,9 +252,8 @@ function fillAdminSettingsForms() {
   const fbInp = document.getElementById('cfgContactFacebook');
   if (fbInp) fbInp.value = s.contactFacebook || '';
 
-  // Form VietQR
   const bankInp = document.getElementById('admCfgBankId');
-  if (bankInp) bankInp.value = s.bankId || 'MOMO';
+  if (bankInp) bankInp.value = s.bankId || 'MB';
   const accNoInp = document.getElementById('admCfgAccountNo');
   if (accNoInp) accNoInp.value = s.accountNo || '';
   const accNameInp = document.getElementById('admCfgAccountName');
@@ -305,13 +267,13 @@ async function loadProducts() {
     const data = await res.json();
     if (data.success && Array.isArray(data.data) && data.data.length > 0) {
       allProducts = data.data;
-      localStorage.setItem('shophqk_cached_products', JSON.stringify(allProducts));
+      localStorage.setItem('shopnghiaz_cached_products', JSON.stringify(allProducts));
       renderProducts();
       renderAdminProductsList();
     }
   } catch (err) {
     console.error('Error loading products:', err);
-    const cached = localStorage.getItem('shophqk_cached_products');
+    const cached = localStorage.getItem('shopnghiaz_cached_products');
     if (cached && allProducts.length === 0) {
       allProducts = JSON.parse(cached);
       renderProducts();
@@ -322,73 +284,73 @@ async function loadProducts() {
 
 function renderProducts() {
   const grid = document.getElementById('productsGrid');
-  const emptyState = document.getElementById('emptyState');
-  const search = document.getElementById('searchInput').value.trim().toLowerCase();
-  const isAdmin = currentUser && currentUser.role === 'admin';
+  const countBadge = document.getElementById('productCountBadge');
+  if (!grid) return;
 
-  const filtered = allProducts.filter(p => {
-    const matchCat = currentCategory === 'all' || p.category === currentCategory;
-    const matchSearch = p.name.toLowerCase().includes(search) || (p.description && p.description.toLowerCase().includes(search));
+  const searchVal = (document.getElementById('searchInput')?.value || '').trim().toLowerCase();
+
+  let filtered = allProducts.filter(p => {
+    const matchCat = (currentCategory === 'Tất cả') || (p.category && p.category.toLowerCase() === currentCategory.toLowerCase());
+    const matchSearch = !searchVal || p.name.toLowerCase().includes(searchVal) || (p.description && p.description.toLowerCase().includes(searchVal));
     return matchCat && matchSearch;
   });
 
+  if (countBadge) {
+    countBadge.innerText = `${filtered.length} sản phẩm`;
+  }
+
   if (filtered.length === 0) {
-    grid.innerHTML = '';
-    emptyState.classList.remove('hidden');
+    grid.innerHTML = `
+      <div class="col-span-full py-12 text-center text-slate-500">
+        <i data-lucide="package-search" class="w-10 h-10 mx-auto mb-2 text-slate-600"></i>
+        <p class="text-sm font-semibold">Không tìm thấy sản phẩm nào phù hợp!</p>
+        <p class="text-xs text-slate-600 mt-1">Hãy thử tìm từ khóa khác hoặc chọn danh mục "Tất cả".</p>
+      </div>
+    `;
+    if (window.lucide) lucide.createIcons();
     return;
   }
 
-  emptyState.classList.add('hidden');
   grid.innerHTML = filtered.map(p => {
     const isOutOfStock = p.stock <= 0;
-    const priceFormatted = Number(p.price).toLocaleString('vi-VN') + ' đ';
 
     return `
-      <div class="product-card bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden flex flex-col justify-between relative group">
-        <!-- Image & Badges (Tỉ lệ chuẩn sắc nét cho điện thoại & máy tính) -->
+      <div class="cyber-card rounded-2xl overflow-hidden flex flex-col justify-between relative group">
         <div class="relative h-32 sm:h-44 bg-slate-950 overflow-hidden">
-          <img src="${formatImageUrl(p.image)}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60'" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-          <div class="absolute top-2 left-2 bg-slate-900/85 backdrop-blur-md px-2 py-0.5 rounded-lg border border-slate-700/60 text-[10px] sm:text-xs font-semibold text-indigo-300">
+          <img src="${formatImageUrl(p.image)}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60'" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+          <div class="absolute top-2 left-2 bg-slate-950/80 backdrop-blur-md px-2 py-0.5 rounded-lg border border-emerald-500/25 text-[10px] sm:text-xs font-semibold text-emerald-300">
             ${p.category || 'Sản phẩm'}
           </div>
-          <div class="absolute top-2 right-2 ${isOutOfStock ? 'bg-rose-500/90' : 'bg-emerald-500/90'} backdrop-blur-md px-2 py-0.5 rounded-lg text-[10px] sm:text-xs font-bold text-white shadow">
+          <div class="absolute top-2 right-2 ${isOutOfStock ? 'bg-rose-500/90' : 'bg-emerald-500/90'} backdrop-blur-md px-2 py-0.5 rounded-lg text-[10px] sm:text-xs font-bold text-slate-950 shadow">
             ${isOutOfStock ? 'Hết hàng' : `Còn: ${p.stock}`}
           </div>
-          ${p.downloadUrl ? `
-            <div class="absolute bottom-2 left-2 bg-cyan-950/90 backdrop-blur-md px-2 py-0.5 rounded-lg border border-cyan-500/40 text-[9px] font-bold text-cyan-300 flex items-center gap-1 shadow">
-              <i data-lucide="download" class="w-3 h-3 text-cyan-400"></i> Có link tải
-            </div>
-          ` : ''}
-
-          <!-- Nút Sửa & Xóa nhanh cho Admin -->
-          ${isAdmin ? `
-            <div class="absolute bottom-2 right-2 flex items-center gap-1 z-10">
-              <button onclick="openEditProductModal('${p.id}')" title="Chỉnh sửa sản phẩm" class="p-1.5 bg-amber-500/90 hover:bg-amber-500 text-slate-950 rounded-lg shadow transition">
-                <i data-lucide="edit-3" class="w-3.5 h-3.5"></i>
-              </button>
-              <button onclick="deleteProduct('${p.id}')" title="Xóa sản phẩm" class="p-1.5 bg-rose-600/90 hover:bg-rose-600 text-white rounded-lg shadow transition">
-                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i>
-              </button>
-            </div>
-          ` : ''}
         </div>
 
-        <!-- Product Details -->
         <div class="p-3 sm:p-4 flex-1 flex flex-col justify-between">
           <div>
-            <h3 class="text-xs sm:text-sm font-bold text-white line-clamp-2 mb-1" title="${p.name}">${p.name}</h3>
-            <p class="text-[11px] text-slate-400 line-clamp-1 mb-2">${p.description || 'Chất lượng cao, kích hoạt tự động.'}</p>
+            <h4 class="font-bold text-white text-xs sm:text-sm line-clamp-2 mb-1 group-hover:text-emerald-400 transition" title="${p.name}">
+              ${p.name}
+            </h4>
+            <p class="text-slate-400 text-[11px] sm:text-xs line-clamp-2 mb-3">
+              ${p.description || 'Sản phẩm chất lượng cao, bảo hành uy tín từ ShopNghiaZ.'}
+            </p>
           </div>
 
-          <div class="pt-2 border-t border-slate-800/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mt-auto">
+          <div class="pt-2.5 border-t border-slate-800 flex items-center justify-between gap-1.5">
             <div>
-              <span class="text-[10px] text-slate-500 block leading-none">Giá:</span>
-              <span class="text-xs sm:text-sm font-extrabold text-emerald-400">${priceFormatted}</span>
+              <span class="text-[10px] text-slate-500 block">Giá bán</span>
+              <span class="text-sm sm:text-base font-black text-emerald-400 font-mono">
+                ${Number(p.price).toLocaleString('vi-VN')} đ
+              </span>
             </div>
 
-            <button onclick="handleBuyProduct('${p.id}')" ${isOutOfStock ? 'disabled' : ''} class="${isOutOfStock ? 'bg-slate-800 text-slate-500 cursor-not-allowed' : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow active:scale-95'} w-full sm:w-auto px-3 py-1.5 text-xs font-bold rounded-xl transition flex items-center justify-center gap-1">
-              <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
-              ${isOutOfStock ? 'Hết hàng' : 'Mua ngay'}
+            <button onclick="handleBuyProduct('${p.id}')" ${isOutOfStock ? 'disabled' : ''} class="${
+              isOutOfStock 
+                ? 'bg-slate-800 text-slate-500 cursor-not-allowed' 
+                : 'bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-extrabold shadow-md shadow-emerald-500/20 active:scale-95'
+            } px-2.5 sm:px-3.5 py-1.5 rounded-xl text-xs flex items-center gap-1 transition">
+              <i data-lucide="shopping-cart" class="w-3.5 h-3.5"></i>
+              <span>${isOutOfStock ? 'Hết' : 'Mua'}</span>
             </button>
           </div>
         </div>
@@ -396,7 +358,7 @@ function renderProducts() {
     `;
   }).join('');
 
-  lucide.createIcons();
+  if (window.lucide) lucide.createIcons();
 }
 
 function filterCategory(cat) {
@@ -490,7 +452,6 @@ function openEditProductModal(id) {
   const dlInput = document.getElementById('admProdDownloadUrl');
   if (dlInput) dlInput.value = prod.downloadUrl || '';
 
-  // Hiển thị ảnh hiện tại
   const previewCont = document.getElementById('imagePreviewContainer');
   const previewImg = document.getElementById('imagePreviewImg');
   const previewName = document.getElementById('imagePreviewName');
@@ -507,7 +468,7 @@ function openEditProductModal(id) {
 
   openModal('adminModal');
   switchAdminTab('product');
-  lucide.createIcons();
+  if (window.lucide) lucide.createIcons();
 }
 
 function cancelEditingProduct() {
@@ -519,7 +480,7 @@ function cancelEditingProduct() {
   clearSelectedImage();
   document.getElementById('admProdSubmitBtn').innerHTML = '<i data-lucide="check" class="w-4 h-4"></i> Đăng Sản Phẩm';
   document.getElementById('admCancelEditBtn').classList.add('hidden');
-  lucide.createIcons();
+  if (window.lucide) lucide.createIcons();
 }
 
 async function handleAdminAddProductSubmit(e) {
@@ -533,7 +494,6 @@ async function handleAdminAddProductSubmit(e) {
   const description = document.getElementById('admProdDesc').value.trim();
   const downloadUrl = (document.getElementById('admProdDownloadUrl') ? document.getElementById('admProdDownloadUrl').value.trim() : '');
 
-  // 1. Nếu có ảnh kéo thả / chọn từ máy tính, tiến hành upload ảnh lên server
   if (currentUploadedBase64) {
     try {
       showToast('Đang tải hình ảnh lên máy chủ...', 'info');
@@ -541,7 +501,7 @@ async function handleAdminAddProductSubmit(e) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          adminUsername: currentUser ? currentUser.username : 'hqk',
+          adminUsername: currentUser ? currentUser.username : 'nghiaz',
           imageBase64: currentUploadedBase64,
           filename: currentSelectedFile ? currentSelectedFile.name : 'product.png'
         })
@@ -551,13 +511,12 @@ async function handleAdminAddProductSubmit(e) {
         image = upData.imageUrl;
       }
     } catch (err) {
-      console.warn('Upload image API error, fallback to base64/url');
       image = currentUploadedBase64;
     }
   }
 
   if (!image) {
-    image = 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60';
+    image = 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60';
   }
 
   try {
@@ -569,7 +528,7 @@ async function handleAdminAddProductSubmit(e) {
       method: method,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        adminUsername: currentUser ? currentUser.username : 'hqk',
+        adminUsername: currentUser ? currentUser.username : 'nghiaz',
         name, price, stock, category, image, description, downloadUrl
       })
     });
@@ -619,7 +578,7 @@ function renderAdminProductsList() {
   container.innerHTML = allProducts.map(p => `
     <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between gap-3 text-xs">
       <div class="flex items-center gap-2.5 min-w-0">
-        <img src="${formatImageUrl(p.image)}" onerror="this.src='https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60'" class="w-10 h-10 object-cover rounded-lg border border-slate-800 shrink-0">
+        <img src="${formatImageUrl(p.image)}" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60'" class="w-10 h-10 object-cover rounded-lg border border-slate-800 shrink-0">
         <div class="min-w-0">
           <p class="font-bold text-slate-200 truncate">${p.name}</p>
           <p class="text-[11px] text-slate-400">
@@ -629,7 +588,7 @@ function renderAdminProductsList() {
         </div>
       </div>
       <div class="flex items-center gap-1.5 shrink-0">
-        <button onclick="openEditProductModal('${p.id}')" title="Sửa sản phẩm" class="px-2.5 py-1 bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-slate-950 font-bold rounded-lg transition flex items-center gap-1">
+        <button onclick="openEditProductModal('${p.id}')" title="Sửa sản phẩm" class="px-2.5 py-1 bg-emerald-500/20 hover:bg-emerald-500 text-emerald-300 hover:text-slate-950 font-bold rounded-lg transition flex items-center gap-1">
           <i data-lucide="edit-3" class="w-3 h-3"></i> Sửa
         </button>
         <button onclick="deleteProduct('${p.id}')" title="Xóa sản phẩm" class="p-1 bg-rose-500/20 hover:bg-rose-500 text-rose-300 hover:text-white rounded-lg transition">
@@ -639,10 +598,10 @@ function renderAdminProductsList() {
     </div>
   `).join('');
 
-  lucide.createIcons();
+  if (window.lucide) lucide.createIcons();
 }
 
-// ---------------- QUẢN LÝ CÁC MỤC SẢN PHẨM (DANH MỤC) ----------------
+// ---------------- DANH MỤC SẢN PHẨM ----------------
 function renderAdminCategoriesList() {
   const container = document.getElementById('adminCategoriesList');
   if (!container) return;
@@ -653,7 +612,7 @@ function renderAdminCategoriesList() {
     return `
       <div class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 flex items-center justify-between text-xs">
         <span class="font-bold text-slate-200 flex items-center gap-2">
-          <i data-lucide="tag" class="w-3.5 h-3.5 text-indigo-400"></i> ${c}
+          <i data-lucide="tag" class="w-3.5 h-3.5 text-teal-400"></i> ${c}
         </span>
         ${!isAll ? `
           <button onclick="handleDeleteCategory('${c}')" title="Xóa danh mục" class="p-1 text-slate-400 hover:text-rose-400 hover:bg-rose-500/10 rounded-lg transition">
@@ -666,7 +625,7 @@ function renderAdminCategoriesList() {
     `;
   }).join('');
 
-  lucide.createIcons();
+  if (window.lucide) lucide.createIcons();
 }
 
 async function handleAddCategory() {
@@ -689,7 +648,7 @@ async function handleAddCategory() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        adminUsername: currentUser ? currentUser.username : 'hqk',
+        adminUsername: currentUser ? currentUser.username : 'nghiaz',
         categories: newCats
       })
     });
@@ -698,6 +657,7 @@ async function handleAddCategory() {
       currentSettings.categories = newCats;
       input.value = '';
       applyShopSettingsToUI();
+      renderAdminCategoriesList();
       showToast(`Đã thêm mục [${cat}] vào Shop!`, 'success');
     }
   } catch (err) {
@@ -715,7 +675,7 @@ async function handleDeleteCategory(catName) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        adminUsername: currentUser ? currentUser.username : 'hqk',
+        adminUsername: currentUser ? currentUser.username : 'nghiaz',
         categories: newCats
       })
     });
@@ -723,6 +683,7 @@ async function handleDeleteCategory(catName) {
     if (data.success) {
       currentSettings.categories = newCats;
       applyShopSettingsToUI();
+      renderAdminCategoriesList();
       showToast(`Đã xóa mục [${catName}]`, 'success');
     }
   } catch (err) {
@@ -730,7 +691,7 @@ async function handleDeleteCategory(catName) {
   }
 }
 
-// ---------------- LƯU THÔNG TIN SHOP & MÔ TẢ (THAY ĐỔI MỌI THỨ) ----------------
+// ---------------- LƯU THÔNG TIN SHOP & MÔ TẢ ----------------
 async function handleAdminSaveShopInfo(e) {
   e.preventDefault();
 
@@ -748,7 +709,7 @@ async function handleAdminSaveShopInfo(e) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        adminUsername: currentUser ? currentUser.username : 'hqk',
+        adminUsername: currentUser ? currentUser.username : 'nghiaz',
         shopName,
         shopTitle,
         shopDesc,
@@ -786,7 +747,7 @@ async function handleAdminSaveSettings(e) {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        adminUsername: currentUser ? currentUser.username : 'hqk',
+        adminUsername: currentUser ? currentUser.username : 'nghiaz',
         bankId, accountNo, accountName
       })
     });
@@ -841,11 +802,10 @@ async function handleBuyProduct(productId) {
     const data = await res.json();
     if (data.success) {
       currentUser.balance = data.newBalance;
-      localStorage.setItem('shophqk_user', JSON.stringify(currentUser));
+      localStorage.setItem('shopnghiaz_user', JSON.stringify(currentUser));
       updateAuthUI();
       loadProducts();
 
-      // Nếu sản phẩm có Link Tải, hiển thị ngay hộp thoại nhận link tải
       if (data.downloadUrl && data.downloadUrl.trim() !== '') {
         currentDownloadLink = data.downloadUrl.trim();
         const pNameElem = document.getElementById('buySuccessProductName');
@@ -866,6 +826,13 @@ async function handleBuyProduct(productId) {
   }
 }
 
+function copyBuySuccessLink() {
+  if (currentDownloadLink) {
+    navigator.clipboard.writeText(currentDownloadLink);
+    showToast('Đã sao chép link tải sản phẩm!', 'success');
+  }
+}
+
 // ---------------- AUTH LOGIC ----------------
 function openAuthModal(tab = 'login') {
   switchAuthTab(tab);
@@ -877,12 +844,12 @@ function switchAuthTab(tab) {
   const isLogin = tab === 'login';
 
   document.getElementById('tabLogin').className = isLogin
-    ? 'flex-1 py-2.5 text-xs sm:text-sm font-bold text-indigo-400 border-b-2 border-indigo-500'
-    : 'flex-1 py-2.5 text-xs sm:text-sm font-medium text-slate-400 hover:text-slate-200';
+    ? 'flex-1 py-2 text-xs font-bold text-emerald-400 border-b-2 border-emerald-500'
+    : 'flex-1 py-2 text-xs font-medium text-slate-400 hover:text-white';
 
   document.getElementById('tabRegister').className = !isLogin
-    ? 'flex-1 py-2.5 text-xs sm:text-sm font-bold text-indigo-400 border-b-2 border-indigo-500'
-    : 'flex-1 py-2.5 text-xs sm:text-sm font-medium text-slate-400 hover:text-slate-200';
+    ? 'flex-1 py-2 text-xs font-bold text-emerald-400 border-b-2 border-emerald-500'
+    : 'flex-1 py-2 text-xs font-medium text-slate-400 hover:text-white';
 
   const fullnameGroup = document.getElementById('fullnameGroup');
   const authSubmitBtn = document.getElementById('authSubmitBtn');
@@ -918,7 +885,7 @@ async function handleAuthSubmit(e) {
     if (data.success) {
       showToast(data.message, 'success');
       currentUser = data.data;
-      localStorage.setItem('shophqk_user', JSON.stringify(currentUser));
+      localStorage.setItem('shopnghiaz_user', JSON.stringify(currentUser));
       updateAuthUI();
       closeModal('authModal');
       document.getElementById('authForm').reset();
@@ -933,7 +900,7 @@ async function handleAuthSubmit(e) {
 
 function logout() {
   currentUser = null;
-  localStorage.removeItem('shophqk_user');
+  localStorage.removeItem('shopnghiaz_user');
   updateAuthUI();
   renderProducts();
   showToast('Đã đăng xuất tài khoản!', 'info');
@@ -972,7 +939,7 @@ function updateAuthUI() {
     if (adminBadge) adminBadge.classList.add('hidden');
     if (mobileAccountLabel) mobileAccountLabel.innerText = 'Tài Khoản';
   }
-  lucide.createIcons();
+  if (window.lucide) lucide.createIcons();
 }
 
 function handleMobileAccountClick() {
@@ -992,18 +959,16 @@ async function refreshUserBalance() {
     if (data.success) {
       currentUser.balance = data.data.balance;
       currentUser.role = data.data.role;
-      localStorage.setItem('shophqk_user', JSON.stringify(currentUser));
+      localStorage.setItem('shopnghiaz_user', JSON.stringify(currentUser));
       updateAuthUI();
     }
-  } catch (err) {
-    //
-  }
+  } catch (err) {}
 }
 
 // ---------------- ADMIN PANEL LOGIC ----------------
 function openAdminPanel() {
   if (!currentUser || currentUser.role !== 'admin') {
-    showToast('Vui lòng đăng nhập tài khoản Admin hqk để vào trang quản trị!', 'error');
+    showToast('Vui lòng đăng nhập tài khoản Admin nghiaz để vào trang quản trị!', 'error');
     openAuthModal('login');
     return;
   }
@@ -1037,7 +1002,7 @@ function switchAdminTab(rawTab) {
 
     if (btn) {
       if (isCurrent) {
-        btn.className = 'admin-tab active shrink-0 px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-500 text-slate-950 transition flex items-center gap-1 shadow-sm';
+        btn.className = 'admin-tab active shrink-0 px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950 transition flex items-center gap-1 shadow-sm';
       } else {
         btn.className = 'admin-tab shrink-0 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white transition flex items-center gap-1';
       }
@@ -1092,7 +1057,7 @@ async function loadAdminUsers() {
 
       return `
         <tr class="hover:bg-slate-800/40 transition">
-          <td class="p-2.5 font-mono font-bold text-indigo-300 flex items-center gap-1">
+          <td class="p-2.5 font-mono font-bold text-emerald-300 flex items-center gap-1">
             ${isAdmin ? '👑' : '👤'} ${u.username}
           </td>
           <td class="p-2.5 text-slate-300">${u.fullname || '-'}</td>
@@ -1105,7 +1070,7 @@ async function loadAdminUsers() {
             </span>
           </td>
           <td class="p-2.5 text-right space-x-1">
-            <button onclick="openAdjustBalanceModal('${u.username}', ${u.balance || 0})" title="Cộng / Giảm / Xóa tiền" class="px-2 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-[11px] font-bold transition shadow-sm">
+            <button onclick="openAdjustBalanceModal('${u.username}', ${u.balance || 0})" title="Cộng / Giảm / Xóa tiền" class="px-2 py-1 bg-emerald-600 hover:bg-emerald-500 text-slate-950 rounded-lg text-[11px] font-bold transition shadow-sm">
               💰 Quản lý tiền
             </button>
             ${!isSelf ? `
@@ -1117,7 +1082,7 @@ async function loadAdminUsers() {
         </tr>
       `;
     }).join('');
-    lucide.createIcons();
+    if (window.lucide) lucide.createIcons();
   } catch (err) {
     table.innerHTML = `<tr><td colspan="5" class="p-3 text-center text-rose-400">Lỗi khi tải danh sách người dùng.</td></tr>`;
   }
@@ -1171,7 +1136,6 @@ function setBalanceMode(mode) {
       submitBtn.innerHTML = '<i data-lucide="minus-circle" class="w-4 h-4"></i> Xác Nhận Giảm Tiền';
     }
   } else {
-    // add
     if (amountGroup) amountGroup.classList.remove('hidden');
     if (resetWarning) resetWarning.classList.add('hidden');
     if (amountLabel) {
@@ -1184,43 +1148,37 @@ function setBalanceMode(mode) {
       submitBtn.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i> Xác Nhận Cộng Tiền';
     }
   }
-  lucide.createIcons();
+  if (window.lucide) lucide.createIcons();
 }
 
-function setQuickAmount(val) {
-  const input = document.getElementById('balanceAmountInput');
-  if (input) {
-    input.value = val;
-    input.focus();
-  }
-}
-
-function openAdjustBalanceModal(username, currentBalance) {
-  targetAdjustUser = username;
-  document.getElementById('balanceTargetUser').innerText = username;
-  document.getElementById('balanceCurrentVal').innerText = Number(currentBalance).toLocaleString('vi-VN') + ' đ';
+function openAdjustBalanceModal(username, currentBal) {
+  document.getElementById('adjustUsername').value = username;
+  document.getElementById('adjustTargetUserLabel').innerText = `Tài khoản: ${username}`;
+  document.getElementById('adjustCurrentBalanceText').innerText = Number(currentBal || 0).toLocaleString('vi-VN') + ' đ';
   document.getElementById('balanceAmountInput').value = '';
   document.getElementById('balanceReasonInput').value = '';
   setBalanceMode('add');
-  openModal('addBalanceModal');
+  openModal('adjustBalanceModal');
 }
 
-async function submitAddBalance(e) {
+async function handleAdjustBalanceSubmit(e) {
   e.preventDefault();
-  if (!targetAdjustUser) return;
-
-  const amountVal = Number(document.getElementById('balanceAmountInput').value || 0);
+  const targetUsername = document.getElementById('adjustUsername').value;
+  const amount = Number(document.getElementById('balanceAmountInput').value);
   const reason = document.getElementById('balanceReasonInput').value.trim();
 
-  if (currentBalanceMode !== 'reset' && (!amountVal || amountVal <= 0)) {
-    showToast('Vui lòng nhập số tiền lớn hơn 0 VNĐ!', 'error');
-    return;
+  let action = currentBalanceMode;
+  let confirmText = '';
+
+  if (action === 'reset') {
+    confirmText = `Bạn có chắc chắn muốn XÓA SẠCH toàn bộ số dư của [${targetUsername}] về 0đ?`;
+  } else if (action === 'deduct') {
+    confirmText = `Xác nhận GIẢM TRỪ -${amount.toLocaleString('vi-VN')} đ của tài khoản [${targetUsername}]?`;
+  } else {
+    confirmText = `Xác nhận CỘNG THÊM +${amount.toLocaleString('vi-VN')} đ cho tài khoản [${targetUsername}]?`;
   }
 
-  if (currentBalanceMode === 'reset') {
-    const ok = confirm(`CẢNH BÁO NGUY HIỂM:\nBạn có chắc chắn muốn XÓA SẠCH toàn bộ số dư của user [${targetAdjustUser}] về 0 VNĐ không?`);
-    if (!ok) return;
-  }
+  if (!confirm(confirmText)) return;
 
   try {
     const res = await fetch('/api/admin/add-balance', {
@@ -1228,41 +1186,38 @@ async function submitAddBalance(e) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         adminUsername: currentUser.username,
-        targetUsername: targetAdjustUser,
-        amount: amountVal,
-        action: currentBalanceMode,
-        reason: reason
+        targetUsername,
+        amount,
+        action,
+        reason
       })
     });
 
     const data = await res.json();
     if (data.success) {
       showToast(data.message, 'success');
-      closeModal('addBalanceModal');
+      closeModal('adjustBalanceModal');
       loadAdminUsers();
-      if (targetAdjustUser.toLowerCase() === currentUser.username.toLowerCase()) {
+      if (targetUsername.toLowerCase() === currentUser.username.toLowerCase()) {
         currentUser.balance = data.newBalance;
-        localStorage.setItem('shophqk_user', JSON.stringify(currentUser));
+        localStorage.setItem('shopnghiaz_user', JSON.stringify(currentUser));
         updateAuthUI();
       }
     } else {
-      showToast(data.message || 'Thao tác không thành công', 'error');
+      showToast(data.message || 'Lỗi khi điều chỉnh số dư', 'error');
     }
   } catch (err) {
-    showToast('Lỗi khi điều chỉnh số dư', 'error');
+    showToast('Lỗi kết nối máy chủ', 'error');
   }
 }
 
 async function adminDeleteUser(username) {
-  if (!confirm(`Bạn có chắc muốn xóa vĩnh viễn tài khoản [${username}]?`)) return;
+  if (!confirm(`Bạn có chắc muốn XÓA VĨNH VIỄN tài khoản [${username}]?`)) return;
 
   try {
-    const res = await fetch(`/api/admin/users/${username}`, {
-      method: 'DELETE',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ adminUsername: currentUser.username })
+    const res = await fetch(`/api/admin/users/${username}?adminUsername=${currentUser.username}`, {
+      method: 'DELETE'
     });
-
     const data = await res.json();
     if (data.success) {
       showToast(data.message, 'success');
@@ -1271,14 +1226,14 @@ async function adminDeleteUser(username) {
       showToast(data.message, 'error');
     }
   } catch (err) {
-    showToast('Lỗi khi xóa tài khoản', 'error');
+    showToast('Lỗi khi xóa người dùng', 'error');
   }
 }
 
-// ---------------- DUYỆT NẠP TIỀN VIETQR (ADMIN) ----------------
+// ---------------- DUYỆT ĐƠN NẠP TIỀN VIETQR ----------------
 async function loadAdminDeposits() {
   const table = document.getElementById('adminDepositsTable');
-  table.innerHTML = `<tr><td colspan="6" class="p-3 text-center text-slate-500">Đang tải danh sách đơn nạp...</td></tr>`;
+  table.innerHTML = `<tr><td colspan="6" class="p-3 text-center text-slate-500">Đang tải danh sách nạp tiền...</td></tr>`;
 
   try {
     const res = await fetch(`/api/admin/deposits?adminUsername=${currentUser.username}`);
@@ -1302,12 +1257,11 @@ async function loadAdminDeposits() {
 
     table.innerHTML = data.data.map(tx => {
       const isPending = tx.status === 'PENDING';
-      const time = new Date(tx.createdAt).toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) + ' ' + new Date(tx.createdAt).toLocaleDateString('vi-VN');
 
       return `
         <tr class="hover:bg-slate-800/40 transition">
           <td class="p-2.5 font-mono font-bold text-amber-400">${tx.code || tx.id.slice(-6)}</td>
-          <td class="p-2.5 font-bold text-indigo-300">${tx.username}</td>
+          <td class="p-2.5 font-bold text-emerald-300">${tx.username}</td>
           <td class="p-2.5 font-extrabold text-emerald-400">
             +${Number(tx.amount).toLocaleString('vi-VN')} đ
           </td>
@@ -1329,7 +1283,7 @@ async function loadAdminDeposits() {
         </tr>
       `;
     }).join('');
-    lucide.createIcons();
+    if (window.lucide) lucide.createIcons();
   } catch (err) {
     table.innerHTML = `<tr><td colspan="6" class="p-3 text-center text-rose-400">Lỗi khi tải danh sách nạp tiền.</td></tr>`;
   }
@@ -1352,7 +1306,7 @@ async function adminApproveDeposit(txId) {
       loadAdminDeposits();
       if (data.targetUser.toLowerCase() === currentUser.username.toLowerCase()) {
         currentUser.balance = data.newBalance;
-        localStorage.setItem('shophqk_user', JSON.stringify(currentUser));
+        localStorage.setItem('shopnghiaz_user', JSON.stringify(currentUser));
         updateAuthUI();
       }
     } else {
@@ -1377,9 +1331,9 @@ function openDepositModal() {
 function selectAmount(val) {
   document.getElementById('customAmount').value = val;
   document.querySelectorAll('.amt-btn').forEach(b => {
-    b.classList.remove('border-cyan-500', 'bg-cyan-950/30', 'text-cyan-300');
+    b.classList.remove('border-emerald-500', 'bg-emerald-950/30', 'text-emerald-300');
     if (b.innerText.replace(/[^0-9]/g, '') === String(val)) {
-      b.classList.add('border-cyan-500', 'bg-cyan-950/30', 'text-cyan-300');
+      b.classList.add('border-emerald-500', 'bg-emerald-950/30', 'text-emerald-300');
     }
   });
 }
@@ -1423,7 +1377,7 @@ async function createVietQR() {
 
       document.getElementById('depositStep1').classList.add('hidden');
       document.getElementById('depositStep2').classList.remove('hidden');
-      lucide.createIcons();
+      if (window.lucide) lucide.createIcons();
     } else {
       showToast(data.message || 'Không thể tạo mã VietQR', 'error');
     }
@@ -1472,14 +1426,14 @@ async function openHistoryModal() {
       return `
         <div class="bg-slate-950 border border-slate-800 rounded-xl p-2.5 flex items-center justify-between text-xs">
           <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg ${isDeposit ? 'bg-cyan-500/10 text-cyan-400' : 'bg-indigo-500/10 text-indigo-400'} flex items-center justify-center shrink-0">
+            <div class="w-8 h-8 rounded-lg ${isDeposit ? 'bg-emerald-500/10 text-emerald-400' : 'bg-teal-500/10 text-teal-400'} flex items-center justify-center shrink-0">
               <i data-lucide="${isDeposit ? 'arrow-down-left' : 'shopping-bag'}" class="w-4 h-4"></i>
             </div>
             <div>
               <p class="font-bold text-white">${isDeposit ? `Nạp tiền ${tx.code ? `(${tx.code})` : ''}` : `Mua hàng: ${tx.productName || 'Sản phẩm'}`}</p>
               <p class="text-[10px] text-slate-500">${tx.memo || time}</p>
               ${tx.downloadUrl ? `
-                <a href="${tx.downloadUrl}" target="_blank" class="mt-1 inline-flex items-center gap-1 px-2 py-0.5 rounded bg-cyan-600/80 hover:bg-cyan-500 text-white text-[10px] font-bold shadow-sm transition">
+                <a href="${tx.downloadUrl}" target="_blank" class="mt-1 inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-600/80 hover:bg-emerald-500 text-slate-950 text-[10px] font-bold shadow-sm transition">
                   <i data-lucide="download" class="w-2.5 h-2.5"></i> Mở link tải về
                 </a>
               ` : ''}
@@ -1497,7 +1451,7 @@ async function openHistoryModal() {
       `;
     }).join('');
 
-    lucide.createIcons();
+    if (window.lucide) lucide.createIcons();
   } catch (err) {
     list.innerHTML = `<div class="text-center py-6 text-rose-400 text-xs">Lỗi tải lịch sử</div>`;
   }

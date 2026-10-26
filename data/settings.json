@@ -1,21 +1,19 @@
 {
-  "shopName": "Shophqk",
-  "shopTitle": "Shophqk - Shop định vị số 1 Việt Nam",
-  "shopDesc": "Định vị Android Antiban all thiết bị",
-  "shopNotice": "⚡ Ưu đãi nạp tiền: Khuyến mãi nạp tự động qua VietQR duyệt siêu tốc! Hỗ trợ 24/7.",
+  "shopName": "ShopNghiaz",
+  "shopTitle": "ShopNghiaZ - Shop định vị uy tín số 1 Việt Nam",
+  "shopDesc": "SHOP ĐỊNH VỊ UY TÍN - GIÁ RẺ - TỰ ĐỘNG SỐ 1 VIỆT NAM. Bảo hành trọn đời, hỗ trợ 24/7.",
+  "shopNotice": "🔥 CHÀO MỪNG ĐẾN VỚI SHOPNGHIAZ! NẠP TIỀN QUA VIETQR DUYỆT NHANH CHÓNG 24/7! 🔥",
   "shopNoticeActive": true,
-  "contactZalo": "0349340730",
-  "contactPhone": "0349340730",
-  "contactTelegram": "hqk0209",
-  "contactFacebook": "https://facebook.com//hqk0209",
-  "logoText": "ShopHQK",
-  "bankId": "MOMO",
-  "accountNo": "0349340730",
-  "accountName": "HOANG QUOC KHANH",
+  "contactZalo": "0868915360",
+  "contactPhone": "0868915360",
+  "contactTelegram": "NghiazXdinhvi",
+  "contactFacebook": "https://facebook.com",
+  "logoText": "ShopNghiaZ",
+  "bankId": "BIDV",
+  "accountNo": "8950102794",
+  "accountName": "TRAN THI HOA",
   "categories": [
-    "Tất cả",
-    "FreeFire Thường",
-    "FreeFireMax"
+    "Tất cả"
   ],
-  "adminUsername": "hqk"
+  "adminUsername": "nghiaz"
 }

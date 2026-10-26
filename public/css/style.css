@@ -1,0 +1,352 @@
+/* ===================================================
+   SHOPNGHIAZ - MODERN FREE FIRE GAMING THEME CSS
+   =================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary: #ff4d00;
+  --primary-glow: rgba(255, 77, 0, 0.4);
+  --primary-hover: #ff6a00;
+  --accent: #f59e0b;
+  --accent-glow: rgba(245, 158, 11, 0.35);
+  --cyber-blue: #06b6d4;
+  --bg-dark: #0a0c14;
+  --bg-card: #121624;
+  --bg-card-hover: #181d30;
+  --border-color: #262c45;
+  --border-glow: #ff4d00;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  background-image: 
+    radial-gradient(circle at 10% 15%, rgba(255, 77, 0, 0.08) 0%, transparent 35%),
+    radial-gradient(circle at 90% 85%, rgba(6, 182, 212, 0.06) 0%, transparent 40%),
+    linear-gradient(to bottom, #090b12 0%, #0c0f1a 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Gaming Font for Titles & Badges */
+.font-gaming {
+  font-family: 'Rajdhani', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d111c;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff4d00;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff7700;
+}
+
+/* Announcement Ticker */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(90deg, #7c2d12, #c2410c, #ea580c, #c2410c, #7c2d12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.ticker-content {
+  display: inline-block;
+  padding-left: 100%;
+  animation: ticker 32s linear infinite;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+@keyframes ticker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* Glow & Neon Effects */
+.glow-primary {
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+.text-glow {
+  text-shadow: 0 0 12px var(--primary-glow), 0 0 24px rgba(255, 77, 0, 0.3);
+}
+.text-glow-gold {
+  text-shadow: 0 0 12px var(--accent-glow);
+}
+
+/* Gaming Cards */
+.gaming-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.gaming-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gaming-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 77, 0, 0.5);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 77, 0, 0.2);
+}
+.gaming-card:hover::before {
+  opacity: 1;
+}
+
+/* Buttons */
+.btn-fire {
+  background: linear-gradient(135deg, #ff4d00 0%, #ff7300 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(255, 77, 0, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-fire:hover {
+  background: linear-gradient(135deg, #ff6200 0%, #ff8800 100%);
+  box-shadow: 0 6px 20px rgba(255, 77, 0, 0.55);
+  transform: translateY(-2px);
+}
+.btn-fire:active {
+  transform: translateY(1px);
+}
+
+.btn-cyan {
+  background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  padding: 10px 20px;
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-cyan:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #0891b2 100%);
+  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.55);
+  transform: translateY(-2px);
+}
+
+.btn-dark {
+  background: #1e2438;
+  color: #e2e8f0;
+  border: 1px solid #333d5e;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.btn-dark:hover {
+  background: #28304c;
+  color: #fff;
+  border-color: #ff4d00;
+}
+
+/* Badges */
+.badge-vip {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: #fff;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
+}
+.badge-sold {
+  background: #475569;
+  color: #cbd5e1;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+}
+
+/* Sold card overlay */
+.card-sold-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 12, 20, 0.75);
+  backdrop-filter: blur(2px);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.stamp-sold {
+  border: 3px solid #ef4444;
+  color: #ef4444;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  padding: 6px 20px;
+  border-radius: 8px;
+  transform: rotate(-15deg);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: rgba(239, 68, 68, 0.1);
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+/* Live Floating Notification */
+.floating-activity {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(18, 22, 36, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 77, 0, 0.3);
+  padding: 12px 18px;
+  border-radius: 12px;
+  z-index: 999;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transform: translateY(150%);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.floating-activity.show {
+  transform: translateY(0);
+}
+
+/* Admin Live Bar */
+.admin-live-badge {
+  background: linear-gradient(135deg, #9333ea, #c026d3);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  animation: pulse-glow 2s infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px rgba(192, 38, 211, 0.4); }
+  50% { box-shadow: 0 0 20px rgba(192, 38, 211, 0.8); }
+}
+
+/* Modal styles */
+.custom-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 8, 15, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.custom-modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.custom-modal-content {
+  background: #121624;
+  border: 1px solid #2d3655;
+  border-radius: var(--radius-lg);
+  max-width: 650px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 77, 0, 0.15);
+  transform: scale(0.95);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.custom-modal-backdrop.active .custom-modal-content {
+  transform: scale(1);
+}
+
+/* Lucky Wheel Canvas */
+#wheelCanvas {
+  max-width: 380px;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(255, 77, 0, 0.35);
+  border: 6px solid #232b43;
+}
+.wheel-pointer {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 16px solid transparent;
+  border-right: 16px solid transparent;
+  border-top: 30px solid #ef4444;
+  z-index: 20;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+/* VietQR Glow Box */
+.qr-container {
+  background: #ffffff;
+  padding: 14px;
+  border-radius: 14px;
+  display: inline-block;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
