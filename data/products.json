@@ -1,79 +1,24 @@
 [
   {
-    "id": "prod_1793013666631",
-    "name": "ĐỊNH VỊ IOS FFTH ANTIBAND",
-    "price": 50000,
-    "stock": 69,
-    "category": "Sản phẩm số",
+    "id": "prod_1792903359070",
+    "name": "Định vị trang phục cus",
+    "price": 100000,
+    "stock": 9999999,
+    "category": "FreeFire Thường",
     "description": "",
-    "image": "/uploads/img_1793013666362_1233.jpg",
-    "downloadUrl": "https://www.mediafire.com/file/38dqpdl5rx0yje6/DV_IOS_FFTH_NGHIAZ.7z/file",
-    "createdAt": "2026-10-26T11:21:06.631Z"
+    "image": "/uploads/img_1792903358809_8786.jpg",
+    "downloadUrl": "https://drive.google.com/file/d/1kIekNZeeQ82G-kZMT-gKjqrgbc10Bq0j/view?usp=drivesdk",
+    "createdAt": "2026-10-25T04:42:39.070Z"
   },
   {
-    "id": "prod_1793013573431",
-    "name": "FFM ĐỊNH VỊ SÚNG TRANG PHỤC KEO MỜ NGHIAZ",
-    "price": 60000,
-    "stock": 333,
-    "category": "Sản phẩm số",
+    "id": "prod_1792903287272",
+    "name": "Định vị súng và trang phục",
+    "price": 0,
+    "stock": 99999999994,
+    "category": "FreeFireMax",
     "description": "",
-    "image": "/uploads/img_1793013573030_1127.jpg",
-    "downloadUrl": "https://www.mediafire.com/file/6aizaohzjz0v9k0/FFM+Súng+Trang+Phục+PREMIUM+NGHIAZ.zip/file",
-    "createdAt": "2026-10-26T11:19:33.431Z"
-  },
-  {
-    "id": "prod_1793013520181",
-    "name": "FFTH ĐỊNH VỊ XANH ĐỎ KEO MỜ",
-    "price": 40000,
-    "stock": 99,
-    "category": "Sản phẩm số",
-    "description": "",
-    "image": "/uploads/img_1793013519917_4096.jpg",
-    "downloadUrl": "https://www.mediafire.com/file/c28q41fgwfmyyfh/FFTH+Đỏ+Xanh+Nghiaz.zip/file",
-    "createdAt": "2026-10-26T11:18:40.181Z"
-  },
-  {
-    "id": "prod_1793012695161",
-    "name": "ĐỊNH VỊ SÚNG XANH LÁ KEO MỜ",
-    "price": 50000,
-    "stock": 1000,
-    "category": "Sản phẩm số",
-    "description": "",
-    "image": "/uploads/img_1793012694745_6955.jpg",
-    "downloadUrl": "https://www.mediafire.com/file/vd17snvkrb64xd5/FFMAX+XANH+LÁ+VIỀN+TRẮNG+PREMIUM+KEO+MỜ.rar/file",
-    "createdAt": "2026-10-26T11:04:55.161Z"
-  },
-  {
-    "id": "prod_1793012658525",
-    "name": "FFM ĐỊNH VỊ SÚNG XANH DƯƠNGKEO MỜ",
-    "price": 60000,
-    "stock": 999,
-    "category": "Sản phẩm số",
-    "description": "",
-    "image": "/uploads/img_1793012658139_1130.jpg",
-    "downloadUrl": "https://www.mediafire.com/file/1vvrujgdo3i3u3l/FFM+TRANG+XANH+NGOC+PREMIUM+Nghizaa.rar/file",
-    "createdAt": "2026-10-26T11:04:18.525Z"
-  },
-  {
-    "id": "prod_1793012403166",
-    "name": "định vị súng vàng",
-    "price": 50000,
-    "stock": 999,
-    "category": "Sản phẩm số",
-    "description": "",
-    "image": "/uploads/img_1793012402770_5484.jpg",
-    "downloadUrl": "https://www.mediafire.com/file/pwf4yiejewxx02e/FFTH+TRONG+ĐỎ+NGOÀI+VÀNG+60K.rar/file",
-    "createdAt": "2026-10-26T11:00:03.166Z"
-  },
-  {
-    "id": "prod_1793012284758",
-    "name": "ĐỊNH VỊ SÚNG TRANG PHỤC",
-    "price": 70000,
-    "stock": 999,
-    "category": "Sản phẩm số",
-    "description": "",
-    "image": "/uploads/img_1793012284385_1662.jpg",
-    "downloadUrl": "https://vi.anotepad.com/notes/ih7aipdm",
-    "createdAt": "2026-10-26T10:58:04.758Z"
+    "image": "/uploads/img_1792903287009_1842.jpg",
+    "downloadUrl": "https://link4m.net/mGKB4Xfg",
+    "createdAt": "2026-10-25T04:41:27.272Z"
   }
 ]

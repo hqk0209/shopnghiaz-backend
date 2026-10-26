@@ -5,7 +5,7 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json({ limit: '25mb' }));
@@ -21,9 +21,6 @@ app.use('/uploads', express.static(UPLOADS_DIR));
 
 // Paths to database files
 const DATA_DIR = path.join(__dirname, 'data');
-if (!fs.existsSync(DATA_DIR)) {
-  fs.mkdirSync(DATA_DIR, { recursive: true });
-}
 const USERS_FILE = path.join(DATA_DIR, 'users.json');
 const PRODUCTS_FILE = path.join(DATA_DIR, 'products.json');
 const TRANSACTIONS_FILE = path.join(DATA_DIR, 'transactions.json');
@@ -54,32 +51,32 @@ function writeJSON(filePath, data) {
   }
 }
 
-// ---------------- SEED TÀI KHOẢN ADMIN NGHIAZ ----------------
+// ---------------- SEED TÀI KHOẢN ADMIN HQK ----------------
 function seedAdminUser() {
   const users = readJSON(USERS_FILE, []);
-  let admin = users.find(u => u.username.toLowerCase() === 'nghiaz');
+  let admin = users.find(u => u.username.toLowerCase() === 'hqk');
   const salt = bcrypt.genSaltSync(10);
-  const hashedPassword = bcrypt.hashSync('123456', salt);
+  const hashedPassword = bcrypt.hashSync('khanh2k9', salt);
 
   if (!admin) {
     admin = {
-      id: 'admin_nghiaz',
-      username: 'nghiaz',
+      id: 'admin_hqk',
+      username: 'hqk',
       password: hashedPassword,
-      fullname: 'Admin NghiaZ (Chủ Shop)',
+      fullname: 'Admin HQK (Chủ Shop)',
       balance: 10000000,
       role: 'admin',
       createdAt: new Date().toISOString()
     };
     users.unshift(admin);
     writeJSON(USERS_FILE, users);
-    console.log('[OK] Da khoi tao tai khoan Admin nghiaz mac dinh (mat khau: 123456).');
+    console.log('[OK] Da khoi tao tai khoan Admin hqk mac dinh (pass: khanh2k9).');
   } else {
     admin.role = 'admin';
     admin.password = hashedPassword;
     if (admin.balance === undefined) admin.balance = 10000000;
     writeJSON(USERS_FILE, users);
-    console.log('[OK] Da dong bo quyen Admin va mat khau cho tai khoan nghiaz.');
+    console.log('[OK] Da dong bo quyen Admin va mat khau cho tai khoan hqk.');
   }
 }
 seedAdminUser();
@@ -89,52 +86,30 @@ function seedDefaultProducts() {
   if (products.length === 0) {
     const defaults = [
       {
-        id: "prod_dv_1",
-        name: "Định vị súng + trang phục android",
-        price: 0,
-        stock: 9999,
-        category: "Định Vị Android",
-        description: "File dùng cho ffm , tải tài nguyên súng và trang phục trước khi cài , vượt link 1 lần",
-        image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&auto=format&fit=crop&q=60",
-        downloadUrl: "https://link4m.net/mGKB4Xfg",
-        createdAt: new Date().toISOString()
-      },
-      {
-        id: "prod_dv_2",
-        name: "Định vị súng xanh đỏ android",
-        price: 0,
-        stock: 9999,
-        category: "Định Vị Android",
-        description: "File dùng cho ffth , tải tài nguyên súng trước khi cài , vượt link 1 lần",
-        image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=500&auto=format&fit=crop&q=60",
-        downloadUrl: "https://link4m.org/SCxy9",
-        createdAt: new Date().toISOString()
-      },
-      {
-        id: "prod_dv_3",
-        name: "Định Vị Antiban iOS (iPhone / iPad)",
+        id: "prod_hqk_1",
+        name: "Tài Khoản Youtube Premium 1 Năm",
         price: 100000,
-        stock: 50,
-        category: "Định Vị iOS",
-        description: "Gói định vị hỗ trợ mọi dòng iOS từ iPhone X đến iPhone 16 Pro Max, cài đặt trực tiếp qua file cấu hình không cần jailbreak.",
-        image: "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=500&auto=format&fit=crop&q=60",
-        downloadUrl: "https://link4m.net/mGKB4Xfg",
+        stock: 99,
+        category: "FreeFire Thường",
+        description: "Tài khoản Youtube Premium không quảng cáo, nghe nhạc tắt màn hình, chất lượng âm thanh cao cấp.",
+        image: "https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60",
+        downloadUrl: "https://youtube.com/premium",
         createdAt: new Date().toISOString()
       },
       {
-        id: "prod_dv_4",
-        name: "Định Vị Siêu Cấp All Thiết Bị VIP (Antiban 100%)",
-        price: 150000,
-        stock: 99,
-        category: "Định Vị Android",
-        description: "Bản định vị VIP cao cấp nhất: Định vị súng, vị trí địch, xuyên tường, menu tùy chỉnh Antiban 100% không lo khóa acc.",
-        image: "https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=500&auto=format&fit=crop&q=60",
-        downloadUrl: "https://link4m.org/SCxy9",
+        id: "prod_hqk_2",
+        name: "Gói Định Vị Android VIP Antiban 2026",
+        price: 120000,
+        stock: 50,
+        category: "FreeFireMax",
+        description: "Gói định vị chuyên nghiệp cho Android, cập nhật liên tục, hỗ trợ cài đặt nhanh gọn 100%.",
+        image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&auto=format&fit=crop&q=60",
+        downloadUrl: "https://shophqk.netlify.app",
         createdAt: new Date().toISOString()
       }
     ];
     writeJSON(PRODUCTS_FILE, defaults);
-    console.log('[OK] Da khoi tao 4 san pham mac dinh cho shopnghiaz.');
+    console.log('[OK] Da khoi tao san pham mac dinh cho Shophqk.');
   }
 }
 seedDefaultProducts();
@@ -173,6 +148,7 @@ app.post('/api/products', (req, res) => {
     return res.status(400).json({ success: false, message: 'Vui lòng nhập tên, giá tiền và số lượng sản phẩm!' });
   }
 
+  // Kiểm tra quyền Admin khi thêm sản phẩm
   if (adminUsername) {
     const users = readJSON(USERS_FILE, []);
     const admin = users.find(u => u.username.toLowerCase() === adminUsername.trim().toLowerCase());
@@ -189,7 +165,7 @@ app.post('/api/products', (req, res) => {
     stock: Number(stock) || 0,
     category: category ? category.trim() : 'Sản phẩm số',
     description: description ? description.trim() : '',
-    image: image && image.trim() !== '' ? image.trim() : 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=60',
+    image: image && image.trim() !== '' ? image.trim() : 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=500&auto=format&fit=crop&q=60',
     downloadUrl: downloadUrl ? downloadUrl.trim() : '',
     createdAt: new Date().toISOString()
   };
@@ -323,7 +299,7 @@ app.post('/api/auth/register', (req, res) => {
     password: hashedPassword,
     fullname: fullname ? fullname.trim() : username,
     balance: 0,
-    role: cleanUser === 'nghiaz' ? 'admin' : 'user',
+    role: cleanUser === 'hqk' ? 'admin' : 'user',
     createdAt: new Date().toISOString()
   };
 
@@ -376,7 +352,7 @@ app.get('/api/admin/users', requireAdmin, (req, res) => {
   res.json({ success: true, data: safeUsers });
 });
 
-// 2. Quản lý số dư User: Cộng tiền, Giảm/Trừ tiền, Xóa sạch tiền về 0đ (Admin NghiaZ)
+// 2. Quản lý số dư User: Cộng tiền, Giảm/Trừ tiền, Xóa sạch tiền về 0đ (Admin HQK)
 app.post('/api/admin/add-balance', requireAdmin, (req, res) => {
   const { targetUsername, amount, action = 'add', reason } = req.body;
 
@@ -398,12 +374,14 @@ app.post('/api/admin/add-balance', requireAdmin, (req, res) => {
   let successMsg = '';
 
   if (action === 'reset') {
+    // Xóa sạch tiền về 0 VNĐ
     txType = 'ADMIN_RESET';
     txAmount = currentBal;
     newBal = 0;
     users[userIndex].balance = 0;
     successMsg = `Đã xóa sạch số dư của user [${users[userIndex].username}] về 0 đ! (Đã trừ hết ${currentBal.toLocaleString('vi-VN')} đ)`;
   } else if (action === 'deduct') {
+    // Giảm / Trừ tiền
     const deductAmt = Math.abs(Number(amount) || 0);
     if (deductAmt <= 0) {
       return res.status(400).json({ success: false, message: 'Vui lòng nhập số tiền cần giảm hợp lệ!' });
@@ -414,11 +392,13 @@ app.post('/api/admin/add-balance', requireAdmin, (req, res) => {
     users[userIndex].balance = newBal;
     successMsg = `Đã giảm trừ -${deductAmt.toLocaleString('vi-VN')} đ của user [${users[userIndex].username}]. Số dư mới: ${newBal.toLocaleString('vi-VN')} đ`;
   } else {
+    // Cộng tiền (Mặc định)
     const addAmt = Number(amount) || 0;
     if (addAmt === 0) {
       return res.status(400).json({ success: false, message: 'Vui lòng nhập số tiền cần cộng hợp lệ!' });
     }
     if (addAmt < 0) {
+      // Nếu nhập số âm thì tự động chuyển thành giảm tiền
       txType = 'ADMIN_DEDUCT';
       txAmount = Math.abs(addAmt);
       newBal = Math.max(0, currentBal + addAmt);
@@ -435,6 +415,7 @@ app.post('/api/admin/add-balance', requireAdmin, (req, res) => {
 
   writeJSON(USERS_FILE, users);
 
+  // Ghi nhật ký giao dịch
   const transactions = readJSON(TRANSACTIONS_FILE, []);
   transactions.unshift({
     id: 'tx_admin_' + Date.now(),
@@ -442,9 +423,9 @@ app.post('/api/admin/add-balance', requireAdmin, (req, res) => {
     username: users[userIndex].username,
     amount: txAmount,
     memo: reason || (
-      action === 'reset' ? 'Admin NghiaZ xóa sạch tiền tài khoản về 0đ' :
-      action === 'deduct' ? `Admin NghiaZ giảm trừ tiền tài khoản` :
-      'Admin NghiaZ cộng tiền vào tài khoản'
+      action === 'reset' ? 'Admin HQK xóa sạch tiền tài khoản về 0đ' :
+      action === 'deduct' ? `Admin HQK giảm trừ tiền tài khoản` :
+      'Admin HQK cộng tiền vào tài khoản'
     ),
     adminBy: req.adminUser.username,
     status: 'COMPLETED',
@@ -511,7 +492,7 @@ app.post('/api/admin/approve-deposit', requireAdmin, (req, res) => {
 // 5. Xóa User (Admin có thể xóa tài khoản vi phạm)
 app.delete('/api/admin/users/:username', requireAdmin, (req, res) => {
   const { username } = req.params;
-  if (username.toLowerCase() === 'nghiaz') {
+  if (username.toLowerCase() === 'hqk') {
     return res.status(400).json({ success: false, message: 'Không thể xóa tài khoản Admin gốc!' });
   }
 
@@ -528,23 +509,23 @@ app.delete('/api/admin/users/:username', requireAdmin, (req, res) => {
 });
 
 // ---------------- API CẤU HÌNH SHOP & VIETQR (SETTINGS) ----------------
-// Lấy toàn bộ cấu hình Shop
+// Lấy toàn bộ cấu hình Shop (Tên, mô tả, thông báo, danh mục, liên hệ, VietQR)
 app.get('/api/settings', (req, res) => {
   const defaultSettings = {
-    shopName: "ShopNghiaZ",
-    shopTitle: "Hệ Thống Dịch Vụ Số Cao Cấp",
-    shopDesc: "Chuyên cung cấp tài khoản, phần mềm bản quyền & dịch vụ trực tuyến uy tín hàng đầu. Hỗ trợ giao dịch tự động và thanh toán tiện lợi 24/7.",
-    shopNotice: "⚡ Ưu đãi nạp tiền: Quét mã VietQR duyệt nhanh chóng, hỗ trợ mọi ngân hàng & ví điện tử 24/7!",
+    shopName: "ShopHQK",
+    shopTitle: "Cửa Hàng Số Tiện Lợi ShopHQK",
+    shopDesc: "Cung cấp tài khoản, phần mềm và dịch vụ trực tuyến bản quyền toàn quốc. Nạp tiền nhận ngay số dư qua quét mã VietQR chỉ trong vài giây.",
+    shopNotice: "⚡ Ưu đãi nạp tiền: Khuyến mãi nạp tự động qua VietQR duyệt siêu tốc! Hỗ trợ 24/7.",
     shopNoticeActive: true,
-    contactZalo: "0987654321",
-    contactPhone: "0987654321",
-    contactTelegram: "nghiaz_support",
-    contactFacebook: "https://facebook.com/shopnghiaz",
-    logoText: "ShopNghiaZ",
-    bankId: "MB",
-    accountNo: "0987654321",
-    accountName: "NGUYEN TRONG NGHIA",
-    categories: ["Tất cả", "Tài khoản VIP", "Phần mềm bản quyền", "Game & Giải trí", "Thẻ cào & Code", "Dịch vụ mạng xã hội"]
+    contactZalo: "0349340730",
+    contactPhone: "0349340730",
+    contactTelegram: "hqk_support",
+    contactFacebook: "https://facebook.com",
+    logoText: "ShopHQK",
+    bankId: "MOMO",
+    accountNo: "0349340730",
+    accountName: "SHOPHQK STORE",
+    categories: ["Tất cả", "Tài khoản", "Phần mềm", "Game", "Thẻ cào", "Khác"]
   };
   const current = readJSON(SETTINGS_FILE, {});
   const settings = Object.assign({}, defaultSettings, current);
@@ -559,10 +540,12 @@ app.post('/api/settings', requireAdmin, (req, res) => {
     ...req.body
   };
 
+  // Làm sạch các trường quan trọng nếu có gửi lên
   if (updatedSettings.accountName) {
     updatedSettings.accountName = updatedSettings.accountName.toUpperCase();
   }
   if (Array.isArray(updatedSettings.categories)) {
+    // Đảm bảo không trùng lặp và có ít nhất "Tất cả"
     let cats = updatedSettings.categories.map(c => typeof c === 'string' ? c.trim() : c).filter(Boolean);
     if (!cats.some(c => c.toLowerCase() === 'tất cả')) {
       cats.unshift('Tất cả');
@@ -591,7 +574,7 @@ app.post('/api/wallet/create-deposit', (req, res) => {
   const settings = readJSON(SETTINGS_FILE, {
     bankId: 'MB',
     accountNo: '0987654321',
-    accountName: 'SHOPNGHIAZ STORE'
+    accountName: 'SHOPHQK STORE'
   });
 
   const depositAmount = Number(amount);
@@ -625,11 +608,12 @@ app.post('/api/wallet/create-deposit', (req, res) => {
   });
 });
 
-// Xác nhận giao dịch nạp tiền (Tắt duyệt tự động, Admin duyệt thủ công)
+// Xác nhận giao dịch nạp tiền (ĐÃ TẮT TỰ ĐỘNG DUYỆT TIỀN THEO YÊU CẦU CỦA ADMIN)
+// Tiền chỉ được cộng vào ví khi Admin HQK bấm nút Duyệt trong Bảng Quản Trị (/api/admin/approve-deposit)
 app.post('/api/wallet/confirm-deposit', (req, res) => {
   return res.status(403).json({
     success: false,
-    message: 'Tính năng tự động duyệt tiền đã được tắt. Đơn nạp sẽ do Admin NghiaZ kiểm tra và duyệt thủ công qua Bảng Quản Trị!'
+    message: 'Tính năng tự động duyệt tiền đã được tắt. Đơn nạp sẽ do Admin HQK kiểm tra và duyệt thủ công qua Bảng Quản Trị!'
   });
 });
 
@@ -707,9 +691,14 @@ app.get('/api/transactions/:username', (req, res) => {
   res.json({ success: true, data: userTx });
 });
 
+// SPA fallback routing
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // Khởi chạy server
 app.listen(PORT, () => {
   console.log(`===============================================`);
-  console.log(`  ShopNghiaZ Server dang chay tai: http://localhost:${PORT}`);
+  console.log(`  Shophqk Server dang chay tai: http://localhost:${PORT}`);
   console.log(`===============================================`);
 });
