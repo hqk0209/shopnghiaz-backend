@@ -1,0 +1,83 @@
+[
+  {
+    "id": "admin_nghiaz",
+    "username": "nghiaz",
+    "password": "$2b$10$a63kmNkU5zt2XElsDjiTXOeIqPAIotoygFJkpHjaL3IOkJWn.0d86",
+    "fullname": "Admin NghiaZ (Chủ Shop)",
+    "balance": 9930000,
+    "role": "admin",
+    "createdAt": "2026-10-25T12:00:00.000Z"
+  },
+  {
+    "id": "user_1793012547569",
+    "username": "nghia",
+    "password": "$2b$10$JUFAv8jWCSNb8eFkDp2CC.wK7OXKLkAkr/e0SYhb/8A6K2CynVXhO",
+    "fullname": "ezzx",
+    "balance": 10000,
+    "role": "user",
+    "createdAt": "2026-10-26T11:02:27.569Z"
+  },
+  {
+    "id": "user_1793013266025",
+    "username": "rubin",
+    "password": "$2b$10$tkqlfyUXp4OZUeexZZsz3euPDuBRNKmmVSSYqjWkUuf5WJgyv36aq",
+    "fullname": "rubin",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T11:14:26.025Z"
+  },
+  {
+    "id": "user_1793013551825",
+    "username": "vanha",
+    "password": "$2b$10$jSuoR89rMqRrTrUNFSb.MOSdXm2Q1R0XFDKgYph1ii0QV/AlgO.ty",
+    "fullname": "Nguyễn Văn Hà",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T11:19:11.825Z"
+  },
+  {
+    "id": "user_1793013776149",
+    "username": "lethuancute",
+    "password": "$2b$10$zotc8cuRPz0wHgIE6p7HYu1zbuef09WrLU2Db5pd7MR6Ze/uaeIUi",
+    "fullname": "lê thuận",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T11:22:56.149Z"
+  },
+  {
+    "id": "user_1793014085402",
+    "username": "mvuong1",
+    "password": "$2b$10$bmSZKsX3MpsZFO/5KwKb8eJdtjq77taAM7B5cF7XqGJgUyWeWgMNi",
+    "fullname": "Tmvstore",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T11:28:05.402Z"
+  },
+  {
+    "id": "user_1793014201931",
+    "username": "quândz",
+    "password": "$2b$10$3rlTspJjat5gCboh2zm/Xuy4WcLflZuAM7Y/nxcXvDbvxnadEpadW",
+    "fullname": "Đặng Minh Quân",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T11:30:01.931Z"
+  },
+  {
+    "id": "user_1793018597981",
+    "username": "nghiadaobi",
+    "password": "$2b$10$rP8iZqsZCIovEX1oXnCnOeeanxyLF./A0HqqjSs6W8f8EvchQ0pSq",
+    "fullname": "ezzx",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T12:43:17.981Z"
+  },
+  {
+    "id": "user_1793019723474",
+    "username": "vanhung67",
+    "password": "$2b$10$yvM9Z2TSVW2M3CfXWOrNhuM01j62Nr.vJXxPjXcBA6lQUoaxXLFSy",
+    "fullname": "Nguyễn Văn Hưng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T13:02:03.474Z"
+  }
+]

@@ -1,0 +1,455 @@
+{
+  "config": {
+    "siteName": "Shopnghiaz",
+    "siteSlogan": "SHOP ĐỊNH VỊ UY TÍN - GIÁ RẺ - TỰ ĐỘNG SỐ 1 VIỆT NAM",
+    "bannerTitle": "MUA BÁN ĐỊNH VỊ GIÁ SIÊU HỜI",
+    "bannerSubtitle": "Giao dịch tự động 100% trong 3 giây. Bảo hành trọn đời.",
+    "announcement": "🔥 CHÀO MỪNG ĐẾN VỚI SHOPNGHIAZ! NẠP TIỀN QUA VIETQR GIAO DỊCH TỰ ĐỘNG 100%! 🔥",
+    "hotline": "0868915360",
+    "zalo": "https://zalo.me/0868915360",
+    "tiktok": "https://www.tiktok.com/@nghiazxdinhvivippppppppp",
+    "topupBonusPercent": 10,
+    "themeColor": "#ff4d2d",
+    "bankInfo": {
+      "bankCode": "momo",
+      "bankId": "MoMo",
+      "accountNumber": "0349340730",
+      "accountName": "VU TRONG NGHIA",
+      "transferPrefix": "NAP NGHIAZ",
+      "autoApprove": false
+    }
+  },
+  "users": [
+    {
+      "id": "u_admin_hqk",
+      "username": "hqk",
+      "passwordHash": "$2b$10$njVRDfDD.U/OmN4eOCHqw.LDnsRog8006z9YRjPd4xQMJM6gMn7ti",
+      "fullName": "Quản Trị Viên 1 (HQK)",
+      "role": "admin",
+      "balance": 99999,
+      "createdAt": "2026-10-16T01:59:54.641Z"
+    },
+    {
+      "id": "u_admin_nghiaz",
+      "username": "nghiaz",
+      "passwordHash": "$2b$10$IBc90aXrxVLC3.ytlQtq0.R8Y7wTdK0Xcddlgsn049V8Uj/QTCeFu",
+      "fullName": "Quản Trị Viên 2 (Nghia Z)",
+      "role": "admin",
+      "balance": 99000000010010000,
+      "createdAt": "2026-10-16T01:59:54.786Z"
+    },
+    {
+      "id": "u_1792118553228",
+      "username": "hqk0209",
+      "passwordHash": "$2b$10$jrC.01XHjJly5VI85YLzeusgxPEADnLEno4Z528nIGX0QUCyleQl.",
+      "fullName": "khánh",
+      "role": "user",
+      "balance": 0,
+      "createdAt": "2026-10-16T02:42:33.561Z"
+    },
+    {
+      "id": "u_1792125474707",
+      "username": "cac",
+      "passwordHash": "$2b$10$iulv24p3KiUKqflMW4LAiOhZsNbMPCgmfbErOWKCJd4l1nz29.aaK",
+      "fullName": "nghiaz",
+      "role": "user",
+      "balance": 0,
+      "createdAt": "2026-10-16T04:37:54.834Z"
+    }
+  ],
+  "accounts": [
+    {
+      "id": "DV-1990",
+      "title": "Định vị súng + trang phục android",
+      "category": "dinhvi_free",
+      "rank": "",
+      "level": 0,
+      "loginType": "",
+      "petCount": 0,
+      "gunSkins": "File dùng cho ffm , tải tài nguyên súng và trang phục  trước khi cài , vượt link 1 lần",
+      "originalPrice": 0,
+      "price": 0,
+      "stock": 99999998,
+      "badge": "FREE",
+      "status": "available",
+      "images": [
+        "/uploads/dv_1792125152056_8727.jpg"
+      ],
+      "credentials": {
+        "link": "https://link4m.net/mGKB4Xfg"
+      },
+      "createdAt": "2026-10-16T04:32:47.620Z",
+      "soldTo": "hqk0209",
+      "soldAt": "2026-10-16T04:35:53.128Z"
+    },
+    {
+      "id": "DV-3870",
+      "title": "Định vị súng xanh đỏ android",
+      "category": "dinhvi_free",
+      "rank": "",
+      "level": 0,
+      "loginType": "",
+      "petCount": 0,
+      "gunSkins": "File dùng cho ffth , tải tài nguyên súng trước khi cài , vượt link 1 lần",
+      "originalPrice": 0,
+      "price": 0,
+      "badge": "FREE",
+      "status": "available",
+      "images": [
+        "/uploads/dv_1792123654037_7344.jpg"
+      ],
+      "credentials": {
+        "link": "https://link4m.org/SCxy9"
+      },
+      "createdAt": "2026-10-16T04:08:48.095Z",
+      "soldTo": "hqk",
+      "soldAt": "2026-10-16T04:09:34.597Z",
+      "stock": 9999999999999
+    }
+  ],
+  "transactions": [
+    {
+      "id": "TX-483398",
+      "userId": "u_1792125474707",
+      "username": "cac",
+      "type": "deposit",
+      "amount": 50000,
+      "bonusAmount": 5000,
+      "finalAmount": 55000,
+      "method": "VietQR",
+      "bankInfo": "MoMo - 0349340730",
+      "code": "NAP NGHIAZ CAC 8636",
+      "status": "pending",
+      "createdAt": "2026-10-16T04:38:03.398Z"
+    },
+    {
+      "id": "TX-852297",
+      "userId": "u_1792118553228",
+      "username": "hqk0209",
+      "type": "deposit",
+      "amount": 100000,
+      "bonusAmount": 10000,
+      "finalAmount": 110000,
+      "method": "VietQR",
+      "bankInfo": "MoMo - 0349340730",
+      "code": "NAP NGHIAZ HQK0209 4605",
+      "status": "pending",
+      "createdAt": "2026-10-16T04:10:52.297Z"
+    },
+    {
+      "id": "TX-055751",
+      "userId": "u_1792118553228",
+      "username": "hqk0209",
+      "type": "deposit",
+      "amount": 1000000,
+      "bonusAmount": 0,
+      "finalAmount": 1000000,
+      "method": "VietQR",
+      "bankInfo": "MoMo - 0349340730",
+      "code": "NAP NGHIAZ HQK0209 4293",
+      "status": "completed",
+      "createdAt": "2026-10-16T02:50:55.751Z",
+      "completedAt": "2026-10-16T02:51:27.720Z"
+    },
+    {
+      "id": "TX-015446",
+      "userId": "u_1792118553228",
+      "username": "hqk0209",
+      "type": "deposit",
+      "amount": 1000000,
+      "bonusAmount": 0,
+      "finalAmount": 1000000,
+      "method": "VietQR",
+      "bankInfo": "MoMo - 0349340730",
+      "code": "NAP NGHIAZ HQK0209 7383",
+      "status": "completed",
+      "createdAt": "2026-10-16T02:50:15.446Z",
+      "completedAt": "2026-10-16T02:50:16.986Z"
+    },
+    {
+      "id": "TX-913313",
+      "userId": "u_1792118553228",
+      "username": "hqk0209",
+      "type": "deposit",
+      "amount": 500000,
+      "bonusAmount": 0,
+      "finalAmount": 500000,
+      "method": "VietQR",
+      "bankInfo": "MoMo - 0349340730",
+      "code": "NAP NGHIAZ HQK0209 1581",
+      "status": "completed",
+      "createdAt": "2026-10-16T02:48:33.313Z",
+      "completedAt": "2026-10-16T02:49:01.713Z"
+    },
+    {
+      "id": "TX-827100",
+      "userId": "u_1792118553228",
+      "username": "hqk0209",
+      "type": "deposit",
+      "amount": 1000000,
+      "bonusAmount": 200000,
+      "finalAmount": 1200000,
+      "method": "VietQR",
+      "bankInfo": "ZaloPay - 0349340730",
+      "code": "NAP NGHIAZ HQK0209 8965",
+      "status": "pending",
+      "createdAt": "2026-10-16T02:47:07.100Z"
+    },
+    {
+      "id": "TX-788314",
+      "userId": "u_admin_hqk",
+      "username": "hqk",
+      "type": "deposit",
+      "amount": 50000,
+      "bonusAmount": 10000,
+      "finalAmount": 60000,
+      "method": "VietQR",
+      "bankInfo": "MoMo - 0349340730",
+      "code": "NAP NGHIAZ HQK 2050",
+      "status": "pending",
+      "createdAt": "2026-10-16T02:46:28.314Z"
+    },
+    {
+      "id": "TX-715358",
+      "userId": "u_admin_hqk",
+      "username": "hqk",
+      "type": "deposit",
+      "amount": 50000,
+      "bonusAmount": 10000,
+      "finalAmount": 60000,
+      "method": "VietQR",
+      "bankInfo": "MoMo - 0349340730",
+      "code": "NAP NGHIAZ HQK 9485",
+      "status": "pending",
+      "createdAt": "2026-10-16T02:45:15.358Z"
+    },
+    {
+      "id": "TX-702578",
+      "userId": "u_testuser",
+      "username": "gamer_pro",
+      "type": "deposit",
+      "amount": 50000,
+      "bonusAmount": 10000,
+      "finalAmount": 60000,
+      "method": "VietQR",
+      "bankInfo": "ZaloPay - 0868915360",
+      "code": "NAP NGHIAZ GAMER_PRO 1092",
+      "status": "pending",
+      "createdAt": "2026-10-16T02:45:02.578Z"
+    },
+    {
+      "id": "TX-573335",
+      "userId": "u_1792118553228",
+      "username": "hqk0209",
+      "type": "deposit",
+      "amount": 50000,
+      "bonusAmount": 10000,
+      "finalAmount": 60000,
+      "method": "VietQR",
+      "bankInfo": "ZaloPay - 0868915360",
+      "code": "NAP NGHIAZ HQK0209 3589",
+      "status": "pending",
+      "createdAt": "2026-10-16T02:42:53.335Z"
+    },
+    {
+      "id": "TX-563465",
+      "userId": "u_1792118553228",
+      "username": "hqk0209",
+      "type": "deposit",
+      "amount": 50000,
+      "bonusAmount": 10000,
+      "finalAmount": 60000,
+      "method": "VietQR",
+      "bankInfo": "ZaloPay - 0868915360",
+      "code": "NAP NGHIAZ HQK0209 8130",
+      "status": "pending",
+      "createdAt": "2026-10-16T02:42:43.465Z"
+    },
+    {
+      "id": "TX-763716",
+      "userId": "u_admin_hqk",
+      "username": "hqk",
+      "type": "deposit",
+      "amount": 20000,
+      "bonusAmount": 4000,
+      "finalAmount": 24000,
+      "method": "VietQR",
+      "bankInfo": "MBBank - 0988888888",
+      "code": "NAP NGHIAZ HQK 2029",
+      "status": "pending",
+      "createdAt": "2026-10-16T02:29:23.729Z"
+    },
+    {
+      "id": "TX-327650",
+      "userId": "u_testuser",
+      "username": "gamer_pro",
+      "type": "deposit",
+      "amount": 100000,
+      "bonusAmount": 20000,
+      "finalAmount": 120000,
+      "method": "VietQR",
+      "bankInfo": "MBBank - 0988888888",
+      "code": "NAP NGHIAZ GAMER_PRO 2842",
+      "status": "pending",
+      "createdAt": "2026-10-16T01:32:07.650Z"
+    },
+    {
+      "id": "TX-9901",
+      "userId": "u_testuser",
+      "username": "gamer_pro",
+      "type": "deposit",
+      "amount": 200000,
+      "bonusAmount": 40000,
+      "finalAmount": 240000,
+      "method": "VietQR",
+      "bankInfo": "MBBank - 0988888888",
+      "code": "NAP NGHIAZ GAMER_PRO 8492",
+      "status": "completed",
+      "createdAt": "2026-10-16T00:30:59.010Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "ORD-353128",
+      "userId": "u_1792118553228",
+      "username": "hqk0209",
+      "accountId": "DV-1990",
+      "accountTitle": "Định vị súng + trang phục android",
+      "price": 0,
+      "credentials": {
+        "link": "https://link4m.net/mGKB4Xfg"
+      },
+      "createdAt": "2026-10-16T04:35:53.128Z"
+    },
+    {
+      "id": "ORD-374410",
+      "userId": "u_admin_hqk",
+      "username": "hqk",
+      "accountId": "DV-2532",
+      "accountTitle": "Định Vị Android Stock Test",
+      "price": 10000,
+      "credentials": {
+        "link": "https://shopnghiaz.com/test-stock"
+      },
+      "createdAt": "2026-10-16T04:19:34.410Z"
+    },
+    {
+      "id": "ORD-374405",
+      "userId": "u_admin_hqk",
+      "username": "hqk",
+      "accountId": "DV-2532",
+      "accountTitle": "Định Vị Android Stock Test",
+      "price": 10000,
+      "credentials": {
+        "link": "https://shopnghiaz.com/test-stock"
+      },
+      "createdAt": "2026-10-16T04:19:34.405Z"
+    },
+    {
+      "id": "ORD-774597",
+      "userId": "u_admin_hqk",
+      "username": "hqk",
+      "accountId": "DV-3870",
+      "accountTitle": "Định vị súng xanh đỏ android",
+      "price": 0,
+      "credentials": {
+        "link": "https://link4m.org/SCxy9"
+      },
+      "createdAt": "2026-10-16T04:09:34.597Z"
+    },
+    {
+      "id": "ORD-776585",
+      "userId": "u_1792120775984",
+      "username": "tester_1792120775977",
+      "accountId": "DV-8691",
+      "accountTitle": "Định Vị Android Safe Test",
+      "price": 150000,
+      "credentials": {
+        "link": "https://shopnghiaz.com/app/download/dv-android-safe-v1.zip"
+      },
+      "createdAt": "2026-10-16T03:19:36.585Z"
+    },
+    {
+      "id": "ORD-320577",
+      "userId": "u_testuser",
+      "username": "gamer_pro",
+      "accountId": "FF-1002",
+      "accountTitle": "Acc FF Thách Đấu Giá Mềm - MP40 Bích Vàng, XM8 Lôi Thần, Đăng Ký Trắng 100%",
+      "price": 180000,
+      "credentials": {
+        "account": "ffgamer_02@gmail.com",
+        "password": "NghiazPass#99281",
+        "twoFactor": "582910 | 182940"
+      },
+      "createdAt": "2026-10-16T01:32:00.577Z"
+    },
+    {
+      "id": "ORD-8801",
+      "userId": "u_testuser",
+      "username": "gamer_pro",
+      "accountId": "FF-1000",
+      "accountTitle": "Acc FF Tân Thủ Có MP40",
+      "price": 50000,
+      "credentials": {
+        "account": "starter_ff@gmail.com",
+        "password": "PassDemo123@",
+        "twoFactor": "Không có"
+      },
+      "createdAt": "2026-10-15T23:30:59.010Z"
+    }
+  ],
+  "luckyWheel": {
+    "pricePerSpin": 20000,
+    "items": [
+      {
+        "id": 1,
+        "label": "100 Kim Cương",
+        "type": "diamond",
+        "value": 100,
+        "color": "#10b981",
+        "chance": 30
+      },
+      {
+        "id": 2,
+        "label": "500 Kim Cương",
+        "type": "diamond",
+        "value": 500,
+        "color": "#3b82f6",
+        "chance": 20
+      },
+      {
+        "id": 3,
+        "label": "Acc FF VIP",
+        "type": "account",
+        "value": "FF-1002",
+        "color": "#f59e0b",
+        "chance": 5
+      },
+      {
+        "id": 4,
+        "label": "Thẻ Cào 50K",
+        "type": "card",
+        "value": 50000,
+        "color": "#ef4444",
+        "chance": 15
+      },
+      {
+        "id": 5,
+        "label": "9.999 Kim Cương",
+        "type": "diamond",
+        "value": 9999,
+        "color": "#8b5cf6",
+        "chance": 2
+      },
+      {
+        "id": 6,
+        "label": "Chúc Bạn May Mắn",
+        "type": "empty",
+        "value": 0,
+        "color": "#64748b",
+        "chance": 28
+      }
+    ],
+    "history": []
+  }
+}
