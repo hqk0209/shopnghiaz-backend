@@ -19,6 +19,11 @@ if (!fs.existsSync(UPLOADS_DIR)) {
 }
 app.use('/uploads', express.static(UPLOADS_DIR));
 
+// Health check endpoint cho Cron-job / UptimeRobot giữ web luôn thức 24/7
+app.get(['/api/health', '/ping'], (req, res) => {
+  res.json({ status: 'ok', service: 'ShopNghiaZ', uptime: Math.floor(process.uptime()), timestamp: new Date().toISOString() });
+});
+
 // Paths to database files
 const DATA_DIR = path.join(__dirname, 'data');
 if (!fs.existsSync(DATA_DIR)) {
@@ -464,6 +469,13 @@ app.get('/api/admin/deposits', requireAdmin, (req, res) => {
   const transactions = readJSON(TRANSACTIONS_FILE, []);
   const deposits = transactions.filter(t => t.type === 'DEPOSIT');
   res.json({ success: true, data: deposits });
+});
+
+// 3.1 Lấy toàn bộ lịch sử đơn mua hàng của các user cho Admin
+app.get('/api/admin/orders', requireAdmin, (req, res) => {
+  const transactions = readJSON(TRANSACTIONS_FILE, []);
+  const orders = transactions.filter(t => t.type === 'PURCHASE' || t.type === 'BUY');
+  res.json({ success: true, data: orders });
 });
 
 // 4. Duyệt nạp tiền cho đơn VietQR (Admin duyệt)
