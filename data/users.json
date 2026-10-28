@@ -2,7 +2,7 @@
   {
     "id": "admin_nghiaz",
     "username": "nghiaz",
-    "password": "$2b$10$a63kmNkU5zt2XElsDjiTXOeIqPAIotoygFJkpHjaL3IOkJWn.0d86",
+    "password": "$2b$10$sY/DXTeiXJ33elr4knYabONlZe3X5tt1AhLjsPkHfBmbZ6QI0nHUi",
     "fullname": "Admin NghiaZ (Chủ Shop)",
     "balance": 9930000,
     "role": "admin",
@@ -79,5 +79,23 @@
     "balance": 0,
     "role": "user",
     "createdAt": "2026-10-26T13:02:03.474Z"
+  },
+  {
+    "id": "user_1793021232398",
+    "username": "nghiazzdz1234",
+    "password": "$2b$10$FzJW1ZPqzh2yLZtSFXhH9.om0IOtPRk/aiFUFhWf9ovZ26wxOUbF6",
+    "fullname": "Nguyễn Trọng Nghĩa",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T13:27:12.398Z"
+  },
+  {
+    "id": "user_1793021526323",
+    "username": "hhi_haha",
+    "password": "$2b$10$JTsC.079bZSARheK.lU3vOzfg7xF84IUtdFdhPdB9pT155ljZwggG",
+    "fullname": "Nguyễn Phú Thành",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T13:32:06.323Z"
   }
 ]

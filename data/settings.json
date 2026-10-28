@@ -1,8 +1,8 @@
 {
-  "shopName": "ShopNghiaz",
+  "shopName": "ShopNghiaZ",
   "shopTitle": "ShopNghiaZ - Shop định vị uy tín số 1 Việt Nam",
   "shopDesc": "SHOP ĐỊNH VỊ UY TÍN - GIÁ RẺ - TỰ ĐỘNG SỐ 1 VIỆT NAM. Bảo hành trọn đời, hỗ trợ 24/7.",
-  "shopNotice": "🔥 CHÀO MỪNG ĐẾN VỚI SHOPNGHIAZ! NẠP TIỀN QUA VIETQR DUYỆT NHANH CHÓNG 24/7! 🔥",
+  "shopNotice": "⚡ Ưu đãi nạp tiền: Nạp tự động VietQR & Thẻ cào siêu tốc 24/7! Hỗ trợ nhiệt tình.",
   "shopNoticeActive": true,
   "contactZalo": "0868915360",
   "contactPhone": "0868915360",
@@ -13,7 +13,15 @@
   "accountNo": "8950102794",
   "accountName": "TRAN THI HOA",
   "categories": [
-    "Tất cả"
+    "Tất cả",
+    "Định Vị Android",
+    "Định Vị iOS"
   ],
-  "adminUsername": "nghiaz"
+  "adminUsername": "nghiaz",
+  "autoApproveEnabled": true,
+  "webhookSecretKey": "shopnghiaz_secret_key_2026",
+  "cardAutoEnabled": true,
+  "gachthefastPartnerId": "",
+  "gachthefastPartnerKey": "",
+  "cardDiscountRate": 85
 }
