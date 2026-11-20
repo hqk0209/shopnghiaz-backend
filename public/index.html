@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>shopnghiaz - shop định vị uy tín số 1 Việt Nam</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#070c14] text-slate-100 min-h-screen flex flex-col font-sans selection:bg-emerald-500 selection:text-black pb-16 md:pb-0">
+
+  <!-- TOP ANNOUNCEMENT BANNER -->
+  <div id="shopNoticeBanner" class="bg-gradient-to-r from-emerald-950/80 via-teal-950/80 to-emerald-950/80 border-b border-emerald-500/20 px-3 py-2 text-xs text-center text-emerald-200 flex items-center justify-between gap-2 shadow-sm transition">
+    <div class="flex-1 flex items-center justify-center gap-2 truncate">
+      <span class="flex h-2 w-2 relative shrink-0">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+      </span>
+      <span id="shopNoticeText" class="truncate font-medium">⚡ Ưu đãi nạp tiền: Quét mã VietQR duyệt nhanh chóng, hỗ trợ mọi ngân hàng & ví điện tử 24/7!</span>
+    </div>
+    <button onclick="dismissNotice()" class="text-emerald-400/80 hover:text-white p-0.5 rounded transition">
+      <i data-lucide="x" class="w-3.5 h-3.5"></i>
+    </button>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav class="sticky top-0 z-40 bg-[#090e1a]/90 backdrop-blur-md border-b border-emerald-500/20">
+    <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-14 sm:h-16 gap-2">
+        <!-- Logo & Shop Name -->
+        <div class="flex items-center gap-2.5 cursor-pointer shrink-0" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+          <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+            <i data-lucide="shield-check" class="w-5 h-5 text-slate-950 font-bold"></i>
+          </div>
+          <div>
+            <span id="navShopName" class="text-lg sm:text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-emerald-100 to-teal-300 bg-clip-text text-transparent">ShopNghiaZ</span>
+            <span class="hidden sm:inline-block ml-1.5 px-2 py-0.2 text-[10px] font-bold bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 rounded-full">Pro Store</span>
+          </div>
+        </div>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden md:flex items-center gap-1">
+          <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="nav-btn active px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 flex items-center gap-1.5">
+            <i data-lucide="home" class="w-4 h-4"></i> Cửa Hàng
+          </button>
+          <button onclick="openDepositModal()" class="nav-btn px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg text-slate-300 hover:text-emerald-400 hover:bg-slate-800/60 transition flex items-center gap-1.5">
+            <i data-lucide="qr-code" class="w-4 h-4 text-emerald-400"></i> Nạp VietQR
+          </button>
+          <button id="navAdminBtn" onclick="openAdminPanel()" class="hidden nav-btn px-3 py-1.5 text-xs sm:text-sm font-bold rounded-lg text-amber-300 hover:text-amber-200 bg-amber-500/10 border border-amber-500/30 hover:bg-amber-500/20 transition flex items-center gap-1.5">
+            <i data-lucide="crown" class="w-4 h-4 text-amber-400"></i> Quản Trị
+          </button>
+          <button onclick="openHistoryModal()" class="nav-btn px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-lg text-slate-300 hover:text-emerald-400 hover:bg-slate-800/60 transition flex items-center gap-1.5">
+            <i data-lucide="clock" class="w-4 h-4 text-cyan-400"></i> Lịch Sử
+          </button>
+        </div>
+
+        <!-- User Controls / Auth Buttons -->
+        <div class="flex items-center gap-2">
+          <!-- Balance Pill (Khi đã đăng nhập) -->
+          <div id="userLoggedInBlock" class="hidden flex items-center gap-2">
+            <div class="bg-slate-900/90 border border-emerald-500/30 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl flex items-center gap-2">
+              <div class="text-right">
+                <p id="usernameText" class="text-[10px] text-slate-400 font-medium truncate max-w-[90px] sm:max-w-[120px]">User</p>
+                <p id="userBalanceText" class="text-xs sm:text-sm font-extrabold text-emerald-400 font-mono">0 đ</p>
+              </div>
+              <button onclick="openDepositModal()" title="Nạp tiền" class="p-1 sm:p-1.5 bg-emerald-500 hover:bg-emerald-400 text-slate-950 rounded-lg transition font-bold shadow-md shadow-emerald-500/20">
+                <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+
+            <!-- Nút Admin cho desktop -->
+            <button id="adminBadge" onclick="openAdminPanel()" class="hidden px-2.5 py-1.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs hover:bg-amber-400 transition shadow-md shadow-amber-500/20 flex items-center gap-1">
+              <i data-lucide="crown" class="w-3.5 h-3.5"></i>
+              <span class="hidden sm:inline">Quản Trị</span>
+            </button>
+
+            <!-- Nút Đăng xuất -->
+            <button onclick="logout()" title="Đăng xuất" class="p-1.5 sm:p-2 rounded-xl text-slate-400 hover:text-rose-400 hover:bg-slate-800/60 transition">
+              <i data-lucide="log-out" class="w-4 h-4"></i>
+            </button>
+          </div>
+
+          <!-- Chưa đăng nhập -->
+          <div id="userLoggedOutBlock" class="flex items-center gap-2">
+            <button onclick="openAuthModal('login')" class="px-3 py-1.5 text-xs sm:text-sm font-semibold rounded-xl text-slate-200 hover:text-white bg-slate-800/80 hover:bg-slate-700 transition">
+              Đăng Nhập
+            </button>
+            <button onclick="openAuthModal('register')" class="px-3 py-1.5 text-xs sm:text-sm font-bold rounded-xl bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 shadow-lg shadow-emerald-500/25 transition">
+              Đăng Ký
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="relative pt-6 pb-6 sm:pt-10 sm:pb-8 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-300 text-xs font-semibold mb-3">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-emerald-400"></i>
+        <span>Hệ Thống Dịch Vụ Số Đẳng Cấp 2026</span>
+      </div>
+
+      <h1 id="heroShopTitle" class="text-2xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-2.5">
+        <span id="heroShopHighlight" class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">ShopNghiaZ</span> - Shop định vị uy tín số 1 Việt Nam
+      </h1>
+      <p id="heroShopDesc" class="text-xs sm:text-base text-slate-300 max-w-2xl mx-auto mb-6">
+        Chuyên cung cấp tài khoản, phần mềm bản quyền & dịch vụ trực tuyến uy tín hàng đầu. Hỗ trợ giao dịch tự động và thanh toán tiện lợi 24/7.
+      </p>
+
+      <!-- Search Bar -->
+      <div class="max-w-xl mx-auto relative">
+        <div class="relative flex items-center">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5"></i>
+          <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Tìm kiếm tài khoản, phần mềm, key bản quyền..." class="w-full bg-slate-900/90 border border-emerald-500/25 focus:border-emerald-400 rounded-2xl pl-10 pr-4 py-2.5 sm:py-3 text-xs sm:text-sm text-slate-100 placeholder-slate-500 focus:outline-none shadow-xl transition">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CATEGORY PILLS (Cuộn ngang linh hoạt trên điện thoại) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-xs sm:text-sm font-bold text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
+        <i data-lucide="layers" class="w-4 h-4 text-emerald-400"></i> Danh Mục Sản Phẩm
+      </h2>
+      <span class="text-[11px] text-slate-500">Chọn mục để lọc nhanh</span>
+    </div>
+    <div id="categoryPillsContainer" class="flex overflow-x-auto gap-2 pb-2 no-scrollbar">
+      <!-- Rendered dynamically by JS -->
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12 flex-1">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-base sm:text-lg font-extrabold text-white flex items-center gap-2">
+        <i data-lucide="zap" class="w-5 h-5 text-emerald-400"></i> Sản Phẩm Nổi Bật
+      </h3>
+      <span id="productCountBadge" class="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/25 font-semibold">0 sản phẩm</span>
+    </div>
+
+    <!-- Product Grid: 2 cột trên điện thoại, 3-4 cột trên máy tính -->
+    <div id="productsGrid" class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-5">
+      <!-- Loaded dynamically via JS -->
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#050810] border-t border-emerald-500/20 py-8 text-xs text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+      <div>
+        <p class="font-extrabold text-slate-200 text-sm mb-1" id="footerShopName">ShopNghiaZ</p>
+        <p class="text-[11px] text-slate-500">Hệ thống phân phối phần mềm và tài khoản số uy tín, an toàn và bảo mật cao.</p>
+      </div>
+      <div id="footerContacts" class="flex flex-wrap items-center justify-center gap-3 text-xs">
+        <!-- Rendered by JS from settings -->
+      </div>
+    </div>
+  </footer>
+
+  <!-- MOBILE BOTTOM DOCK (Thanh điều hướng cố định chân màn hình điện thoại) -->
+  <div class="md:hidden fixed bottom-0 left-0 right-0 z-40 mobile-nav-dock px-3 py-2 flex items-center justify-around shadow-2xl">
+    <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center text-emerald-400 gap-0.5">
+      <i data-lucide="home" class="w-5 h-5"></i>
+      <span class="text-[10px] font-semibold">Cửa Hàng</span>
+    </button>
+    <button onclick="openDepositModal()" class="flex flex-col items-center text-slate-400 hover:text-emerald-400 gap-0.5">
+      <i data-lucide="qr-code" class="w-5 h-5 text-emerald-400"></i>
+      <span class="text-[10px] font-semibold">Nạp Tiền</span>
+    </button>
+    <button id="mobileNavAdminBtn" onclick="openAdminPanel()" class="hidden flex flex-col items-center text-amber-400 gap-0.5">
+      <i data-lucide="crown" class="w-5 h-5 text-amber-400"></i>
+      <span class="text-[10px] font-bold">Quản Trị</span>
+    </button>
+    <button onclick="openHistoryModal()" class="flex flex-col items-center text-slate-400 hover:text-emerald-400 gap-0.5">
+      <i data-lucide="clock" class="w-5 h-5 text-cyan-400"></i>
+      <span class="text-[10px] font-semibold">Lịch Sử</span>
+    </button>
+    <button id="mobileNavAccountBtn" onclick="handleMobileAccountClick()" class="flex flex-col items-center text-slate-400 hover:text-white gap-0.5">
+      <i data-lucide="user" class="w-5 h-5"></i>
+      <span class="text-[10px] font-semibold" id="mobileAccountLabel">Tài Khoản</span>
+    </button>
+  </div>
+
+  <!-- ==================== MODALS ==================== -->
+
+  <!-- MODAL: BẢNG QUẢN TRỊ ADMIN TOÀN DIỆN -->
+  <div id="adminModal" class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/85 backdrop-blur-md hidden">
+    <div class="bg-slate-900 border border-emerald-500/30 rounded-2xl max-w-4xl w-full p-4 sm:p-6 shadow-2xl relative h-[88vh] max-h-[92vh] min-h-[480px] flex flex-col">
+      <button onclick="closeModal('adminModal')" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-white p-1 rounded-lg">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-2.5 mb-4 pb-3 border-b border-slate-800">
+        <div class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center border border-amber-500/30">
+          <i data-lucide="crown" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-base sm:text-lg font-extrabold text-white flex items-center gap-1.5">
+            Bảng Quản Trị ShopNghiaZ <span class="text-[10px] px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">Admin: nghiaz</span>
+          </h3>
+          <p class="text-[11px] text-slate-400">Thay đổi mọi thứ trong shop: Tên shop, mô tả, danh mục, sản phẩm, VietQR & số dư</p>
+        </div>
+      </div>
+
+      <!-- Admin Tabs Navigation -->
+      <div class="flex flex-wrap items-center gap-1.5 border-b border-slate-800 pb-2.5 mb-3.5 shrink-0">
+        <button id="admTabProduct" onclick="switchAdminTab('product')" class="admin-tab active shrink-0 px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-500 text-slate-950 transition flex items-center gap-1">
+          <i data-lucide="package-plus" class="w-3.5 h-3.5"></i> Thêm/Sửa SP
+        </button>
+        <button id="admTabCategories" onclick="switchAdminTab('categories')" class="admin-tab shrink-0 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white transition flex items-center gap-1">
+          <i data-lucide="tags" class="w-3.5 h-3.5 text-teal-400"></i> Mục Sản Phẩm
+        </button>
+        <button id="admTabShopInfo" onclick="switchAdminTab('shopInfo')" class="admin-tab shrink-0 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white transition flex items-center gap-1">
+          <i data-lucide="palette" class="w-3.5 h-3.5 text-cyan-400"></i> Tên & Mô Tả Shop
+        </button>
+        <button id="admTabUsers" onclick="switchAdminTab('users')" class="admin-tab shrink-0 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white transition flex items-center gap-1">
+          <i data-lucide="users" class="w-3.5 h-3.5 text-indigo-400"></i> Users & Tiền
+        </button>
+        <button id="admTabDeposits" onclick="switchAdminTab('deposits')" class="admin-tab shrink-0 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white transition flex items-center gap-1">
+          <i data-lucide="check-circle" class="w-3.5 h-3.5 text-emerald-400"></i> Duyệt VietQR <span id="pendingBadge" class="hidden text-[10px] bg-rose-500 text-white px-1.5 py-0.2 rounded-full">0</span>
+        </button>
+        <button id="admTabOrders" onclick="switchAdminTab('orders')" class="admin-tab shrink-0 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white transition flex items-center gap-1">
+          <i data-lucide="shopping-cart" class="w-3.5 h-3.5 text-emerald-400"></i> Lịch Sử Đơn Mua
+        </button>
+        <button id="admTabSettings" onclick="switchAdminTab('settings')" class="admin-tab shrink-0 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white transition flex items-center gap-1">
+          <i data-lucide="qr-code" class="w-3.5 h-3.5 text-amber-400"></i> Cấu hình VietQR & Webhook
+        </button>
+        <button id="admTabCards" onclick="switchAdminTab('cards')" class="admin-tab shrink-0 px-3 py-1.5 rounded-xl text-xs font-medium bg-slate-800 text-slate-300 hover:text-white transition flex items-center gap-1">
+          <i data-lucide="credit-card" class="w-3.5 h-3.5 text-amber-400"></i> Thẻ Cào & GachTheFast <span id="cardPendingBadge" class="hidden text-[10px] bg-amber-500 text-slate-950 px-1.5 py-0.2 rounded-full font-bold">0</span>
+        </button>
+      </div>
+
+      <!-- ADMIN TAB 1: THÊM / SỬA SẢN PHẨM & KÉO THẢ ẢNH -->
+      <div id="admSectionProduct" class="flex-1 overflow-y-auto space-y-4 pr-1">
+        <form id="adminAddProductForm" onsubmit="handleAdminAddProductSubmit(event)" class="space-y-3.5 max-w-xl mx-auto">
+          <input type="hidden" id="admEditingProdId" value="">
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Tên sản phẩm *</label>
+            <input type="text" id="admProdName" required placeholder="VD: Tài khoản ChatGPT Plus 1 Tháng" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Giá bán (VNĐ) *</label>
+              <input type="number" id="admProdPrice" required min="0" step="1000" placeholder="100000" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Số lượng tồn kho *</label>
+              <input type="number" id="admProdStock" required min="1" placeholder="99" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Mục sản phẩm (Danh mục)</label>
+            <select id="admProdCategory" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+              <!-- Rendered dynamically -->
+            </select>
+          </div>
+
+          <!-- KÉO THẢ ẢNH HOẶC CHỌN TỪ THƯ MỤC -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center justify-between">
+              <span>Hình ảnh sản phẩm *</span>
+              <span class="text-[11px] text-emerald-400">Kéo thả hoặc mở thư mục</span>
+            </label>
+
+            <div id="dropzoneContainer" onclick="triggerFileInput()" ondragover="handleDragOver(event)" ondragleave="handleDragLeave(event)" ondrop="handleDrop(event)" class="cursor-pointer border-2 border-dashed border-slate-700 hover:border-emerald-500 bg-slate-950/70 p-4 rounded-2xl text-center transition flex flex-col items-center justify-center gap-2 group">
+              <input type="file" id="admProductFileInput" accept="image/*" class="hidden" onchange="handleFileSelect(event)">
+              <div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center group-hover:scale-105 transition">
+                <i data-lucide="image-plus" class="w-5 h-5"></i>
+              </div>
+              <p class="text-xs font-semibold text-slate-200">
+                <span class="text-emerald-400 font-bold">Kéo thả ảnh vào đây</span> hoặc <span class="text-cyan-400 underline">bấm để chọn ảnh từ máy/điện thoại</span>
+              </p>
+              <p class="text-[10px] text-slate-500">Hỗ trợ JPG, PNG, WEBP, GIF, SVG</p>
+            </div>
+
+            <!-- Preview box khi đã chọn ảnh -->
+            <div id="imagePreviewContainer" class="hidden mt-2 relative rounded-xl border border-slate-700 bg-slate-950 p-2 flex items-center gap-3">
+              <img id="imagePreviewImg" src="" class="w-14 h-14 object-cover rounded-lg border border-slate-800 shrink-0">
+              <div class="flex-1 min-w-0">
+                <p id="imagePreviewName" class="text-xs font-bold text-slate-200 truncate">anh_san_pham.png</p>
+                <p id="imagePreviewStatus" class="text-[11px] text-emerald-400">Đã chọn ảnh</p>
+              </div>
+              <button type="button" onclick="clearSelectedImage(event)" class="px-2 py-1 bg-rose-500/20 hover:bg-rose-500 text-rose-300 hover:text-white rounded-lg transition text-xs flex items-center gap-1">
+                <i data-lucide="trash-2" class="w-3.5 h-3.5"></i> Xóa ảnh
+              </button>
+            </div>
+
+            <!-- Fallback URL ảnh online -->
+            <div class="mt-2">
+              <input type="url" id="admProdImage" placeholder="Hoặc dán trực tiếp link ảnh online: https://..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-xs text-slate-300 focus:outline-none focus:border-emerald-500">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Mô tả sản phẩm</label>
+            <textarea id="admProdDesc" rows="2" placeholder="Chi tiết bảo hành, hướng dẫn sử dụng..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500"></textarea>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1 flex items-center justify-between">
+              <span class="flex items-center gap-1.5"><i data-lucide="link-2" class="w-3.5 h-3.5 text-cyan-400"></i> Link tải sản phẩm / File dữ liệu</span>
+              <span class="text-[10px] text-slate-500 font-normal">Gửi tự động cho khách sau khi mua</span>
+            </label>
+            <input type="text" id="admProdDownloadUrl" placeholder="VD: https://drive.google.com/file/... hoặc link tải/mã kích hoạt" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-100 focus:outline-none focus:border-cyan-500 font-mono">
+          </div>
+
+          <div class="flex gap-2">
+            <button type="submit" id="admProdSubmitBtn" class="flex-1 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 text-slate-950 font-bold rounded-xl shadow-lg shadow-emerald-500/20 transition flex items-center justify-center gap-1.5 text-xs">
+              <i data-lucide="check" class="w-4 h-4"></i> Đăng Sản Phẩm
+            </button>
+            <button type="button" id="admCancelEditBtn" onclick="cancelEditingProduct()" class="hidden px-4 py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-xl text-xs font-semibold">
+              Hủy
+            </button>
+          </div>
+        </form>
+
+        <!-- Danh sách sản phẩm hiện có để sửa / xóa nhanh -->
+        <div class="pt-4 border-t border-slate-800">
+          <h4 class="text-xs font-bold text-slate-300 mb-2.5 flex items-center gap-1.5">
+            <i data-lucide="list" class="w-3.5 h-3.5 text-emerald-400"></i> Danh Sách Sản Phẩm Trong Shop
+          </h4>
+          <div id="adminProductsList" class="space-y-2">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ADMIN TAB 2: QUẢN LÝ MỤC SẢN PHẨM -->
+      <div id="admSectionCategories" class="hidden flex-1 overflow-y-auto space-y-4 pr-1">
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+          <h4 class="text-xs font-bold text-slate-200 mb-2 flex items-center gap-1.5">
+            <i data-lucide="plus-circle" class="w-4 h-4 text-emerald-400"></i> Thêm Mục Sản Phẩm Mới
+          </h4>
+          <div class="flex gap-2">
+            <input type="text" id="newCategoryInput" placeholder="VD: Tài khoản AI, Khóa học VIP, Tool tự động..." class="flex-1 bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+            <button type="button" onclick="handleAddCategory()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-xs transition flex items-center gap-1 shrink-0">
+              <i data-lucide="plus" class="w-3.5 h-3.5"></i> Thêm Mục
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-bold text-slate-300 mb-2">Các danh mục hiện tại trong shop:</h4>
+          <div id="adminCategoriesList" class="space-y-2">
+            <!-- Loaded by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ADMIN TAB 3: TÊN SHOP & MÔ TẢ -->
+      <div id="admSectionShopInfo" class="hidden flex-1 overflow-y-auto space-y-4 pr-1">
+        <form id="adminShopInfoForm" onsubmit="handleAdminSaveShopInfo(event)" class="space-y-3.5 max-w-xl mx-auto">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Tên thương hiệu Shop *</label>
+              <input type="text" id="cfgShopName" required placeholder="ShopNghiaZ" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-300 mb-1">Tiêu đề khẩu hiệu đầu trang</label>
+              <input type="text" id="cfgShopTitle" required placeholder="Hệ Thống Dịch Vụ Số Cao Cấp" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-300 mb-1">Mô tả giới thiệu Shop</label>
+            <textarea id="cfgShopDesc" rows="2" placeholder="Chuyên cung cấp tài khoản, phần mềm bản quyền..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500"></textarea>
+          </div>
+
+          <div class="p-3 bg-slate-950 rounded-xl border border-slate-800 space-y-2">
+            <div class="flex items-center justify-between">
+              <label class="text-xs font-semibold text-slate-200">Hiển thị thông báo khuyến mãi đầu trang</label>
+              <input type="checkbox" id="cfgShopNoticeActive" class="w-4 h-4 text-emerald-500 rounded focus:ring-0">
+            </div>
+            <input type="text" id="cfgShopNotice" placeholder="VD: Khuyến mãi nạp VietQR tặng 10%..." class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 mb-1">Zalo / Hotline</label>
+              <input type="text" id="cfgContactZalo" placeholder="0987654321" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 mb-1">Telegram CSKH</label>
+              <input type="text" id="cfgContactTelegram" placeholder="nghiaz_support" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+            </div>
+            <div>
+              <label class="block text-xs font-semibold text-slate-400 mb-1">Facebook Fanpage</label>
+              <input type="text" id="cfgContactFacebook" placeholder="https://facebook.com/..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+            </div>
+          </div>
+
+          <button type="submit" class="w-full py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 text-white font-bold rounded-xl shadow-lg transition text-xs flex items-center justify-center gap-1.5">
+            <i data-lucide="save" class="w-4 h-4"></i> Lưu Thông Tin & Cấu Hình Shop
+          </button>
+        </form>
+      </div>
+
+      <!-- ADMIN TAB 4: USERS & TIỀN -->
+      <div id="admSectionUsers" class="hidden flex-1 overflow-y-auto space-y-4 pr-1">
+        <div class="flex items-center justify-between">
+          <h4 class="text-xs sm:text-sm font-bold text-slate-200">Danh sách toàn bộ thành viên</h4>
+          <button onclick="loadAdminUsers()" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 rounded-lg flex items-center gap-1">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Làm mới
+          </button>
+        </div>
+
+        <div class="overflow-x-auto border border-slate-800 rounded-xl">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-950 text-slate-400 uppercase tracking-wider text-[11px] border-b border-slate-800">
+              <tr>
+                <th class="p-2.5">Tài khoản</th>
+                <th class="p-2.5">Họ tên</th>
+                <th class="p-2.5">Số dư ví</th>
+                <th class="p-2.5">Vai trò</th>
+                <th class="p-2.5 text-right">Thao tác</th>
+              </tr>
+            </thead>
+            <tbody id="adminUsersTable" class="divide-y divide-slate-800/60 bg-slate-900/60">
+              <!-- Load users via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ADMIN TAB 5: DUYỆT VIETQR -->
+      <div id="admSectionDeposits" class="hidden flex-1 overflow-y-auto space-y-4 pr-1">
+        <div class="flex items-center justify-between">
+          <h4 class="text-xs sm:text-sm font-bold text-slate-200">Yêu cầu nạp tiền VietQR</h4>
+          <button onclick="loadAdminDeposits()" class="px-2.5 py-1 bg-slate-800 hover:bg-slate-700 text-xs text-slate-300 rounded-lg flex items-center gap-1">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Làm mới
+          </button>
+        </div>
+
+        <div class="overflow-x-auto border border-slate-800 rounded-xl">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-950 text-slate-400 uppercase tracking-wider text-[11px] border-b border-slate-800">
+              <tr>
+                <th class="p-2.5">Mã đơn</th>
+                <th class="p-2.5">User</th>
+                <th class="p-2.5">Số tiền</th>
+                <th class="p-2.5">Nội dung</th>
+                <th class="p-2.5">Trạng thái</th>
+                <th class="p-2.5 text-right">Duyệt</th>
+              </tr>
+            </thead>
+            <tbody id="adminDepositsTable" class="divide-y divide-slate-800/60 bg-slate-900/60">
+              <!-- Load deposits via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ADMIN TAB 6: CẤU HÌNH VIETQR -->
+      <div id="admSectionSettings" class="hidden flex-1 overflow-y-auto space-y-4 pr-1">
+        <form id="adminSettingsForm" onsubmit="handleAdminSaveSettings(event)" class="space-y-3.5 max-w-md mx-auto">
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1">Ngân hàng thụ hưởng (VietQR)</label>
+            <select id="admCfgBankId" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+              <optgroup label="🔥 Ngân Hàng Phổ Biến Nhất">
+                <option value="MB">MBBank - Ngân hàng Quân Đội (Khuyên dùng)</option>
+                <option value="VCB">Vietcombank - Ngoại Thương Việt Nam</option>
+                <option value="CTG">VietinBank - Công Thương Việt Nam</option>
+                <option value="BIDV">BIDV - Đầu tư và Phát triển VN</option>
+                <option value="VBA">Agribank - Nông nghiệp & PTNT</option>
+                <option value="TCB">Techcombank - Kỹ Thương Việt Nam</option>
+                <option value="VPB">VPBank - Việt Nam Thịnh Vượng</option>
+                <option value="ACB">ACB - Ngân hàng Á Châu</option>
+                <option value="TPB">TPBank - Tiên Phong</option>
+                <option value="STB">Sacombank - Sài Gòn Thương Tín</option>
+                <option value="HDB">HDBank - Phát triển TP.HCM</option>
+                <option value="VIB">VIB - Quốc tế Việt Nam</option>
+                <option value="SHB">SHB - Sài Gòn - Hà Nội</option>
+                <option value="MSB">MSB - Hàng Hải</option>
+                <option value="OCB">OCB - Phương Đông</option>
+                <option value="LPB">LPBank - Lộc Phát Việt Nam</option>
+              </optgroup>
+              <optgroup label="📱 Ví Điện Tử & Ngân Hàng Số">
+                <option value="VTMONEY">Viettel Money (ViettelPay)</option>
+                <option value="VNPTMONEY">VNPT Money</option>
+                <option value="MOMO">Ví MoMo (VietQR Napas)</option>
+                <option value="ZALOPAY">Ví ZaloPay (VietQR Napas)</option>
+                <option value="CAKE">CAKE by VPBank</option>
+                <option value="TIMO">Timo by BVBank</option>
+                <option value="TNEX">TNEX by MSB</option>
+                <option value="LIOBANK">Liobank by OCB</option>
+              </optgroup>
+              <optgroup label="🏦 Ngân Hàng Thương Mại Khác">
+                <option value="SSB">SeABank - Đông Nam Á</option>
+                <option value="EIB">Eximbank - Xuất Nhập Khẩu</option>
+                <option value="NAB">Nam A Bank - Nam Á</option>
+                <option value="BAB">Bac A Bank - Bắc Á</option>
+                <option value="BVB">BaoVietBank - Bảo Việt</option>
+                <option value="VAB">VietABank - Việt Á</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1">Số tài khoản / Số điện thoại ví *</label>
+            <input type="text" id="admCfgAccountNo" required placeholder="0987654321" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500 font-mono">
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1">Tên chủ tài khoản (In hoa không dấu) *</label>
+            <input type="text" id="admCfgAccountName" required placeholder="NGUYEN TRONG NGHIA" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500 uppercase">
+          </div>
+
+          <button type="submit" class="w-full py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 text-white font-bold rounded-xl shadow-lg transition text-xs flex items-center justify-center gap-1.5">
+            <i data-lucide="save" class="w-4 h-4"></i> Lưu Cấu Hình VietQR
+          </button>
+        </form>
+
+        <!-- KHUNG CẤU HÌNH TỰ ĐỘNG DUYỆT TỪ NGÂN HÀNG & VÍ ĐIỆN TỬ (SHOPNGHIAZ) -->
+        <div class="mt-5 pt-4 border-t border-slate-800 space-y-3 max-w-md mx-auto">
+          <div class="flex items-center gap-2 text-cyan-400 font-bold text-xs">
+            <i data-lucide="zap" class="w-4 h-4"></i>
+            <span>Tự Động Duyệt Ngân Hàng & Ví Điện Tử (API Webhook)</span>
+          </div>
+          
+          <div class="p-3 bg-slate-950 border border-slate-800 rounded-xl space-y-2 text-xs">
+            <label class="block text-[11px] text-slate-400 font-semibold">1. Đường dẫn Webhook nhận tiền (Dán vào SePay / Casso / Web2M / App MoMo):</label>
+            <div class="flex gap-1.5">
+              <input type="text" id="webhookUrlInput" readonly value="https://shopnghiaz.store/api/webhook/payment" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-cyan-300 font-mono select-all">
+              <button type="button" onclick="copyWebhookUrl()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold shrink-0 transition flex items-center gap-1">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Chép
+              </button>
+            </div>
+            <div class="space-y-1.5 text-[10px] text-slate-400 leading-relaxed bg-slate-900/60 p-2.5 rounded-lg border border-slate-800/80">
+              <p>📱 <strong>Dành riêng cho Ví MoMo cá nhân:</strong></p>
+              <ul class="list-disc pl-4 space-y-1 text-slate-300">
+                <li><strong>Cách 1 (Dễ nhất - Miễn phí 100%):</strong> Cài app <em>MacroDroid</em> hoặc <em>Notification Forwarder</em> trên điện thoại Android có đăng nhập MoMo. Cài đặt tự động bắn POST tới link Webhook trên mỗi khi có thông báo nhận tiền MoMo.</li>
+                <li><strong>Cách 2 (Cổng MoMo tự động):</strong> Dùng dịch vụ cổng MoMo như <em>Web2M.com</em> hoặc <em>Thesieure</em> -> Dán link Webhook vào mục callback của MoMo.</li>
+                <li><strong>Cách 3 (SePay / Casso):</strong> Quét mã VietQR MoMo tự động nhận diện qua SePay.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Khung test giả lập nạp tiền tự động -->
+          <div class="p-3 bg-slate-950/80 border border-cyan-500/20 rounded-xl space-y-2.5 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-slate-200 flex items-center gap-1 text-[11px]">
+                <i data-lucide="flask-conical" class="w-3.5 h-3.5 text-amber-400"></i> Thử Nghiệm Webhook (Giả Lập Nhận Tiền)
+              </span>
+              <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">Miễn phí test</span>
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[10px] text-slate-400 mb-1">Mã nạp hoặc Nội dung CK:</label>
+                <input type="text" id="simContent" placeholder="VD: NAP123456" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white font-mono">
+              </div>
+              <div>
+                <label class="block text-[10px] text-slate-400 mb-1">Số tiền test (VNĐ):</label>
+                <input type="number" id="simAmount" value="50000" step="10000" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white font-mono">
+              </div>
+            </div>
+            <button type="button" onclick="testSimulateWebhook()" class="w-full py-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg text-xs transition flex items-center justify-center gap-1">
+              <i data-lucide="play" class="w-3.5 h-3.5"></i> Bắn Thử Webhook Giả Lập
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADMIN TAB 7: LỊCH SỬ ĐƠN HÀNG MUA CỦA USER -->
+      <div id="admSectionOrders" class="hidden flex-1 overflow-y-auto space-y-3 pr-1">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
+          <div>
+            <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
+              <i data-lucide="package-check" class="w-4 h-4 text-emerald-400"></i> Danh Sách Đơn Mua Của Thành Viên
+            </h4>
+            <p class="text-[11px] text-slate-400">Xem chi tiết ai đã mua món gì, số tiền, ngày giờ và link tải cấp khách</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <input type="text" id="adminOrderSearch" oninput="filterAdminOrders()" placeholder="Tìm theo user / tên SP..." class="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1 text-xs text-slate-200 focus:outline-none focus:border-emerald-500 w-full sm:w-56">
+            <button type="button" onclick="loadAdminOrders()" class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg transition" title="Tải lại">
+              <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Thống kê nhanh -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <div class="bg-slate-950/70 p-2.5 rounded-xl border border-slate-800 text-center">
+            <div class="text-[10px] text-slate-400 font-medium">Tổng Đơn Đã Mua</div>
+            <div id="statTotalOrders" class="text-base font-extrabold text-emerald-400">0</div>
+          </div>
+          <div class="bg-slate-950/70 p-2.5 rounded-xl border border-slate-800 text-center">
+            <div class="text-[10px] text-slate-400 font-medium">Tổng Doanh Thu Bán</div>
+            <div id="statTotalRevenue" class="text-base font-extrabold text-teal-400">0 đ</div>
+          </div>
+          <div class="bg-slate-950/70 p-2.5 rounded-xl border border-slate-800 text-center col-span-2 sm:col-span-1">
+            <div class="text-[10px] text-slate-400 font-medium">Thành Viên Đã Mua</div>
+            <div id="statUniqueBuyers" class="text-base font-extrabold text-amber-400">0</div>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto border border-slate-800 rounded-xl">
+          <table class="w-full text-left text-xs text-slate-300">
+            <thead class="bg-slate-950 text-slate-400 text-[10px] uppercase font-bold sticky top-0 border-b border-slate-800">
+              <tr>
+                <th class="p-2.5">Mã Đơn / Thời Gian</th>
+                <th class="p-2.5">Người Mua</th>
+                <th class="p-2.5">Sản Phẩm</th>
+                <th class="p-2.5 text-right">SL / Đơn Giá</th>
+                <th class="p-2.5 text-right">Tổng Tiền</th>
+                <th class="p-2.5 text-center">Link Tải Cấp Khách</th>
+              </tr>
+            </thead>
+            <tbody id="adminOrdersTable" class="divide-y divide-slate-800/60 font-sans">
+              <!-- Rendered by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ADMIN TAB 8: QUẢN LÝ THẺ CÀO & GACHTHEFAST.COM -->
+      <div id="admSectionCards" class="hidden flex-1 overflow-y-auto space-y-4 pr-1">
+        <!-- 1. Cấu hình kết nối GachTheFast.Com -->
+        <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-3.5">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 text-amber-400 font-bold text-xs sm:text-sm">
+              <i data-lucide="zap" class="w-4 h-4"></i>
+              <span>Cấu Hình Cổng Gạch Thẻ Cào (GachTheFast.Com)</span>
+            </div>
+            <label class="flex items-center gap-1.5 cursor-pointer">
+              <input type="checkbox" id="admCfgCardAutoEnabled" checked class="w-4 h-4 accent-amber-500 rounded">
+              <span class="text-xs text-slate-300 font-medium">Bật gạch thẻ tự động</span>
+            </label>
+          </div>
+
+          <form id="adminCardSettingsForm" onsubmit="handleSaveCardSettings(event)" class="space-y-3">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-400 mb-1">Partner ID (Mã kết nối API)</label>
+                <input type="text" id="admCfgGtfPartnerId" placeholder="Lấy trong menu KẾT NỐI API trên gachthefast.com" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-amber-500">
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-400 mb-1">Partner Key (Khóa bí mật Secret Key)</label>
+                <input type="text" id="admCfgGtfPartnerKey" placeholder="Khóa bảo mật riêng của tài khoản" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-amber-500">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 items-center">
+              <div>
+                <label class="block text-xs font-semibold text-slate-400 mb-1">Tỷ lệ thực nhận cho thành viên (%)</label>
+                <input type="number" id="admCfgCardDiscountRate" value="85" min="1" max="100" class="w-full bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white font-mono focus:outline-none focus:border-amber-500">
+                <span class="text-[10px] text-slate-500">VD: Đặt 85 = Khách nạp thẻ 100k sẽ nhận được 85k vào tài khoản shop.</span>
+              </div>
+              <div class="pt-2 sm:pt-0">
+                <button type="submit" class="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-xl shadow-lg transition text-xs flex items-center justify-center gap-1.5">
+                  <i data-lucide="save" class="w-4 h-4"></i> Lưu Cấu Hình Gạch Thẻ
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Ô Webhook Callback URL -->
+          <div class="p-3 bg-slate-900/80 border border-amber-500/20 rounded-xl space-y-2 text-xs">
+            <label class="block text-[11px] text-slate-300 font-semibold">Đường dẫn Callback URL (Dán vào mục Callback/Webhook trên GachTheFast.Com):</label>
+            <div class="flex gap-1.5">
+              <input type="text" id="cardWebhookUrlInput" readonly value="https://shopnghiaz.store/api/webhook/card" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-amber-300 font-mono select-all">
+              <button type="button" onclick="copyCardWebhookUrl()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold shrink-0 transition flex items-center gap-1">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Chép
+              </button>
+            </div>
+            <div class="text-[10px] text-slate-400 leading-relaxed bg-slate-950/60 p-2.5 rounded-lg border border-slate-800">
+              <p class="font-semibold text-slate-300 mb-1">💡 Các bước kích hoạt đổi thẻ trên GachTheFast.Com:</p>
+              <ol class="list-decimal pl-4 space-y-0.5">
+                <li>Đăng nhập <a href="https://gachthefast.com" target="_blank" class="text-amber-400 underline">GachTheFast.Com</a> -> Chọn menu <strong>"KẾT NỐI API"</strong>.</li>
+                <li>Copy <strong>Partner ID</strong> & <strong>Partner Key</strong> dán vào 2 ô bên trên và bấm Lưu.</li>
+                <li>Dán link <strong>Callback URL</strong> trên vào ô Callback URL trên GachTheFast để nhận kết quả tự động!</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Công cụ test giả lập duyệt thẻ cào -->
+          <div class="p-3 bg-slate-900/60 border border-slate-800 rounded-xl space-y-2 text-xs">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-slate-200 flex items-center gap-1 text-[11px]">
+                <i data-lucide="flask-conical" class="w-3.5 h-3.5 text-amber-400"></i> Giả Lập Gạch Thẻ Tự Động (Test Miễn Phí)
+              </span>
+              <span class="text-[10px] text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded">Không cần thẻ thật</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div class="sm:col-span-2">
+                <input type="text" id="simCardRequestId" placeholder="Nhập mã đơn thẻ cần test (VD: CARD_...)" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white font-mono">
+              </div>
+              <div>
+                <select id="simCardStatus" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-white">
+                  <option value="1">Duyệt Thành Công (Status 1)</option>
+                  <option value="2">Sai Mệnh Giá (Status 2)</option>
+                  <option value="3">Thẻ Lỗi / Đã nạp (Status 3)</option>
+                </select>
+              </div>
+            </div>
+            <button type="button" onclick="testSimulateCardCallback()" class="w-full py-1.5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg text-xs transition flex items-center justify-center gap-1">
+              <i data-lucide="play" class="w-3.5 h-3.5"></i> Bắn Callback Giả Lập
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. Danh sách & Quản lý thẻ cào khách nạp -->
+        <div class="space-y-3">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
+            <div>
+              <h4 class="text-xs font-bold text-white flex items-center gap-1.5">
+                <i data-lucide="credit-card" class="w-4 h-4 text-amber-400"></i> Danh Sách Thẻ Cào Đã Nạp
+              </h4>
+              <p class="text-[11px] text-slate-400">Quản lý toàn bộ thẻ cào thành viên gửi lên hệ thống</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="text" id="adminCardSearch" oninput="filterAdminCards()" placeholder="Tìm theo user / serial / nhà mạng..." class="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1 text-xs text-slate-200 focus:outline-none focus:border-amber-500 w-full sm:w-56">
+              <button type="button" onclick="loadAdminCards()" class="p-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg transition" title="Tải lại">
+                <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto border border-slate-800 rounded-xl">
+            <table class="w-full text-left text-xs text-slate-300">
+              <thead class="bg-slate-950 text-slate-400 text-[10px] uppercase font-bold sticky top-0 border-b border-slate-800">
+                <tr>
+                  <th class="p-2.5">Thời Gian / Mã Đơn</th>
+                  <th class="p-2.5">Người Nạp</th>
+                  <th class="p-2.5">Nhà Mạng / Mệnh Giá</th>
+                  <th class="p-2.5">Serial / Mã PIN</th>
+                  <th class="p-2.5 text-right">Thực Nhận</th>
+                  <th class="p-2.5 text-center">Trạng Thái</th>
+                  <th class="p-2.5 text-center">Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody id="adminCardsTable" class="divide-y divide-slate-800/60 font-sans">
+                <!-- Rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL: ĐIỀU CHỈNH SỐ DƯ (ADMIN) -->
+  <div id="adjustBalanceModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/80 backdrop-blur-md hidden">
+    <div class="bg-slate-900 border border-emerald-500/30 rounded-2xl max-w-sm w-full p-4 sm:p-5 shadow-2xl relative">
+      <button onclick="closeModal('adjustBalanceModal')" class="absolute top-3 right-3 text-slate-400 hover:text-white p-1 rounded-lg">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3 pb-2.5 border-b border-slate-800">
+        <div class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+          <i data-lucide="coins" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white">Quản Lý Tiền Thành Viên</h3>
+          <p class="text-[11px] text-slate-400" id="adjustTargetUserLabel">Tài khoản: -</p>
+        </div>
+      </div>
+
+      <div class="mb-3 p-2.5 bg-slate-950 rounded-xl border border-slate-800 flex items-center justify-between">
+        <span class="text-xs text-slate-400">Số dư hiện tại:</span>
+        <span id="adjustCurrentBalanceText" class="text-xs font-bold text-emerald-400 font-mono">0 đ</span>
+      </div>
+
+      <!-- Chọn hành động: Cộng / Trừ / Xóa sạch -->
+      <div class="grid grid-cols-3 gap-1.5 mb-3.5 bg-slate-950 p-1 rounded-xl border border-slate-800">
+        <button type="button" id="btnModeAdd" onclick="setBalanceMode('add')" class="py-1.5 text-xs font-bold rounded-lg bg-emerald-600 text-white transition flex items-center justify-center gap-1 shadow-sm">
+          <i data-lucide="plus" class="w-3 h-3"></i> Cộng tiền
+        </button>
+        <button type="button" id="btnModeDeduct" onclick="setBalanceMode('deduct')" class="py-1.5 text-xs font-medium rounded-lg text-slate-400 hover:text-white transition flex items-center justify-center gap-1">
+          <i data-lucide="minus" class="w-3 h-3"></i> Giảm bớt
+        </button>
+        <button type="button" id="btnModeReset" onclick="setBalanceMode('reset')" class="py-1.5 text-xs font-medium rounded-lg text-rose-400 hover:bg-rose-500/10 transition flex items-center justify-center gap-1">
+          <i data-lucide="trash-2" class="w-3 h-3"></i> Xóa về 0đ
+        </button>
+      </div>
+
+      <form id="adjustBalanceForm" onsubmit="handleAdjustBalanceSubmit(event)" class="space-y-3">
+        <input type="hidden" id="adjustUsername" value="">
+
+        <div id="balanceAmountGroup">
+          <label id="balanceAmountLabel" class="block text-xs font-semibold text-emerald-400 mb-1">Số tiền muốn CỘNG THÊM (VNĐ):</label>
+          <input type="number" id="balanceAmountInput" min="1000" step="1000" placeholder="100000" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500 font-mono">
+        </div>
+
+        <div id="balanceResetWarning" class="hidden p-2.5 bg-rose-500/10 border border-rose-500/30 rounded-xl text-center">
+          <p class="text-xs text-rose-300 font-bold mb-0.5">⚠️ CẢNH BÁO XÓA TIỀN</p>
+          <p class="text-[11px] text-rose-200/80">Số dư tài khoản này sẽ bị đưa về <span class="font-bold underline">0 VNĐ</span> ngay lập tức.</p>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-400 mb-1">Lý do điều chỉnh (Không bắt buộc)</label>
+          <input type="text" id="balanceReasonInput" placeholder="VD: Thưởng sự kiện, trừ vi phạm..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-1.5 text-xs text-slate-100 focus:outline-none focus:border-slate-600">
+        </div>
+
+        <button type="submit" id="balanceSubmitBtn" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-1.5 text-xs">
+          <i data-lucide="check" class="w-4 h-4"></i> Xác Nhận Cộng Tiền
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: NẠP TIỀN VIETQR (USER) -->
+    <div id="depositModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/75 backdrop-blur-sm hidden">
+    <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-4 sm:p-6 shadow-2xl relative max-h-[92vh] overflow-y-auto">
+      <button onclick="closeModal('depositModal')" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-white p-1 rounded-lg">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center gap-2.5 mb-3">
+        <div class="w-9 h-9 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center border border-cyan-500/20">
+          <i data-lucide="wallet-cards" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-white">Nạp Tiền Vào Ví</h3>
+          <p class="text-[11px] text-slate-400">Tự động duyệt 24/7 qua VietQR hoặc Thẻ Cào</p>
+        </div>
+      </div>
+
+      <!-- Segmented Tab Switcher (VietQR / Thẻ Cào) -->
+      <div class="flex rounded-xl bg-slate-950 p-1 border border-slate-800 mb-4 gap-1">
+        <button type="button" id="depTabVietQR" onclick="switchDepositMode('vietqr')" class="flex-1 py-1.5 px-2 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-gradient-to-r from-cyan-600 to-indigo-600 text-white shadow">
+          <i data-lucide="qr-code" class="w-3.5 h-3.5"></i> Chuyển Khoản VietQR
+        </button>
+        <button type="button" id="depTabCard" onclick="switchDepositMode('card')" class="flex-1 py-1.5 px-2 rounded-lg text-xs font-medium text-slate-400 hover:text-white hover:bg-slate-800/60 transition flex items-center justify-center gap-1.5">
+          <i data-lucide="credit-card" class="w-3.5 h-3.5 text-amber-400"></i> Nạp Thẻ Cào
+        </button>
+      </div>
+
+      <!-- PHẦN CHUYỂN KHOẢN VIETQR -->
+      <div id="vietqrDepositBox" class="space-y-3.5">
+        <!-- Step 1: Chọn số tiền -->
+        <div id="depositStep1" class="space-y-3.5">
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Chọn nhanh số tiền nạp:</label>
+            <div class="grid grid-cols-3 gap-1.5">
+              <button type="button" onclick="selectAmount(20000)" class="amt-btn px-2.5 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 text-xs font-semibold transition">20.000đ</button>
+              <button type="button" onclick="selectAmount(50000)" class="amt-btn px-2.5 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 text-xs font-semibold transition">50.000đ</button>
+              <button type="button" onclick="selectAmount(100000)" class="amt-btn px-2.5 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 text-xs font-semibold transition">100.000đ</button>
+              <button type="button" onclick="selectAmount(200000)" class="amt-btn px-2.5 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 text-xs font-semibold transition">200.000đ</button>
+              <button type="button" onclick="selectAmount(500000)" class="amt-btn px-2.5 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 text-xs font-semibold transition">500.000đ</button>
+              <button type="button" onclick="selectAmount(1000000)" class="amt-btn px-2.5 py-2 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500 text-xs font-semibold transition">1.000.000đ</button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1">Hoặc nhập số tiền khác (VNĐ):</label>
+            <input type="number" id="customAmount" min="10000" step="5000" placeholder="Tối thiểu 10.000đ" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-slate-100 focus:outline-none focus:border-cyan-500">
+          </div>
+
+          <button onclick="createVietQR()" class="w-full py-2.5 bg-gradient-to-r from-cyan-600 to-indigo-600 hover:from-cyan-500 text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-1.5 text-xs">
+            <i data-lucide="qr-code" class="w-4 h-4"></i> Tạo Mã VietQR Thanh Toán
+          </button>
+        </div>
+
+        <!-- Step 2: Hiển thị mã QR -->
+        <div id="depositStep2" class="hidden space-y-3.5 text-center">
+          <div class="bg-white p-2.5 rounded-2xl inline-block shadow-xl border-4 border-cyan-500/30">
+            <img id="vietqrImage" src="" alt="Mã VietQR" class="w-56 h-56 object-contain mx-auto rounded-lg">
+          </div>
+
+          <div class="bg-slate-950 border border-slate-800 rounded-xl p-3 text-left space-y-1.5 text-xs">
+            <div class="flex justify-between">
+              <span class="text-slate-400">Ngân hàng:</span>
+              <span id="qrBankName" class="font-bold text-white">MB</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Số tài khoản:</span>
+              <span id="qrAccountNo" class="font-mono font-bold text-cyan-400 text-sm">0987654321</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Chủ tài khoản:</span>
+              <span id="qrAccountName" class="font-bold text-white uppercase">NGUYEN TRONG NGHIA</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-slate-400">Số tiền:</span>
+              <span id="qrAmountText" class="font-bold text-emerald-400 text-sm">50.000 VNĐ</span>
+            </div>
+            <div class="pt-2 border-t border-slate-800 flex items-center justify-between">
+              <div>
+                <span class="text-slate-400 block text-[10px]">Nội dung chuyển khoản (BẮT BUỘC):</span>
+                <span id="qrMemo" class="font-mono font-bold text-amber-400 text-xs">NAP123456</span>
+              </div>
+              <button onclick="copyMemo()" class="px-2.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold transition flex items-center gap-1 shrink-0">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i> Chép
+              </button>
+            </div>
+          </div>
+
+          <!-- Live Auto-Approval Pulse Box -->
+          <div id="depositLiveStatusBox" class="bg-indigo-950/70 border border-cyan-500/30 rounded-xl p-3 text-xs text-indigo-200 flex items-start gap-2.5 text-left transition-all">
+            <span class="flex h-3 w-3 relative shrink-0 mt-0.5">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
+            </span>
+            <div class="flex-1">
+              <p id="depositStatusTitle" class="font-bold text-white flex items-center justify-between">
+                <span>Đang chờ chuyển tiền...</span>
+                <span class="text-[10px] text-cyan-400 bg-cyan-500/10 px-1.5 py-0.2 rounded-full font-normal">Tự duyệt 24/7</span>
+              </p>
+              <p id="depositStatusDesc" class="text-slate-400 text-[11px] mt-0.5">
+                Sau khi bạn quét mã VietQR và xác nhận chuyển khoản trên App Ngân Hàng/Ví, hệ thống sẽ tự động duyệt cộng tiền trong vài giây!
+              </p>
+            </div>
+          </div>
+
+          <div id="depositActionBtns" class="space-y-2">
+            <button type="button" onclick="checkManualDepositStatus()" class="w-full py-2.5 bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 text-white font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-1.5 text-xs">
+              <i data-lucide="refresh-cw" class="w-4 h-4"></i> Kiểm Tra Trạng Thái Ngay
+            </button>
+            <button type="button" onclick="backToStep1()" class="text-xs text-slate-400 hover:text-white transition">
+              ← Chọn lại số tiền khác
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHẦN NẠP THẺ CÀO (GACHTHEFAST.COM) -->
+      <div id="cardDepositBox" class="hidden space-y-3.5">
+        <form id="cardDepositForm" onsubmit="handleCardDepositSubmit(event)" class="space-y-3">
+          <!-- Chọn nhà mạng -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1.5">Chọn nhà mạng thẻ:</label>
+            <div class="grid grid-cols-3 gap-1.5" id="cardTelcoSelector">
+              <button type="button" onclick="selectCardTelco('VIETTEL')" class="card-telco-btn active px-2 py-1.5 rounded-xl bg-slate-950 border border-amber-500 text-amber-400 text-xs font-bold transition text-center shadow-sm">VIETTEL</button>
+              <button type="button" onclick="selectCardTelco('VINAPHONE')" class="card-telco-btn px-2 py-1.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500 text-slate-300 text-xs font-semibold transition text-center">VINAPHONE</button>
+              <button type="button" onclick="selectCardTelco('MOBIFONE')" class="card-telco-btn px-2 py-1.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500 text-slate-300 text-xs font-semibold transition text-center">MOBIFONE</button>
+              <button type="button" onclick="selectCardTelco('VIETNAMOBILE')" class="card-telco-btn px-2 py-1.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500 text-slate-300 text-xs font-semibold transition text-center">VNMOBILE</button>
+              <button type="button" onclick="selectCardTelco('ZING')" class="card-telco-btn px-2 py-1.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500 text-slate-300 text-xs font-semibold transition text-center">ZING</button>
+              <button type="button" onclick="selectCardTelco('GATE')" class="card-telco-btn px-2 py-1.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-amber-500 text-slate-300 text-xs font-semibold transition text-center">GATE</button>
+            </div>
+            <input type="hidden" id="cardTelcoInput" value="VIETTEL">
+          </div>
+
+          <!-- Mệnh giá thẻ -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1">Mệnh giá thẻ (VNĐ):</label>
+            <select id="cardAmountSelect" onchange="updateCardReceiveAmount()" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-amber-500 font-semibold">
+              <option value="10000">10.000 VNĐ</option>
+              <option value="20000">20.000 VNĐ</option>
+              <option value="30000">30.000 VNĐ</option>
+              <option value="50000">50.000 VNĐ</option>
+              <option value="100000" selected>100.000 VNĐ</option>
+              <option value="200000">200.000 VNĐ</option>
+              <option value="300000">300.000 VNĐ</option>
+              <option value="500000">500.000 VNĐ</option>
+              <option value="1000000">1.000.000 VNĐ</option>
+            </select>
+          </div>
+
+          <!-- Thông báo thực nhận -->
+          <div class="bg-amber-500/10 border border-amber-500/20 rounded-xl p-2.5 flex items-center justify-between text-xs">
+            <span class="text-slate-300 flex items-center gap-1">
+              <i data-lucide="coins" class="w-3.5 h-3.5 text-amber-400"></i> Thực nhận vào ví:
+            </span>
+            <span id="cardReceiveAmountDisplay" class="font-bold text-amber-400 text-sm">85.000 VNĐ</span>
+          </div>
+
+          <!-- Số Serial -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1">Số Serial (In trên thẻ)</label>
+            <input type="text" id="cardSerialInput" required placeholder="Nhập dãy số Serial..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white font-mono focus:outline-none focus:border-amber-500 uppercase tracking-wider">
+          </div>
+
+          <!-- Mã Thẻ (PIN) -->
+          <div>
+            <label class="block text-xs font-semibold text-slate-400 mb-1">Mã thẻ (Dưới lớp tráng bạc)</label>
+            <input type="text" id="cardCodeInput" required placeholder="Nhập mã nạp PIN..." class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3.5 py-2 text-xs text-white font-mono focus:outline-none focus:border-amber-500 tracking-wider">
+          </div>
+
+          <p class="text-[10px] text-amber-300/80 leading-relaxed bg-slate-950/60 p-2 rounded-lg border border-slate-800">
+            ⚠️ <strong>Lưu ý:</strong> Vui lòng chọn chính xác nhà mạng và mệnh giá. Nếu chọn sai mệnh giá, nhà mạng sẽ phạt theo quy định gạch thẻ tự động.
+          </p>
+
+          <button type="submit" id="submitCardBtn" class="w-full py-2.5 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold rounded-xl shadow-lg transition flex items-center justify-center gap-1.5 text-xs">
+            <i data-lucide="send" class="w-4 h-4"></i> Nạp Thẻ Ngay (Duyệt Tự Động)
+          </button>
+        </form>
+
+        <!-- Khung trạng thái thẻ cào realtime -->
+        <div id="cardLiveStatusBox" class="hidden bg-slate-950 border border-amber-500/30 rounded-xl p-3 text-xs space-y-2">
+          <div class="flex items-start gap-2.5">
+            <span class="flex h-3 w-3 relative shrink-0 mt-0.5">
+              <span id="cardStatusPing" class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span id="cardStatusDot" class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+            </span>
+            <div class="flex-1">
+              <p id="cardStatusTitle" class="font-bold text-white text-xs">Đang kiểm tra thẻ trên GachTheFast.Com...</p>
+              <p id="cardStatusDesc" class="text-slate-400 text-[11px] mt-0.5">Hệ thống đang kết nối nhà mạng để gạch thẻ tự động. Vui lòng chờ 5 - 30 giây.</p>
+            </div>
+          </div>
+          <button type="button" onclick="refreshCardStatus()" class="w-full py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1">
+            <i data-lucide="refresh-cw" class="w-3.5 h-3.5"></i> Kiểm Tra Trạng Thái
+          </button>
+        </div>
+
+        <!-- Lịch sử nạp thẻ gần đây của tài khoản -->
+        <div class="pt-2 border-t border-slate-800/80">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-[11px] font-bold text-slate-400 flex items-center gap-1">
+              <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i> Lịch Sử Thẻ Cào Đã Gửi
+            </span>
+            <button type="button" onclick="loadUserCardHistory()" class="text-[10px] text-amber-400 hover:underline">Làm mới</button>
+          </div>
+          <div id="userCardHistoryList" class="space-y-1.5 max-h-36 overflow-y-auto pr-0.5 text-xs">
+            <div class="text-center py-2 text-slate-500 text-[11px]">Chưa có yêu cầu nạp thẻ nào gần đây.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: NHẬN LINK TẢI SẢN PHẨM SAU KHI MUA THÀNH CÔNG -->
+  <div id="buySuccessModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/85 backdrop-blur-md hidden">
+    <div class="bg-slate-900 border border-emerald-500/40 rounded-2xl max-w-sm w-full p-4 sm:p-5 shadow-2xl relative text-center">
+      <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-3 border border-emerald-500/30">
+        <i data-lucide="check" class="w-6 h-6"></i>
+      </div>
+
+      <h3 class="text-base font-extrabold text-white mb-1">Mua Hàng Thành Công!</h3>
+      <p id="buySuccessProductName" class="text-xs text-slate-300 mb-3 font-semibold">Tên sản phẩm</p>
+
+      <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-left mb-3.5">
+        <label class="block text-[11px] font-bold text-cyan-400 mb-1 flex items-center gap-1">
+          <i data-lucide="link" class="w-3 h-3"></i> Link Tải Về / Nhận Sản Phẩm:
+        </label>
+        <div id="buySuccessDownloadLinkText" class="p-2 bg-slate-900 rounded-lg text-xs font-mono text-emerald-300 break-all select-all border border-slate-800">
+          https://...
+        </div>
+      </div>
+
+      <div class="flex gap-2">
+        <button onclick="copyBuySuccessLink()" class="flex-1 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-xl text-xs font-semibold flex items-center justify-center gap-1">
+          <i data-lucide="copy" class="w-3.5 h-3.5"></i> Sao Chép
+        </button>
+        <a id="buySuccessDownloadBtn" href="#" target="_blank" class="flex-1 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 text-slate-950 font-bold rounded-xl text-xs flex items-center justify-center gap-1 shadow-md">
+          <i data-lucide="download" class="w-3.5 h-3.5"></i> Tải Về Ngay
+        </a>
+      </div>
+
+      <button onclick="closeModal('buySuccessModal')" class="mt-3 text-xs text-slate-400 hover:text-white">
+        Đóng cửa sổ
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL: ĐĂNG NHẬP / ĐĂNG KÝ -->
+  <div id="authModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/80 backdrop-blur-md hidden">
+    <div class="bg-slate-900 border border-emerald-500/30 rounded-2xl max-w-sm w-full p-5 shadow-2xl relative">
+      <button onclick="closeModal('authModal')" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-white p-1 rounded-lg">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Tab Chuyển Đổi Login / Register -->
+      <div class="flex border-b border-slate-800 mb-4 text-center">
+        <button id="tabLogin" onclick="switchAuthTab('login')" class="flex-1 py-2 text-xs font-bold text-emerald-400 border-b-2 border-emerald-500">
+          Đăng Nhập
+        </button>
+        <button id="tabRegister" onclick="switchAuthTab('register')" class="flex-1 py-2 text-xs font-medium text-slate-400 hover:text-white">
+          Đăng Ký
+        </button>
+      </div>
+
+      <form id="authForm" onsubmit="handleAuthSubmit(event)" class="space-y-3">
+        <div id="fullnameGroup" class="hidden">
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Họ và tên</label>
+          <input type="text" id="authFullname" placeholder="Nguyễn Trọng Nghĩa" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Tài khoản *</label>
+          <input type="text" id="authUsername" required placeholder="nhập tên tài khoản" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1">Mật khẩu *</label>
+          <input type="password" id="authPassword" required placeholder="••••••••" class="w-full bg-slate-950 border border-slate-800 rounded-xl px-3 py-2 text-xs text-slate-100 focus:outline-none focus:border-emerald-500">
+        </div>
+
+        <button type="submit" id="authSubmitBtn" class="w-full py-2.5 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 text-slate-950 font-bold rounded-xl shadow-lg transition text-xs flex items-center justify-center gap-1.5 mt-2">
+          Đăng Nhập
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: LỊCH SỬ GIAO DỊCH -->
+  <div id="historyModal" class="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/80 backdrop-blur-md hidden">
+    <div class="bg-slate-900 border border-emerald-500/30 rounded-2xl max-w-lg w-full p-4 sm:p-5 shadow-2xl relative max-h-[85vh] flex flex-col">
+      <button onclick="closeModal('historyModal')" class="absolute top-3.5 right-3.5 text-slate-400 hover:text-white p-1 rounded-lg">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <div class="flex items-center gap-2 mb-3 pb-2.5 border-b border-slate-800 shrink-0">
+        <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-400 flex items-center justify-center">
+          <i data-lucide="clock" class="w-4 h-4"></i>
+        </div>
+        <div>
+          <h3 class="text-sm font-bold text-white">Lịch Sử Giao Dịch</h3>
+          <p class="text-[11px] text-slate-400">Danh sách nạp tiền & các sản phẩm đã mua</p>
+        </div>
+      </div>
+
+      <div id="historyList" class="flex-1 overflow-y-auto space-y-2 pr-1">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toastContainer"></div>
+
+  <!-- MAIN JS APP -->
+  <script src="app.js"></script>
+</body>
+</html>
