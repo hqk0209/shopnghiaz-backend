@@ -95,6 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
   refreshUserBalance();
   initWebhookInputs();
 
+  // Tự động làm mới số dư khi người dùng quay lại tab hoặc định kỳ 30 giây
+  window.addEventListener('focus', () => {
+    if (currentUser) refreshUserBalance();
+  });
+  setInterval(() => {
+    if (currentUser) refreshUserBalance();
+  }, 30000);
+
   if (window.lucide && typeof lucide.createIcons === 'function') {
     lucide.createIcons();
   }
@@ -311,7 +319,7 @@ async function loadProducts() {
   try {
     const res = await fetch('/api/products');
     const data = await res.json();
-    if (data.success && Array.isArray(data.data) && data.data.length > 0) {
+    if (data.success && Array.isArray(data.data)) {
       allProducts = data.data;
       localStorage.setItem('shopnghiaz_cached_products', JSON.stringify(allProducts));
       renderProducts();
@@ -988,10 +996,85 @@ function updateAuthUI() {
   if (window.lucide) lucide.createIcons();
 }
 
+function openChangePasswordModal() {
+  if (!currentUser) {
+    showToast('Vui lòng đăng nhập trước!', 'warning');
+    openAuthModal('login');
+    return;
+  }
+  const oldInp = document.getElementById('changePassOld');
+  const newInp = document.getElementById('changePassNew');
+  const confirmInp = document.getElementById('changePassConfirm');
+  if (oldInp) oldInp.value = '';
+  if (newInp) newInp.value = '';
+  if (confirmInp) confirmInp.value = '';
+  openModal('changePasswordModal');
+}
+
+async function handleChangePasswordSubmit(e) {
+  e.preventDefault();
+  const oldPass = document.getElementById('changePassOld')?.value || '';
+  const newPass = document.getElementById('changePassNew')?.value || '';
+  const confirmPass = document.getElementById('changePassConfirm')?.value || '';
+
+  if (!oldPass || !newPass) {
+    showToast('Vui lòng nhập đầy đủ thông tin!', 'warning');
+    return;
+  }
+
+  if (newPass.length < 6) {
+    showToast('Mật khẩu mới phải có ít nhất 6 ký tự!', 'warning');
+    return;
+  }
+
+  if (newPass !== confirmPass) {
+    showToast('Xác nhận mật khẩu mới không khớp!', 'error');
+    return;
+  }
+
+  const btn = document.getElementById('changePassSubmitBtn');
+  const originalText = btn ? btn.innerHTML : 'Đổi Mật Khẩu';
+  if (btn) {
+    btn.disabled = true;
+    btn.innerText = 'Đang xử lý...';
+  }
+
+  try {
+    const res = await fetch('/api/auth/change-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        oldPassword: oldPass,
+        newPassword: newPass
+      })
+    });
+    const data = await res.json();
+    if (data.success) {
+      showToast('Đổi mật khẩu thành công!', 'success');
+      closeModal('changePasswordModal');
+    } else {
+      showToast(data.message || 'Lỗi khi đổi mật khẩu', 'error');
+    }
+  } catch (err) {
+    showToast('Lỗi kết nối máy chủ', 'error');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.innerHTML = originalText;
+    }
+  }
+}
+
 function handleMobileAccountClick() {
   if (currentUser) {
-    const ok = confirm(`Tài khoản: ${currentUser.username}\nSố dư: ${Number(currentUser.balance || 0).toLocaleString('vi-VN')} đ\nBạn có muốn đăng xuất không?`);
-    if (ok) logout();
+    const action = prompt(`Tài khoản: ${currentUser.username}\nSố dư: ${Number(currentUser.balance || 0).toLocaleString('vi-VN')} đ\n\nChọn thao tác:\n1. Đổi mật khẩu\n2. Xem lịch sử giao dịch\n3. Đăng xuất\n(Nhập số 1, 2 hoặc 3):`);
+    if (action === '1') {
+      openChangePasswordModal();
+    } else if (action === '2') {
+      openHistoryModal();
+    } else if (action === '3') {
+      logout();
+    }
   } else {
     openAuthModal('login');
   }
@@ -1022,6 +1105,7 @@ function openAdminPanel() {
     openAuthModal('login');
     return;
   }
+  loadSettings();
   openModal('adminModal');
   switchAdminTab('product');
 }
@@ -1668,6 +1752,23 @@ function copyMemo() {
   if (currentMemo) {
     navigator.clipboard.writeText(currentMemo);
     showToast('Đã sao chép nội dung chuyển khoản: ' + currentMemo, 'success');
+  }
+}
+
+function copyAccountNo() {
+  const accNo = document.getElementById('qrAccountNo')?.innerText || '';
+  if (accNo) {
+    navigator.clipboard.writeText(accNo.trim());
+    showToast(`Đã sao chép STK: ${accNo}`, 'success');
+  }
+}
+
+function copyAmount() {
+  const amtText = document.getElementById('qrAmountText')?.innerText || '';
+  const cleanAmt = amtText.replace(/[^0-9]/g, '');
+  if (cleanAmt) {
+    navigator.clipboard.writeText(cleanAmt);
+    showToast(`Đã sao chép số tiền: ${Number(cleanAmt).toLocaleString('vi-VN')} đ`, 'success');
   }
 }
 

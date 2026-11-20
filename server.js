@@ -573,6 +573,42 @@ app.get('/api/auth/me/:username', requireAuth, (req, res) => {
   res.json({ success: true, data: userWithoutPass });
 });
 
+// Đổi mật khẩu người dùng & Admin
+app.post('/api/auth/change-password', requireAuth, async (req, res) => {
+  const { oldPassword, newPassword } = req.body;
+  const username = req.user.username;
+
+  if (!oldPassword || !newPassword) {
+    return res.status(400).json({ success: false, message: 'Vui lòng nhập mật khẩu hiện tại và mật khẩu mới!' });
+  }
+
+  if (String(newPassword).length < 6) {
+    return res.status(400).json({ success: false, message: 'Mật khẩu mới phải có ít nhất 6 ký tự!' });
+  }
+
+  const result = await dbLock.acquire(() => {
+    const users = readJSON(USERS_FILE, []);
+    const userIndex = users.findIndex(u => u.username.toLowerCase() === username.toLowerCase());
+    if (userIndex === -1) {
+      return { status: 404, data: { success: false, message: 'Người dùng không tồn tại!' } };
+    }
+
+    const isValid = bcrypt.compareSync(oldPassword, users[userIndex].password);
+    if (!isValid) {
+      return { status: 400, data: { success: false, message: 'Mật khẩu hiện tại không chính xác!' } };
+    }
+
+    const salt = bcrypt.genSaltSync(10);
+    users[userIndex].password = bcrypt.hashSync(newPassword, salt);
+    users[userIndex].updatedAt = new Date().toISOString();
+
+    writeJSON(USERS_FILE, users);
+    return { status: 200, data: { success: true, message: 'Đổi mật khẩu thành công!' } };
+  });
+
+  res.status(result.status).json(result.data);
+});
+
 // ========================================================
 // 5. API SẢN PHẨM (PRODUCTS)
 // ========================================================
@@ -841,6 +877,14 @@ app.post('/api/settings', requireAdmin, async (req, res) => {
     ...currentSettings,
     ...req.body
   };
+
+  // Bảo vệ key webhook và gạch thẻ không bị ghi đè chuỗi rỗng
+  if (!req.body.gachthefastPartnerKey && currentSettings.gachthefastPartnerKey) {
+    updatedSettings.gachthefastPartnerKey = currentSettings.gachthefastPartnerKey;
+  }
+  if (!req.body.webhookSecretKey && currentSettings.webhookSecretKey) {
+    updatedSettings.webhookSecretKey = currentSettings.webhookSecretKey;
+  }
 
   if (updatedSettings.accountName) {
     updatedSettings.accountName = updatedSettings.accountName.toUpperCase();
