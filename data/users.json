@@ -1,21 +1,40 @@
 [
   {
+    "id": "user_1793014201931",
+    "username": "quândz",
+    "password": "$2b$10$3rlTspJjat5gCboh2zm/Xuy4WcLflZuAM7Y/nxcXvDbvxnadEpadW",
+    "fullname": "Đặng Minh Quân",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T11:30:01.931Z"
+  },
+  {
+    "id": "user_1793013776149",
+    "username": "lethuancute",
+    "password": "$2b$10$zotc8cuRPz0wHgIE6p7HYu1zbuef09WrLU2Db5pd7MR6Ze/uaeIUi",
+    "fullname": "lê thuận",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T11:22:56.149Z"
+  },
+  {
+    "id": "user_1793018597981",
+    "username": "nghiadaobi",
+    "password": "$2b$10$rP8iZqsZCIovEX1oXnCnOeeanxyLF./A0HqqjSs6W8f8EvchQ0pSq",
+    "fullname": "ezzx",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T12:43:17.981Z"
+  },
+  {
     "id": "admin_nghiaz",
     "username": "nghiaz",
-    "password": "$2b$10$sY/DXTeiXJ33elr4knYabONlZe3X5tt1AhLjsPkHfBmbZ6QI0nHUi",
+    "password": "$2b$10$Ji64wZKzPPlH1YxQJeAPJuHg28v/WI6KcjPQ3fjqgCpaXrxL9wZ9e",
     "fullname": "Admin NghiaZ (Chủ Shop)",
     "balance": 9930000,
     "role": "admin",
-    "createdAt": "2026-10-25T12:00:00.000Z"
-  },
-  {
-    "id": "user_1793012547569",
-    "username": "nghia",
-    "password": "$2b$10$JUFAv8jWCSNb8eFkDp2CC.wK7OXKLkAkr/e0SYhb/8A6K2CynVXhO",
-    "fullname": "ezzx",
-    "balance": 10000,
-    "role": "user",
-    "createdAt": "2026-10-26T11:02:27.569Z"
+    "createdAt": "2026-10-25T12:00:00.000Z",
+    "updatedAt": "2026-11-20T05:14:28.230Z"
   },
   {
     "id": "user_1793013266025",
@@ -36,13 +55,13 @@
     "createdAt": "2026-10-26T11:19:11.825Z"
   },
   {
-    "id": "user_1793013776149",
-    "username": "lethuancute",
-    "password": "$2b$10$zotc8cuRPz0wHgIE6p7HYu1zbuef09WrLU2Db5pd7MR6Ze/uaeIUi",
-    "fullname": "lê thuận",
-    "balance": 0,
+    "id": "user_1793012547569",
+    "username": "nghia",
+    "password": "$2b$10$JUFAv8jWCSNb8eFkDp2CC.wK7OXKLkAkr/e0SYhb/8A6K2CynVXhO",
+    "fullname": "ezzx",
+    "balance": 10000,
     "role": "user",
-    "createdAt": "2026-10-26T11:22:56.149Z"
+    "createdAt": "2026-10-26T11:02:27.569Z"
   },
   {
     "id": "user_1793014085402",
@@ -54,24 +73,6 @@
     "createdAt": "2026-10-26T11:28:05.402Z"
   },
   {
-    "id": "user_1793014201931",
-    "username": "quândz",
-    "password": "$2b$10$3rlTspJjat5gCboh2zm/Xuy4WcLflZuAM7Y/nxcXvDbvxnadEpadW",
-    "fullname": "Đặng Minh Quân",
-    "balance": 0,
-    "role": "user",
-    "createdAt": "2026-10-26T11:30:01.931Z"
-  },
-  {
-    "id": "user_1793018597981",
-    "username": "nghiadaobi",
-    "password": "$2b$10$rP8iZqsZCIovEX1oXnCnOeeanxyLF./A0HqqjSs6W8f8EvchQ0pSq",
-    "fullname": "ezzx",
-    "balance": 0,
-    "role": "user",
-    "createdAt": "2026-10-26T12:43:17.981Z"
-  },
-  {
     "id": "user_1793019723474",
     "username": "vanhung67",
     "password": "$2b$10$yvM9Z2TSVW2M3CfXWOrNhuM01j62Nr.vJXxPjXcBA6lQUoaxXLFSy",
@@ -79,6 +80,15 @@
     "balance": 0,
     "role": "user",
     "createdAt": "2026-10-26T13:02:03.474Z"
+  },
+  {
+    "id": "user_1793021526323",
+    "username": "hhi_haha",
+    "password": "$2b$10$JTsC.079bZSARheK.lU3vOzfg7xF84IUtdFdhPdB9pT155ljZwggG",
+    "fullname": "Nguyễn Phú Thành",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-10-26T13:32:06.323Z"
   },
   {
     "id": "user_1793021232398",
@@ -90,12 +100,2965 @@
     "createdAt": "2026-10-26T13:27:12.398Z"
   },
   {
-    "id": "user_1793021526323",
-    "username": "hhi_haha",
-    "password": "$2b$10$JTsC.079bZSARheK.lU3vOzfg7xF84IUtdFdhPdB9pT155ljZwggG",
-    "fullname": "Nguyễn Phú Thành",
+    "id": "user_1795151996134",
+    "username": "giabao1055",
+    "password": "$2b$10$G4sObTSL23qLPIh1nWju5e.ZvO1rLH9KNCM5i9yh5YNrl3CCa3puq",
+    "fullname": "Gia Bảo",
     "balance": 0,
     "role": "user",
-    "createdAt": "2026-10-26T13:32:06.323Z"
+    "createdAt": "2026-11-20T05:19:56.134Z"
+  },
+  {
+    "id": "user_1795152014439",
+    "username": "duchuy",
+    "password": "$2b$10$ZKAcIjU0UNt.Bag4ncSRFexY31o5axUuiWo5xvFIF/6mWlcyxZS92",
+    "fullname": "Vggfh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T05:20:14.439Z"
+  },
+  {
+    "id": "user_1795152081441",
+    "username": "bnnbnb",
+    "password": "$2b$10$EdfOUBWODootdy1nHmFSc.uYM.50FLzaz81M9iU1OCcnTDg19JIOu",
+    "fullname": "Hnnbn",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T05:21:21.441Z"
+  },
+  {
+    "id": "user_1795152373526",
+    "username": "cường dương",
+    "password": "$2b$10$Vi.LKqASOGSbt7GmvWZ/Ru3n98ZkoFSeCtNrVNgbMFbb3OtGiSQqq",
+    "fullname": "Cường Dương",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T05:26:13.526Z"
+  },
+  {
+    "id": "user_1795152610238",
+    "username": "ntkvnbl",
+    "password": "$2b$10$PkGu6CZPUsgxQOCvpCmQ7uPAmHUjmrDGL30dVFavSPkTry/sE8fxu",
+    "fullname": "Duy Phúc",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T05:30:10.239Z"
+  },
+  {
+    "id": "user_1795153076425",
+    "username": "thang@2010",
+    "password": "$2b$10$sfIIOWvqtKRqa9GPbJUBI.tM3.G.9EJ.toqdOi.ctBx19YBWFlfXi",
+    "fullname": "nyhuuthang",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T05:37:56.425Z"
+  },
+  {
+    "id": "user_1795153109628",
+    "username": "leviethuy",
+    "password": "$2b$10$zkmHKetoyhwUYHWDdqh/XuxtewJm5GtePR0Acd6qkHuVFjttBqp.6",
+    "fullname": "Lê Việt Huy",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T05:38:29.628Z"
+  },
+  {
+    "id": "user_1795153320529",
+    "username": "duylabo",
+    "password": "$2b$10$/k3Q9BhsjprxT18XFrpn0eN8IwNcoxc1nb5TBX3XhwHyg4shjBE8y",
+    "fullname": "Hoàng duy",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T05:42:00.529Z"
+  },
+  {
+    "id": "user_1795153663337",
+    "username": "hoai",
+    "password": "$2b$10$iOzQwTpBo0Ld5aKUuin4VutYyAn6ESumz1szjkUbXjJ9us7ecAqda",
+    "fullname": "Hoai",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T05:47:43.337Z"
+  },
+  {
+    "id": "user_1795153702738",
+    "username": "bo123",
+    "password": "$2b$10$Vo2ZoZpxYYtf6awJsORrGumaPr/RPdazxcqXnasOnr58UaGbs2DV.",
+    "fullname": "nguyễn trần đức võ",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T05:48:22.738Z"
+  },
+  {
+    "id": "user_1795153936143",
+    "username": "nnnnhutlong2009@gmail.com",
+    "password": "$2b$10$vaE4BhekUbtS8ZsdZdJq8O3NJO0KlJoSd5LDiZdZMfckX/A21LRii",
+    "fullname": "Nhụt long",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T05:52:16.143Z"
+  },
+  {
+    "id": "user_1795154158527",
+    "username": "nga332",
+    "password": "$2b$10$0/jucaf0NOrml95vEKhbB.4PtUIxnY7XIssHmcaQvc.sssuPyXDny",
+    "fullname": "Nguyễn Văn Gà",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T05:55:58.527Z"
+  },
+  {
+    "id": "user_1795154309826",
+    "username": "tiến 213",
+    "password": "$2b$10$8E9/QdX1.PvVoojQFTk9o.hNIogJl0UNwP7OFU36zjMbjvdU7SsN2",
+    "fullname": "Lê tiến xa",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T05:58:29.826Z"
+  },
+  {
+    "id": "user_1795154423340",
+    "username": "ssj",
+    "password": "$2b$10$5bILk3hRl0Q93s7y3K95Qek7YRSbZZAb5em5mtTevvdvOx4qZRHFK",
+    "fullname": "Hhhgf",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T06:00:23.340Z"
+  },
+  {
+    "id": "user_1795154511226",
+    "username": "ninchi7k",
+    "password": "$2b$10$/JGLj7LvotO0uQhP8k/.MeuwUIgMpHR33KGZmO9EM/hJpySrZccqq",
+    "fullname": "ninchi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T06:01:51.226Z"
+  },
+  {
+    "id": "user_1795154526227",
+    "username": "ggtr",
+    "password": "$2b$10$dBgjCcWgS0saYmxsXjtBs.x6fDJ1Am1Ms5RJpqsyeqTI6c48otG/e",
+    "fullname": "Ggtr",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T06:02:06.227Z"
+  },
+  {
+    "id": "user_1795154771638",
+    "username": "tâm",
+    "password": "$2b$10$HREF1Wge.C0TqcJY8lyc7.ivw5w2ZjHmbuHZ8moiHuQM4sKekkg52",
+    "fullname": "Tâm gay",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T06:06:11.638Z"
+  },
+  {
+    "id": "user_1795155033826",
+    "username": "datph",
+    "password": "$2b$10$7ygWl1AaV4jxdiFa4VY9ne/9pjVLS52qxetYwBpkcEeh3nNRhfnDK",
+    "fullname": "phan hoang dat",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T06:10:33.826Z"
+  },
+  {
+    "id": "user_1795155239939",
+    "username": "kha1408",
+    "password": "$2b$10$wC7MrHl75jzpEf2xmjnVtulw7YIxo4lQnFjZHagYrbmyXsa6g2Yv6",
+    "fullname": "Bùi Đoàn Kinh Kha",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T06:13:59.939Z"
+  },
+  {
+    "id": "user_1795156287151",
+    "username": "toan ngu",
+    "password": "$2b$10$y.rLDrfbbAW4h17eVo0g4.3kfNYRwUWcHF2g3sraV30Zcvh1RZwLe",
+    "fullname": "Quái vật Toàn ngu",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T06:31:27.151Z"
+  },
+  {
+    "id": "user_1795156347042",
+    "username": "kin",
+    "password": "$2b$10$kJxq/OYWFEI/RwNFX8kOGeAlrvHtYnW00jq8W4SiptYXfVnf8P2XK",
+    "fullname": "Ykin",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T06:32:27.042Z"
+  },
+  {
+    "id": "user_1795156668534",
+    "username": "lvc gaming",
+    "password": "$2b$10$9FhVawi/MZjhVorYk1OXjuCAnf7h1EcIV3FpovzSENANy5ktFVw7i",
+    "fullname": "lâm văn châu",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T06:37:48.534Z"
+  },
+  {
+    "id": "user_1795157278537",
+    "username": "khoa",
+    "password": "$2b$10$VvaQ8IySyFEEX7fQY5KWwenHPtljlOOaIqYtYIBB/mspDCgctXnoe",
+    "fullname": "vu anh khoa",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T06:47:58.537Z",
+    "updatedAt": "2026-11-21T03:25:49.359Z"
+  },
+  {
+    "id": "user_1795157715529",
+    "username": "hung@2012",
+    "password": "$2b$10$3uwiBfZbLh.tJ2sdVXtJdurDc3EyfOkABu4H0xW0rPgit7Toz7p8m",
+    "fullname": "hung@2012",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T06:55:15.529Z"
+  },
+  {
+    "id": "user_1795158809540",
+    "username": "hoàng hữu thái",
+    "password": "$2b$10$YZw9ztGy43R.gF.7S.dClOYJnsJqrBCG3GawQl25Jmqxv063SfhVq",
+    "fullname": "Thái",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T07:13:29.540Z"
+  },
+  {
+    "id": "user_1795161162533",
+    "username": "hoàng nguyễn",
+    "password": "$2b$10$eFoiN8veyz185D6j6vPMUeg2Dk7FdEthVrkfuZ..KU/bjdDdV54hy",
+    "fullname": "Kkhamkéolls",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T07:52:42.533Z"
+  },
+  {
+    "id": "user_1795161547026",
+    "username": "tbao",
+    "password": "$2b$10$x6kjuRsY/8eEXpNZSMLzBOxTgzI.LZ/VljvxzpAZN9azs9bcTSU0K",
+    "fullname": "Lee bảo",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T07:59:07.026Z"
+  },
+  {
+    "id": "user_1795161550134",
+    "username": "minhdz",
+    "password": "$2b$10$Mysa45uE7XGWSV1kG5gimuEAv7CR9vO/lxPX7Ctxk461TjJOjACyS",
+    "fullname": "Trần Hữu Lê Minh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T07:59:10.134Z"
+  },
+  {
+    "id": "user_1795161771625",
+    "username": "tnhan2026",
+    "password": "$2b$10$GulZrSKOzSmzHmawsMxzE.qGcfqWuFQ0E06UO1pztZUFThRpnWSq2",
+    "fullname": "Nguyễn Trọng Nhân",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T08:02:51.625Z"
+  },
+  {
+    "id": "user_1795162121435",
+    "username": "alicortev",
+    "password": "$2b$10$drEdnb1vsOnjWz/pfuPUU.JYQox8E7wzj4cI2se17O946G/fqQ4MO",
+    "fullname": "Manh cuong Nguyen",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T08:08:41.435Z"
+  },
+  {
+    "id": "user_1795163793839",
+    "username": "vanphong",
+    "password": "$2b$10$juQrP4KQ13W8cINKrMDzv.xJ0SHuG7A.PxAgegG8LVys.OMX1pOky",
+    "fullname": "văn phong",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T08:36:33.839Z"
+  },
+  {
+    "id": "user_1795163869437",
+    "username": "klo535",
+    "password": "$2b$10$/pJ2W9Dp4YML9tzHpSWUkOKCOxzhQEhnz1nY7IS3Y.SHgcg.iuFje",
+    "fullname": "Nguyễn van a",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T08:37:49.437Z"
+  },
+  {
+    "id": "user_1795164542127",
+    "username": "ken",
+    "password": "$2b$10$lF.OKBsVr3RYKGBdGOV7IukhdKJfl5kpKvFUNSY76PYusHhbSQfS2",
+    "fullname": "Nguyenhaidnag",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T08:49:02.127Z"
+  },
+  {
+    "id": "user_1795165152039",
+    "username": "nguyễn thành đạt",
+    "password": "$2b$10$ZtHkgpmMH7L2x5OQyxTjL.Ob9zGDgfDH/0/JsrK5YasjSv8KuDPe.",
+    "fullname": "Nguyễn Thành Đạt",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T08:59:12.039Z"
+  },
+  {
+    "id": "user_1795165269927",
+    "username": "chantin",
+    "password": "$2b$10$MMJoegS7J.lYdywRb5cOhuLSIdD.FtNpwHnXFlyQit9BC/GhRj32a",
+    "fullname": "Nguyễn chân tín",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T09:01:09.927Z"
+  },
+  {
+    "id": "user_1795165750838",
+    "username": "khoangulon11",
+    "password": "$2b$10$ryVbXfmU6TAtUP8By2B3HO25VGsYg5yd7qCcWRsCvAyipx0bE1tZ6",
+    "fullname": "Nguyễn đăng khôi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T09:09:10.838Z"
+  },
+  {
+    "id": "user_1795167790139",
+    "username": "thanhdat",
+    "password": "$2b$10$KR9/lRHWqQ7.k2fFmYwkfethude.OXHMT1LznQEF4xI5uknyxsgTq",
+    "fullname": "thành đạt",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T09:43:10.139Z"
+  },
+  {
+    "id": "user_1795168318328",
+    "username": "huyhoa",
+    "password": "$2b$10$y1HL5EG4nr8R11sEorW29ushwtQh3LC98ZkmDaPgukeBtqwbwu5se",
+    "fullname": "Đinh Huy Hoàng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T09:51:58.328Z"
+  },
+  {
+    "id": "user_1795168369641",
+    "username": "ducdzs1@",
+    "password": "$2b$10$NXJTIH0WYxAxeAQZiIbL5OWUoLed/jwpH9e0Rfy3bkVFLsJZWEvky",
+    "fullname": "Bo la duc",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T09:52:49.641Z"
+  },
+  {
+    "id": "user_1795170586941",
+    "username": "quôchuyff",
+    "password": "$2b$10$kGpdl7DEjLN7dU7i6Ts1/ee6mJbc4KIsbF/6.jkWpsmRTcmB.J3vS",
+    "fullname": "Vi quốc huy",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T10:29:46.941Z"
+  },
+  {
+    "id": "user_1795170798326",
+    "username": "đặng hà hoài sang",
+    "password": "$2b$10$H/YuTuXyNYxj.XTVcKJKd.BAiUKfU24uEJWwS5rFjsGCtzjQ/qFJO",
+    "fullname": "Đặng Hà Hoài Sang",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T10:33:18.326Z"
+  },
+  {
+    "id": "user_1795170865638",
+    "username": "nguyễn thị minh",
+    "password": "$2b$10$kO83ZQO9QbeRJmLmeGu26OvBvijmLiTPEl0o3eE51sZbNDp2NoNqi",
+    "fullname": "Nguyễn Thị Minh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T10:34:25.638Z"
+  },
+  {
+    "id": "user_1795171844639",
+    "username": "duy hung",
+    "password": "$2b$10$zc0796X/Syc4/L2/ktf1rOs403K/kcf5Tioyyi6crH.hIdB7Cypb.",
+    "fullname": "Đào duy hùng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T10:50:44.639Z"
+  },
+  {
+    "id": "user_1795172903039",
+    "username": "ducchinh",
+    "password": "$2b$10$T9KdCixp9uql9R9PqFpJMOYu/pe6P/0Jx/u6gpCXIA0xaCtjlEoTa",
+    "fullname": "Tòng đúc chính",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T11:08:23.039Z"
+  },
+  {
+    "id": "user_1795174584440",
+    "username": "minhzzmien",
+    "password": "$2b$10$Zy/b7w0tcVwUEJaAVo0hBeScSJdzSbLbMRVy1FV3kISXmu7e.IDBK",
+    "fullname": "Dovanminh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T11:36:24.440Z"
+  },
+  {
+    "id": "user_1795175482627",
+    "username": "kim hoàng",
+    "password": "$2b$10$umVj3B/I/a8456PDr/Inje9Gv/FpOM9781vVjkq4nw4S73vUsY7HG",
+    "fullname": "KIM HOÀNG",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T11:51:22.627Z"
+  },
+  {
+    "id": "user_1795175753426",
+    "username": "kien2011",
+    "password": "$2b$10$JGaasjAMsDLO/SLPbdmDAeJLi0FX24Hbx78KAqErCCQa2mFRbE3he",
+    "fullname": "phạm trung kiên",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T11:55:53.426Z"
+  },
+  {
+    "id": "user_1795176315233",
+    "username": "vphanzz",
+    "password": "$2b$10$eAbciGfXWx/Lh9kSxdxN8u39Z5tGooWLjyJ2GQXNyzIbp0k3dUo7K",
+    "fullname": "Vanphannè",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T12:05:15.233Z"
+  },
+  {
+    "id": "user_1795177790139",
+    "username": "ưhwhwwhwhw",
+    "password": "$2b$10$zoxjXyC/i4HDSoSqgLn2A.RKe34AN9B3vPvU93jMN7G9ue0LyuHyW",
+    "fullname": "Nsnshjsjshs",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T12:29:50.139Z"
+  },
+  {
+    "id": "user_1795178768535",
+    "username": "n06905364@gmail.com",
+    "password": "$2b$10$zxoOQGxGN75v3BLbV3maYOgq9xag0VyBGOm/KP3CQl53TyNk5Jcmi",
+    "fullname": "n06905364@gmail.com",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T12:46:08.535Z"
+  },
+  {
+    "id": "user_1795179434639",
+    "username": "phuocthien211",
+    "password": "$2b$10$3TP7tn3wQ54MVplkmSeZ6O3taSCypBP6CeMOMsUCyJBcwml6gcOJy",
+    "fullname": "Phuocthien211",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T12:57:14.639Z"
+  },
+  {
+    "id": "user_1795179914130",
+    "username": "quế nek",
+    "password": "$2b$10$gbUQR9/niPgZN8UQSc6jwe5fzCWIcZxqfmEKZ4LevbJEN3T7r5rEC",
+    "fullname": "Thạch quế",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T13:05:14.130Z"
+  },
+  {
+    "id": "user_1795180048034",
+    "username": "bachphan@gmail.com",
+    "password": "$2b$10$brEFdvPjqgd2SziS6GeUl.14WIG7Bj49UgL/6Li7cqRspJBeH1hIu",
+    "fullname": "TOM DVI VIP",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T13:07:28.034Z"
+  },
+  {
+    "id": "user_1795182031428",
+    "username": "phát",
+    "password": "$2b$10$58Z07.NKGcL8jroOI863KOEjqmXJOZPkCBU8Gc9KLdn1SCRZMit7O",
+    "fullname": "Đỗ  Xuân phát",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T13:40:31.428Z"
+  },
+  {
+    "id": "user_1795182969239",
+    "username": "caviethoang2012",
+    "password": "$2b$10$SNljHfAOoB3RLp5tBkUwFOJ7nH5gZj/GOmC6sWPBgTO96XInaAC0m",
+    "fullname": "Cà việt hoàng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T13:56:09.239Z"
+  },
+  {
+    "id": "user_1795183122030",
+    "username": "huy",
+    "password": "$2b$10$ULZc4oOzlZcaqy7htcLIMOLZLc59Kdups9.aU4IKB8OmzxDVCKXyC",
+    "fullname": "Huy",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T13:58:42.030Z"
+  },
+  {
+    "id": "user_1795184701939",
+    "username": "êmbe",
+    "password": "$2b$10$iURZPzrDRm6qDhDsd68Soe8XsCdAme6bGRxV1nrD/t0NNRtcN4LCG",
+    "fullname": "jewiwhsah",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T14:25:01.939Z"
+  },
+  {
+    "id": "user_1795185544439",
+    "username": "hoanganh810",
+    "password": "$2b$10$zKGIESqvVK6032/pTk6Nv.gA0rwz6KgKLpkgG3rEABQJlVDFeHIry",
+    "fullname": "Hoanganh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T14:39:04.439Z"
+  },
+  {
+    "id": "user_1795186197427",
+    "username": "hsjsjsjsbsh",
+    "password": "$2b$10$EkeiOL/U9IoY5LsMLxi9mOkAZ.06v/NFH/wK3qgbCzUuSXwZiTpEK",
+    "fullname": "Kdjdhsjshh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T14:49:57.427Z"
+  },
+  {
+    "id": "user_1795186830831",
+    "username": "bé pi",
+    "password": "$2b$10$m4BGamZiPrRU5Mq9v.naz.acm4T9hJGohV.KadOQxnn.EFjUPF5BW",
+    "fullname": "PICOLO 8A4",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T15:00:30.831Z"
+  },
+  {
+    "id": "user_1795187846339",
+    "username": "hoangtrungkien",
+    "password": "$2b$10$nZKB1O/f8UD24FICEvvGR.gMN6UjZb3gHAPiBi4c6p1Y5wUDrXlcO",
+    "fullname": "Hoangtrungkien",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T15:17:26.339Z"
+  },
+  {
+    "id": "user_1795189443833",
+    "username": "trong1122",
+    "password": "$2b$10$IoSm3Fr2SVXSh5a/nE0ZKurWGH57/dL/L3wZWH2JR8H6X4IXPiDa.",
+    "fullname": "võ hiếu trọng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T15:44:03.833Z"
+  },
+  {
+    "id": "user_1795190036037",
+    "username": "majinbuu",
+    "password": "$2b$10$j9qdOoWb0eTj9q328YT/yOifR2UWWuwB4SoahJaUR9L/1Q5bmIQ0K",
+    "fullname": "hehehe",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T15:53:56.037Z"
+  },
+  {
+    "id": "user_1795195146021",
+    "username": "tanlocmeomeoz",
+    "password": "$2b$10$A0k2j0BfNBnVtQfL5LwAv.IUHsBa1MiRbfO6Y/GRnvq57ytAIeVle",
+    "fullname": "TanLocMeoMeoz",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T17:19:06.021Z"
+  },
+  {
+    "id": "user_1795196484415",
+    "username": "trinhviet2k",
+    "password": "$2b$10$8cOlAxt2BS/mT9dY.El53.MfqVOaAwDTcm3WpWIysKFZtJheOSBRS",
+    "fullname": "Trịnh văn việt",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-20T17:41:24.415Z"
+  },
+  {
+    "id": "user_1795219392258",
+    "username": "trongnhat",
+    "password": "$2b$10$ZDNLlcrGicXAi8FJmc7gWOV1Hn9ETmnFrYLuE6VVfVUF8sgknEet.",
+    "fullname": "Nguễn trọng nhất",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T00:03:12.258Z"
+  },
+  {
+    "id": "user_1795221268169",
+    "username": "kiệt anh",
+    "password": "$2b$10$Gft8ZLCKGfqLT00ABSKVN.4j8pxydvp4WP9shyEZ0f23lMicsA.mS",
+    "fullname": "Tòng anh kiệt",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T00:34:28.169Z"
+  },
+  {
+    "id": "user_1795222465763",
+    "username": "2992015",
+    "password": "$2b$10$w7HeE6zoNxzALyfZFgsbcuuTp3pC/cx09eAvP6uJCsS07JjTaXfXa",
+    "fullname": "nguyễn văn minh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T00:54:25.763Z"
+  },
+  {
+    "id": "user_1795222604461",
+    "username": "giươg",
+    "password": "$2b$10$lNV8sbos.JebYjVmfkLUGeEBaoR33UkiJ0avOY52GfGYx7QzKV14i",
+    "fullname": "Dldlkfkfkcnf",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T00:56:44.461Z"
+  },
+  {
+    "id": "user_1795223678170",
+    "username": "luongthaisang",
+    "password": "$2b$10$Kxmw4FEfeNpZUrQyhMuW7OfqUC/9EiVBmbHvpYcKBlK6xOfedHqk.",
+    "fullname": "Luong thsi sang",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T01:14:38.170Z"
+  },
+  {
+    "id": "user_1795226567457",
+    "username": "khangwibu",
+    "password": "$2b$10$A2qzjSrY9TnhGIBQ7/qIy.lkHMBvt4i34BxAEieIjvOKVBX8D3/AS",
+    "fullname": "Trần Hữu khang",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T02:02:47.457Z"
+  },
+  {
+    "id": "user_1795227080658",
+    "username": "phong",
+    "password": "$2b$10$aGcnjOsVAIbvbmOqFUCRJ.Bq7.SCKsnFBhPZ6500faYO.zawtsMwS",
+    "fullname": "Thanh phong",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T02:11:20.658Z"
+  },
+  {
+    "id": "user_1795227722469",
+    "username": "dochithanh",
+    "password": "$2b$10$9lXhuu8ezajnw8eoVNXFUu8BbwrTc0u9jC1o6B6fD6WAj1qQwIMqK",
+    "fullname": "DoChiThanh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T02:22:02.469Z"
+  },
+  {
+    "id": "user_1795228014461",
+    "username": "moklphnb",
+    "password": "$2b$10$RyS/iTlONrIRJ4ZyQHShiOI08M.KBwwiv0jwep25WqQWxZx3XIXOC",
+    "fullname": "Nguyễn Hưng Huy",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T02:26:54.461Z"
+  },
+  {
+    "id": "user_1795228114368",
+    "username": "rosi888",
+    "password": "$2b$10$r3Qv0cdTn7w95PBne1gCN.zASD2dMemMsuUyDWmK3q49Ww34L3/Ou",
+    "fullname": "Rosi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T02:28:34.368Z"
+  },
+  {
+    "id": "user_1795229149860",
+    "username": "hoangvanquang",
+    "password": "$2b$10$UkVSXNsSktZjGr6FonMvoOLPm3jJtHlo/GPr4kkzzqkTv1oWQ9C7W",
+    "fullname": "Hoangvanquang",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T02:45:49.860Z"
+  },
+  {
+    "id": "user_1795229166962",
+    "username": "trương quang hải",
+    "password": "$2b$10$XYJ0SipGY/A0lYGYxCshDeGCsG.ajKGTtYagGk/z6AthO9ENyYHeO",
+    "fullname": "Trương Quang Hải",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T02:46:06.962Z"
+  },
+  {
+    "id": "user_1795229776071",
+    "username": "tuan10267",
+    "password": "$2b$10$k6hQ.jxlVaqKhas2NUa1heNMudJdGREMSK6pR73gvEhk5B3h0YXDG",
+    "fullname": "Tuan",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T02:56:16.071Z"
+  },
+  {
+    "id": "user_1795230098060",
+    "username": "hnamdz",
+    "password": "$2b$10$TTdtaCpqT4jvwS2iptsXa.KNndoJUWpJI.PXkvvyyofE2XjSSP9E.",
+    "fullname": "nguyễn hải nam",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T03:01:38.060Z"
+  },
+  {
+    "id": "user_1795230580659",
+    "username": "leminh35368",
+    "password": "$2b$10$rItTNo1q0i/uouDbTLxiouRVbO/Stlz2xi.lZX30oivpVp.z5STJm",
+    "fullname": "minh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T03:09:40.659Z"
+  },
+  {
+    "id": "user_1795230883869",
+    "username": "aihoircurtoir",
+    "password": "$2b$10$Tcxlvuecyb9kMNCwhdhKauLcecuiYGg0xyccmmQp7czUGC5.P1ms6",
+    "fullname": "ai hỏi củ tỏi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T03:14:43.869Z"
+  },
+  {
+    "id": "user_1795236374777",
+    "username": "luong",
+    "password": "$2b$10$0SLLv0vjZs.Cr5bZmN6DcuEUGrTovPKYkX5QU2MOW3RTpanQZojD2",
+    "fullname": "DinhLuong",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T04:46:14.777Z"
+  },
+  {
+    "id": "user_1795236568471",
+    "username": "huaiiwwk",
+    "password": "$2b$10$OX91hiGIx9QvlCrIxh9NkOLdvZX3LechjXAnzOFs2psD8xSGo0E6y",
+    "fullname": "Uwuwuw",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T04:49:28.471Z"
+  },
+  {
+    "id": "user_1795237258969",
+    "username": "khôidz",
+    "password": "$2b$10$IcaHBYMBfwfoMJF.ioy6CewPR8HEk2sBehplNAk7gqxs50IXOJ0OS",
+    "fullname": "Lại đồng đăng khôi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T05:00:58.969Z"
+  },
+  {
+    "id": "user_1795237454577",
+    "username": "po0909",
+    "password": "$2b$10$4b2H9n5GoXpdQvGCcjbiYOG4hjYbRaABPOusDkWMKfXV3OU8YTSxS",
+    "fullname": "Nguyên trung",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T05:04:14.577Z"
+  },
+  {
+    "id": "user_1795238932071",
+    "username": "duytu",
+    "password": "$2b$10$jB/H5r2T5tv4p6RzAi77YuUnZ7ZSnn5csaoBSKz5KObW9yLsap1qi",
+    "fullname": "Duytu",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T05:28:52.071Z"
+  },
+  {
+    "id": "user_1795239614379",
+    "username": "whenxs",
+    "password": "$2b$10$8.4A5hbrLwkL3JKWi42OkOd2nmT4AseuV97PYJ3gC78hZGEY33PU6",
+    "fullname": "When",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T05:40:14.379Z"
+  },
+  {
+    "id": "user_1795239621181",
+    "username": "chanbomdi",
+    "password": "$2b$10$CRdeML79uiCh1Oh3mo.jyuj8l.UAbI2Y7SyOrh7dD/NDFz5MYtcLq",
+    "fullname": "Đỗ đức mạnh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T05:40:21.181Z"
+  },
+  {
+    "id": "user_1795239866466",
+    "username": "nhândz",
+    "password": "$2b$10$.9EbrAcLseqEmOaFXn2XNOCszEcLuoqSsfdK9QrMjep61WSWXdQ0m",
+    "fullname": "Lê thiện nhân",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T05:44:26.466Z"
+  },
+  {
+    "id": "user_1795239969869",
+    "username": "god slayer",
+    "password": "$2b$10$7zgqLdhTHMEaOEEabcRaFeytpoEFj2evY8kSPFmLzFW0Q1pxtg1qe",
+    "fullname": "Nguyễn Văn Linh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T05:46:09.869Z"
+  },
+  {
+    "id": "user_1795240532868",
+    "username": "phongzou",
+    "password": "$2b$10$AGg4yjKTB2sVjH0B3TKMuOGCPqs/jFdmI0sDzen/ntT14sjh3n1Ii",
+    "fullname": "phongzou",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T05:55:32.868Z"
+  },
+  {
+    "id": "user_1795241409169",
+    "username": "hungvb123528",
+    "password": "$2b$10$uWfBBaX//OEqS7lXLUEQLusbu.ZUANLx42Qr9ds2KQtIkwmT24wyq",
+    "fullname": "Bùi việt hùng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T06:10:09.169Z"
+  },
+  {
+    "id": "user_1795242020475",
+    "username": "lechinguyen",
+    "password": "$2b$10$ZMlzuScaAxH2lRpNO3Jh4.KaVrDVdbF74yGuQFQynhVSiMOFapEzC",
+    "fullname": "Lechinguyen",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T06:20:20.475Z"
+  },
+  {
+    "id": "user_1795242204373",
+    "username": "lngphu456",
+    "password": "$2b$10$0JZhduui4o6ivieYKD2nAe2if7K7r4fqbTuHL.I6mypcT8lrPf84e",
+    "fullname": "Lương Thế Phú",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T06:23:24.373Z"
+  },
+  {
+    "id": "user_1795242358778",
+    "username": "dung2009ok",
+    "password": "$2b$10$jBNLFb1XU8.fHrL3jaVY2uwy9loUvSqYSUn9LlpzD5Wfp.L6yx2M6",
+    "fullname": "Nguyễn Văn Dũng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T06:25:58.778Z"
+  },
+  {
+    "id": "user_1795242374967",
+    "username": "kidlo",
+    "password": "$2b$10$e5PpVUNOeGfqQcNAk6CVX.miiN4v1hYbOvqkLZgGuVgBckHBCqnkW",
+    "fullname": "Trọng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T06:26:14.967Z"
+  },
+  {
+    "id": "user_1795243713068",
+    "username": "minh",
+    "password": "$2b$10$GdCOJo0wLbiONgZgyRW8VOP0HS69fyCFIwerhXHXKfly6bFhmZFyq",
+    "fullname": "Lý Đặng Tuấn Minh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T06:48:33.068Z"
+  },
+  {
+    "id": "user_1795243727174",
+    "username": "tungduongle",
+    "password": "$2b$10$il6HKlM08QS8vQ2jObx9nOZtw1CXmNWxDCYCNyrU6dk5tgqjY2C.m",
+    "fullname": "Tungduongle",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T06:48:47.174Z"
+  },
+  {
+    "id": "user_1795244695866",
+    "username": "bahoangdung64@gmail.com",
+    "password": "$2b$10$jj7pR8AoGcyB6tRl1vepXOu3qdUBq6CJxkAcb4VWVqDVJ2VDTSMD2",
+    "fullname": "Bá hoàng Trọng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T07:04:55.866Z"
+  },
+  {
+    "id": "user_1795245088480",
+    "username": "haibasan",
+    "password": "$2b$10$TyXHZYGUwxGuceWUmWr8HudoUPAwVipMuG7D3Lyg3q4Iyi7wVUnp2",
+    "fullname": "Hai4143",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T07:11:28.480Z"
+  },
+  {
+    "id": "user_1795247191172",
+    "username": "tie ess",
+    "password": "$2b$10$UYr7prg7eLWE00wOGDP5s.9sijB9vCpcZB8cgoyyeue4xNcpktmbe",
+    "fullname": "Tòng nhật tiến",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T07:46:31.172Z"
+  },
+  {
+    "id": "user_1795247336184",
+    "username": "ssh",
+    "password": "$2b$10$DUvpfU5VAFTR9w4pMrM08evgLDPQYKjfrx2JlYorJoeSZI4HurR2a",
+    "fullname": "Ssh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T07:48:56.184Z"
+  },
+  {
+    "id": "user_1795248859567",
+    "username": "jqk",
+    "password": "$2b$10$CwiuPds2aYaMVFX4WHNG.ujFnHLzGAJ9F5BTBIJt0/Tgaexj4GTZi",
+    "fullname": "t",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T08:14:19.567Z"
+  },
+  {
+    "id": "user_1795248875774",
+    "username": "quydz",
+    "password": "$2b$10$lZcX7exAQxd/PE/.34qO9u4kNHod627xyuI2aRhatWhOTFAQlcnZa",
+    "fullname": "Quý khách",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T08:14:35.775Z"
+  },
+  {
+    "id": "user_1795249277480",
+    "username": "hanhdz",
+    "password": "$2b$10$KT4PEnK.yeb4G1//g4/Sy.KAFbM0OcrtjsppxaXB9qKkJK3orD0PW",
+    "fullname": "Hanh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T08:21:17.480Z"
+  },
+  {
+    "id": "user_1795249734367",
+    "username": "tuanngu123",
+    "password": "$2b$10$PAUVFz8v78qDZU9OF9l5kuYpZDp.xSYOqWWW0Xz2sM6mCKObveOlu",
+    "fullname": "Võ anh tuấn",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T08:28:54.367Z"
+  },
+  {
+    "id": "user_1795250015777",
+    "username": "ttttfcc",
+    "password": "$2b$10$NXwVaQS1SFd5HBqXSUnQpOTTwsQOa6OhBUtagusEMjKaUWVmYmDGS",
+    "fullname": "ttttfcc",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T08:33:35.777Z"
+  },
+  {
+    "id": "user_1795250060666",
+    "username": "jukaiser24",
+    "password": "$2b$10$XImdncD0aHGRuHWor4.hM.5ZhuVbTiAL4gVmAAQ8gwtSLronBq69m",
+    "fullname": "Ng gia hung",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T08:34:20.666Z"
+  },
+  {
+    "id": "user_1795251322969",
+    "username": "yyexcrx",
+    "password": "$2b$10$XNF3G/R3KwCoLvFVjKoccu62ZHZIBuuQP4YlLyf8wX7weoqJezUcm",
+    "fullname": "Gfyfyfu",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T08:55:22.969Z"
+  },
+  {
+    "id": "user_1795251560980",
+    "username": "loe",
+    "password": "$2b$10$SYC4s2MH69HdKXrAQIJsGeDVhqt/EnXtzcisArp/gSaKTaa6Ps4JS",
+    "fullname": "Loe loẹt lèo",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T08:59:20.980Z"
+  },
+  {
+    "id": "user_1795251657176",
+    "username": "hưng",
+    "password": "$2b$10$GF7IENNHTKwEN5Q/cuRJX.oShXxf8zHmF.YP1YVmRt5JlfSETUYFK",
+    "fullname": "Nguyễn khánh hưng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T09:00:57.176Z"
+  },
+  {
+    "id": "user_1795252159070",
+    "username": "367besu",
+    "password": "$2b$10$T08bq1oSmNlNiUhDqvfwZ.dSHu4rcBOgLwR2oDEXfRrYRwbGL/iwS",
+    "fullname": "Nguyen Huy Hoang",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T09:09:19.070Z"
+  },
+  {
+    "id": "user_1795253817567",
+    "username": "minh quý",
+    "password": "$2b$10$2dutjbNxH54QCZgqMM8o8.K.plH4pLjwgLEF2VKcv/5qyqD0hSy5C",
+    "fullname": "Minh Quý",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T09:36:57.567Z"
+  },
+  {
+    "id": "user_1795253926970",
+    "username": "vthuandz01",
+    "password": "$2b$10$MXfrjFSmN8lxLNnUqTMexe3njlDyZvhPMH3X6.3NVzK9/PWYVIx1S",
+    "fullname": "vthuandz01",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T09:38:46.970Z"
+  },
+  {
+    "id": "user_1795253942278",
+    "username": "kiendz",
+    "password": "$2b$10$WbGVoxecRK0Fm0hY0ykJwuWk.qMSsfPKDc7LapFELiFUWhKE56A06",
+    "fullname": "Đào Trung Kiên",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T09:39:02.278Z"
+  },
+  {
+    "id": "user_1795255183579",
+    "username": "le nghiem",
+    "password": "$2b$10$Yst91buurWIrUTXkLWx0muEJQKYsT5CHFqqL6eJn2LlG/cAHqLEDe",
+    "fullname": "Lê Nghiêm",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T09:59:43.579Z"
+  },
+  {
+    "id": "user_1795256959873",
+    "username": "hihi112w",
+    "password": "$2b$10$4wy6kO69nhcT0gkwQKi0EeBbQCTclJ380tZg6qX8ats/eJe0QChOe",
+    "fullname": "Phan Nghia",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T10:29:19.873Z"
+  },
+  {
+    "id": "user_1795257288566",
+    "username": "nguyễn trọng nghĩa",
+    "password": "$2b$10$9WMQYI/.Svnb20hPtjefl.cvOEwHH5y5Or6Q.XtjF.qUeVjpn0Ps.",
+    "fullname": "Nguyễn Trọng Nghĩa",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T10:34:48.566Z"
+  },
+  {
+    "id": "user_1795257370883",
+    "username": "alb",
+    "password": "$2b$10$bqhhYfO/ncDKmeNbyjk14OC0/laVkLk2L6rn2s6t6.b6HMuE5ni/a",
+    "fullname": "Nguyễn Hết",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T10:36:10.883Z"
+  },
+  {
+    "id": "user_1795259360169",
+    "username": "4848282847",
+    "password": "$2b$10$c8yecf06VLuBCM2f0xdHgOo89BA45pe12MYUGpJc5RmSavJjBUOi2",
+    "fullname": "Nguyễn Thế Đan",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T11:09:20.169Z"
+  },
+  {
+    "id": "user_1795260269072",
+    "username": "luongdzz",
+    "password": "$2b$10$Rv8CSdy.reHgYu96be0Zu.1l0RhDrJc4uJRPiNm8oqWHoR/9Z2XUm",
+    "fullname": "phạm đức lương",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T11:24:29.072Z"
+  },
+  {
+    "id": "user_1795261831471",
+    "username": "ghshh",
+    "password": "$2b$10$JjPOVcAPkAPzgQPbOv7Kd.lZOZJjASzn9kdTFJANDECQAkxrqi9wK",
+    "fullname": "Tgggg",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T11:50:31.471Z"
+  },
+  {
+    "id": "user_1795262125268",
+    "username": "vitconxzz",
+    "password": "$2b$10$TmOYWQpOMKCrr9DFR.6tDOZG5CMUkIAe/cJUnZ9RuH4kwz0SwoyZ.",
+    "fullname": "Vitconxzz",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T11:55:25.268Z"
+  },
+  {
+    "id": "user_1795262329066",
+    "username": "vuong chos",
+    "password": "$2b$10$IL35KVwGylXA4q/Bf7GN8.h7FLDg4zxRyORTY1LYYpo7ImlIx7g52",
+    "fullname": "TRIEU NGOC VUONG",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T11:58:49.066Z"
+  },
+  {
+    "id": "user_1795262946468",
+    "username": "nguansb",
+    "password": "$2b$10$Iq9RRk9/E6hHkEwhAA9yMeKc0a1IOXV9bIuu2WWQrMPMREoR7l9Eu",
+    "fullname": "Nguansb",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T12:09:06.468Z"
+  },
+  {
+    "id": "user_1795263466379",
+    "username": "phan viết thái",
+    "password": "$2b$10$iy1qtsNkQEtuT5VQg.hWeOoJaY8JcZvSKHFRMRIXhg6jRA/jMdXbC",
+    "fullname": "Phan Viết Thái",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T12:17:46.379Z"
+  },
+  {
+    "id": "user_1795264410375",
+    "username": "quocanh",
+    "password": "$2b$10$SLmSCcLO0GL0Dp/Vvsua1.zHFUKgrU6Zj3CfLetPXl0l5UCnXiEYm",
+    "fullname": "Nguyễn Trọng Nghĩa",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T12:33:30.375Z"
+  },
+  {
+    "id": "user_1795264439280",
+    "username": "ptpt",
+    "password": "$2b$10$32xG0dxZZ96KEUNYNpKT2O82zuicYSL8tuCdVnNQqOg9dOzV9BMYG",
+    "fullname": "Nguyễn trọng nghĩa",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T12:33:59.280Z"
+  },
+  {
+    "id": "user_1795264846774",
+    "username": "bdjdjd",
+    "password": "$2b$10$5UPZSh.pWVfzmwdtBMsoqOfKQImupZSbmg1LNBx95ReUjHrUDjNTG",
+    "fullname": "Nssnbd",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T12:40:46.774Z"
+  },
+  {
+    "id": "user_1795265366966",
+    "username": "trọng",
+    "password": "$2b$10$eLriu3JKhpxiMrOgv3AaLOyaEW7FRhdUpk5JicUdDF6FoonGEZOUe",
+    "fullname": "Trần Hoàng Trọng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T12:49:26.966Z"
+  },
+  {
+    "id": "user_1795267023766",
+    "username": "shop nghiauytin",
+    "password": "$2b$10$.sVKNs2n0nBF3VZmm132YevMNFaLTeCGojFS1t9x29HKon6.PgAwC",
+    "fullname": "Nguyễn Đức Tùng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T13:17:03.766Z"
+  },
+  {
+    "id": "user_1795268369677",
+    "username": "vu hai dang",
+    "password": "$2b$10$QALi3cItC5si8B3Sq33fpui5swPrKlSB79x9nxcK.AiqTUEkIE0wa",
+    "fullname": "vũ",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T13:39:29.677Z"
+  },
+  {
+    "id": "user_1795268704683",
+    "username": "văn sơn",
+    "password": "$2b$10$MCHo0cm9ZvDbBr8IeiXKFeNj6Rm9ABQqUscULOeNAgRTv8Y99ZugK",
+    "fullname": "NguyễnVănSơn",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T13:45:04.683Z"
+  },
+  {
+    "id": "user_1795269621972",
+    "username": "bao17733",
+    "password": "$2b$10$2vzqu3jqL4ehyxR5VcQkNuz5I8IslI831ukgyxsfmDOcth/VzqeZC",
+    "fullname": "Nguyễn gia bao",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:00:21.972Z"
+  },
+  {
+    "id": "user_1795269781568",
+    "username": "sondz2014",
+    "password": "$2b$10$Xq6ozpMLT2RFLkA/7/k2e.Ulb5fHypWdoJvUmRenTVx5ihiY82tFi",
+    "fullname": "Hà Minh Sơn",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:03:01.568Z"
+  },
+  {
+    "id": "user_1795270145865",
+    "username": "khoacaibe",
+    "password": "$2b$10$CGiGmlLPjtr152NHrhNwHuPzqfhe/kQN4qWWLUC5rccdh6P2yFtU6",
+    "fullname": "vuanhkhoa",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:09:05.865Z"
+  },
+  {
+    "id": "user_1795270788579",
+    "username": "mai van tinh",
+    "password": "$2b$10$ZN5MQjD94xYHzC3tPCsz.OkxaOl6v6.9VJuImN41iKigD2o9.4ARe",
+    "fullname": "Mai van tình",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:19:48.579Z"
+  },
+  {
+    "id": "user_1795270952865",
+    "username": "phuocvippro",
+    "password": "$2b$10$yiAAujDFh..MV8bPTdZS/O4SIC6EhiD8qGpTdIPHockrEcD/LB2J2",
+    "fullname": "lê hữu phước",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:22:32.865Z"
+  },
+  {
+    "id": "user_1795271178880",
+    "username": "nguyên",
+    "password": "$2b$10$lNbw64GA2tK6otG8gYfynenRoqy2/Cz2QaX8TekSxYlCKUwvrIzDu",
+    "fullname": "Thânnsn",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:26:18.880Z"
+  },
+  {
+    "id": "user_1795271300068",
+    "username": "chuthang2210",
+    "password": "$2b$10$t6xQNWHfVBkQKd2Sjb.r5OHzoCBSnQ7wlFPltss1Xms.biaPlP/MW",
+    "fullname": "CHU QUOC THANG",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:28:20.068Z"
+  },
+  {
+    "id": "user_1795271328082",
+    "username": "binhi123",
+    "password": "$2b$10$5cU6uKMarZqFcUx3UH4PQOtaergJUNvVrkE55awu6MUAdhTe4bADy",
+    "fullname": "Hohoangthao",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:28:48.082Z"
+  },
+  {
+    "id": "user_1795271849578",
+    "username": "shsbsbs",
+    "password": "$2b$10$kjqsf7QHxhR5gIfTIf/X7eBG37OLaCCeaFcWa3SKroBxEiHSqvvP.",
+    "fullname": "Tuantran",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:37:29.578Z"
+  },
+  {
+    "id": "user_1795271905066",
+    "username": "happyngu6",
+    "password": "$2b$10$6yMLsnWWYVqb/1QMOlWshO1jHP6VKAC4k/MLXr1y7Ekwyhaxejgv2",
+    "fullname": "Bùi Huỳnh Đông Anh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:38:25.066Z"
+  },
+  {
+    "id": "user_1795271916766",
+    "username": "vuugbb",
+    "password": "$2b$10$wsj.mxQGknby/0Lc3n6Kaujcw5JCpF2GjTxzpZ0REtP57JZw/zKhy",
+    "fullname": "Vhubbb",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:38:36.766Z"
+  },
+  {
+    "id": "user_1795272067967",
+    "username": "kiệt lặc",
+    "password": "$2b$10$C5MOP8nPCAd./tJOVa/s8ex2cM4KRfOmtd6it5folrGBSXeZW8FbG",
+    "fullname": "Nguyễn kiệt lặc",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:41:07.967Z"
+  },
+  {
+    "id": "user_1795272292782",
+    "username": "nghung",
+    "password": "$2b$10$dCzMIpWtnLvREXKfrPcsDu3gsBe6HWljUnNTviKvkg9z1ykR1HwNS",
+    "fullname": "Nghung",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:44:52.782Z"
+  },
+  {
+    "id": "user_1795272858271",
+    "username": "minhbakhia",
+    "password": "$2b$10$2XS3CjeEIW9YfJAx8hFiCePcJP1oMsDc3u3enkkuRf3Trz504TpcC",
+    "fullname": "Minhbakhia",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:54:18.271Z"
+  },
+  {
+    "id": "user_1795273061968",
+    "username": "bodaybakhifannghiaz",
+    "password": "$2b$10$MmswndS5mlWbf0R9gDfuLO1nD1VpfT72kytmA2p0W0g0zdRqkIniy",
+    "fullname": "Nguyen Ba Khi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T14:57:41.968Z"
+  },
+  {
+    "id": "user_1795273294966",
+    "username": "1rut123",
+    "password": "$2b$10$PWy8K5h6NOmgi0yW2pSRfOE2OzpG5ltac71T3Mj4Pfy9TirypP0su",
+    "fullname": "1rut123",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T15:01:34.966Z"
+  },
+  {
+    "id": "user_1795273624275",
+    "username": "thanh101282",
+    "password": "$2b$10$k6nfJjhaDsvynqZgUSQjIu7RrUREaCb5G4ZtKXwMYLRwntDVxjJ7G",
+    "fullname": "Hoàng duy thành",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T15:07:04.275Z"
+  },
+  {
+    "id": "user_1795273627973",
+    "username": "phuc222",
+    "password": "$2b$10$tGSlpM7k1YBrXjwwKEt0ge4yq3sHEhPWQEbFcQkS0x9t8xshTZoaC",
+    "fullname": "Nguyễn Xuân Phúc",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T15:07:07.973Z"
+  },
+  {
+    "id": "user_1795273962266",
+    "username": "huynee",
+    "password": "$2b$10$rvPHeoZbcYlPda4w.eUw4unvs0JwakuZ4G/fHRft9YJ7N782aAab2",
+    "fullname": "huynehahah",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T15:12:42.266Z"
+  },
+  {
+    "id": "user_1795274077479",
+    "username": "oladz",
+    "password": "$2b$10$lz6oRq8ZpBUgVDjIxNfKdObg9XAmJubHjaCh/uAT623DKYl1Na.UW",
+    "fullname": "Ngô Nguyễn Bảo Thịnh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T15:14:37.479Z"
+  },
+  {
+    "id": "user_1795274368679",
+    "username": "tuanvn1",
+    "password": "$2b$10$dhaN5P4qwf3doyONlxvKUOZrgC.QFbOK6bYCk5Cg8BPXI3NFmbKnK",
+    "fullname": "tuanvn1",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T15:19:28.679Z"
+  },
+  {
+    "id": "user_1795274377166",
+    "username": "anhvudz201999",
+    "password": "$2b$10$CkOWo40wa1Qj2W/9tT./4ujaHmPDys0WJ/JZPpvmAzHjvQ45/2G6S",
+    "fullname": "anhvudz201999",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T15:19:37.166Z"
+  },
+  {
+    "id": "user_1795274487979",
+    "username": "thi19122007@gmail.com",
+    "password": "$2b$10$RCGsx23oo2EBH6MYrHO8uebuqcQXzIQv6eLHMe0sSED4yj2sgTiWu",
+    "fullname": "Thi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T15:21:27.979Z"
+  },
+  {
+    "id": "user_1795274669678",
+    "username": "tungdz",
+    "password": "$2b$10$hKI9c9f.I403cVrak.ij0OxeyBrsZbPbV87Jj.0YIy3z2YDMPKGIe",
+    "fullname": "Tungdz",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T15:24:29.678Z"
+  },
+  {
+    "id": "user_1795275730278",
+    "username": "dungchimbe",
+    "password": "$2b$10$xmfhS.WjwSRsshudndTeB.BUWvCcUaIaKFmt9s1pVLl6Gh3T73dae",
+    "fullname": "Trần Như Dũng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T15:42:10.278Z"
+  },
+  {
+    "id": "user_1795276086674",
+    "username": "âjjsj",
+    "password": "$2b$10$.DHilPek35jPvxj.1p2QM.EsWVIeFEwefDAqaU3KPnEPI6Z2Bmp7G",
+    "fullname": "smsksk",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T15:48:06.674Z"
+  },
+  {
+    "id": "user_1795276134875",
+    "username": "nam296592",
+    "password": "$2b$10$s0tGZh42GrYV5ooBRLEylOiZ.xc95UEWMJh8rQgXG2SJSB42Llw8i",
+    "fullname": "nguyễn hoàng nam",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T15:48:54.875Z"
+  },
+  {
+    "id": "user_1795277008767",
+    "username": "shiho369",
+    "password": "$2b$10$pnWTI7zGiwzjGKrq2PhwCuXN6ZxIc37QqMIW9.iIHkwxl8OTurfcK",
+    "fullname": "Heheh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T16:03:28.767Z"
+  },
+  {
+    "id": "user_1795277247679",
+    "username": "toanff2011",
+    "password": "$2b$10$kKwTu2hVt1T6N1GlD.63/.BUPkPioAkqyty5J7e1MNBjcX2apyORu",
+    "fullname": "Toanff2011",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T16:07:27.679Z"
+  },
+  {
+    "id": "user_1795278905746",
+    "username": "yggjvgh",
+    "password": "$2b$10$dtJ9jyGPlLq8bnUUmy3D.OyM0xcNF7aiaGMEQSwbvYoOImDchg0/2",
+    "fullname": "Gghg",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T16:35:05.746Z"
+  },
+  {
+    "id": "user_1795282571158",
+    "username": "gianganam",
+    "password": "$2b$10$PE9eXOUbMYy9SlgFVE56X.nCKUuxgbTghgoNOxskyTboVmAJP.kc2",
+    "fullname": "Giàng a nam",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T17:36:11.158Z"
+  },
+  {
+    "id": "user_1795284980342",
+    "username": "hung2009",
+    "password": "$2b$10$hbCkXpvDIfGA5QKTDBJ2ue4Qvu4FD7KNy2tLAvSSKh9Da02juMCF.",
+    "fullname": "Nguyen nhu hung",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T18:16:20.342Z"
+  },
+  {
+    "id": "user_1795285916943",
+    "username": "hoangduong",
+    "password": "$2b$10$PxWwEuInlonMf7L7ib49IuWgZYcIS0ROlgCdT.w1YSG0R0FgEPa3S",
+    "fullname": "nguyen hoang duong",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T18:31:56.943Z"
+  },
+  {
+    "id": "user_1795288152946",
+    "username": "trieudat211",
+    "password": "$2b$10$SgghINHUyS.7qCV1bXLhl.ezG3yDmIMLmHFU97I94A3XG4NCydvHa",
+    "fullname": "Triệu Đạt",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T19:09:12.946Z"
+  },
+  {
+    "id": "user_1795293834461",
+    "username": "khoinne",
+    "password": "$2b$10$rGvACNCmfmRtlJ4Wolq//.D3HIvSoMAS5YhyAv03fJoFAChoFu0iK",
+    "fullname": "Phạm đăng khôi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T20:43:54.461Z"
+  },
+  {
+    "id": "user_1795300000837",
+    "username": "kịt",
+    "password": "$2b$10$6RgNC9bNAnaFfzJbqURdjeunBx57z1YzAtvgz0.tACcPBAkMfmkjW",
+    "fullname": "Xaolonn",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T22:26:40.837Z"
+  },
+  {
+    "id": "user_1795301624944",
+    "username": "tphuc",
+    "password": "$2b$10$YhHLLEtCOXYHx.4H9FZqv.bWkW9ET2NXQpX2FcQFcnho8.RiEWxqy",
+    "fullname": "tphuc",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T22:53:44.944Z"
+  },
+  {
+    "id": "user_1795302154335",
+    "username": "mày bú lồn",
+    "password": "$2b$10$Lz/XMAgddFVkUUa0rY1Ll.BynjfkOWFnIYW46TN08a.0Vvlby01R2",
+    "fullname": "Bú lồn",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T23:02:34.335Z"
+  },
+  {
+    "id": "user_1795302918944",
+    "username": "hohoanglong",
+    "password": "$2b$10$6eUWqfeKK1vRm0CzIsDPUui4fwbYhoq4C4VM1e5q5BgrpPbmjztFG",
+    "fullname": "hohoanglong",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T23:15:18.944Z"
+  },
+  {
+    "id": "user_1795303820434",
+    "username": "nghwngdz",
+    "password": "$2b$10$vqMkDVv9CZHjzyLJN5fmPO0VO5Vj2zQnrXZ/L.pRUVATLQgjgmE9G",
+    "fullname": "Nguyễn Gia Hưng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T23:30:20.434Z"
+  },
+  {
+    "id": "user_1795305292231",
+    "username": "vannhat",
+    "password": "$2b$10$TITO93vZMtBzqy4my65I8.TCm/Uwl6kOpWWI.3Vi61f/Ni0nWmfj.",
+    "fullname": "vannhat",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T23:54:52.231Z"
+  },
+  {
+    "id": "user_1795305493537",
+    "username": "nggan18",
+    "password": "$2b$10$iypScf0gAJvbtSXmnfow4OzFJBG3KlaU3Gv9mnmCW.RuwWTz97Fp2",
+    "fullname": "Nguyễn An",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-21T23:58:13.537Z"
+  },
+  {
+    "id": "user_1795307796058",
+    "username": "vuthien",
+    "password": "$2b$10$4t9kHKX9/dyuH4m68qL8MO6NV/Oqhx75NjtzxpsaKrADK5SXbNoQy",
+    "fullname": "Vuthien",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T00:36:36.058Z"
+  },
+  {
+    "id": "user_1795308056665",
+    "username": "khanh_le144",
+    "password": "$2b$10$r5FaSVeEdN0uUhd8eIvtwuNTS677Rzvq19ZDs4ZTFjrZT6hlyle4G",
+    "fullname": "Lê Văn Khánh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T00:40:56.665Z"
+  },
+  {
+    "id": "user_1795308341361",
+    "username": "ai hỏi",
+    "password": "$2b$10$uRDvGUYSrKmixCmKI637mOxO5GnZdPyPkY7G/q6BmZS24gLbfrg7a",
+    "fullname": "nguyên ai hỏi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T00:45:41.361Z"
+  },
+  {
+    "id": "user_1795310365458",
+    "username": "tungdzz",
+    "password": "$2b$10$JkJlvid/nP2456xAjRrh4eBcA.E8p/vjQQR9mpOhyDSC4NJl/.hfC",
+    "fullname": "Hà Vi Tùng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T01:19:25.458Z"
+  },
+  {
+    "id": "user_1795311689464",
+    "username": "tùng",
+    "password": "$2b$10$9TDTNijJLCR0SkIY6JVOt.uDFP4lyVUsFelBkmZQZH1uzzdKE66VW",
+    "fullname": "Tùng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T01:41:29.464Z"
+  },
+  {
+    "id": "user_1795311802057",
+    "username": "bangsieudz",
+    "password": "$2b$10$7YCB8GYlE3xmainc8HKv0eDd7cmvXgJiQJ4FU/ndx9x7in3Q1PnQO",
+    "fullname": "Nguyễn Văn bằng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T01:43:22.057Z"
+  },
+  {
+    "id": "user_1795312652962",
+    "username": "hahahahhavb",
+    "password": "$2b$10$/OUfOFgy5ndwUqa.e8Ez2u43ynNEV5IE6v6VQWfYBlcrKNPKocK5e",
+    "fullname": "Join đỹ",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T01:57:32.962Z"
+  },
+  {
+    "id": "user_1795313044159",
+    "username": "t.huyy",
+    "password": "$2b$10$RiNDt4GQzzY0SETGVxHWBeHv8WcJwY0MSdydKcKbpn2FMDw9WRPyq",
+    "fullname": "T.huy",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T02:04:04.159Z"
+  },
+  {
+    "id": "user_1795314527269",
+    "username": "aduanhda",
+    "password": "$2b$10$2gYXUKApV4DulxAuAlpy7.u.mEv93c/.1JAhiSFJ5BkVoqnGsKZPG",
+    "fullname": "Duy Anh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T02:28:47.269Z"
+  },
+  {
+    "id": "user_1795314723668",
+    "username": "alexnguyen02",
+    "password": "$2b$10$r24/YAz1HvsQluKbqQOuQeP/JmtSjZmt579O3Ti4w1lZ7aNmbScqW",
+    "fullname": "Nguyen Anh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T02:32:03.668Z"
+  },
+  {
+    "id": "user_1795314958262",
+    "username": "mạnh quyền",
+    "password": "$2b$10$TdOgqY0jd4J5dm0qQHB.H.tU4iYpjTaxNGo9iO.dM6w7rmcGCcdVK",
+    "fullname": "Quàng Mạnh Quyền",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T02:35:58.262Z"
+  },
+  {
+    "id": "user_1795315077270",
+    "username": "8/11/2011",
+    "password": "$2b$10$HP7ejSu/u8j4MjBSoD8izuUgpkkpNiRhwY/AuIOTAM0UOgyByhjNu",
+    "fullname": "Tạ minh công",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T02:37:57.270Z"
+  },
+  {
+    "id": "user_1795315578358",
+    "username": "llskks",
+    "password": "$2b$10$g4ilfgf3jo357ls.PPvWUuYTH0qZfAj2/d4K.tu5IWZqe7VWPMWUi",
+    "fullname": "Llskks",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T02:46:18.358Z"
+  },
+  {
+    "id": "user_1795316310271",
+    "username": "shdjdjdnd",
+    "password": "$2b$10$l48okT3FIbhSZGFg6ZtGKeeoDcMOe0sVlHg2jiQJi/Pk4N1cL5n9O",
+    "fullname": "Đạt",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T02:58:30.271Z"
+  },
+  {
+    "id": "user_1795317472061",
+    "username": "chantdithgton",
+    "password": "$2b$10$I.42ErQl0TAarTZUlIVTA.J9RK1ZIWUeCS4vKBO5Fq3EJI2IjcTh6",
+    "fullname": "Lê Văn Duy Khánh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T03:17:52.061Z"
+  },
+  {
+    "id": "user_1795317845758",
+    "username": "djcjkak@gmail.com",
+    "password": "$2b$10$GINHGz6K3xAIGq8XOYYg6.jDl/vktqBYT93SgCaKXCeAKXrqVhE/2",
+    "fullname": "djcjkak@gmail.com",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T03:24:05.758Z"
+  },
+  {
+    "id": "user_1795318462369",
+    "username": "hoài anh",
+    "password": "$2b$10$Vk8Tfi/tCEq4E/yp9a3YI.apJNN9Ef3nEy4R7DnP11q10bHK72fye",
+    "fullname": "Tạ Nguyễn Hoài Anh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T03:34:22.369Z"
+  },
+  {
+    "id": "user_1795319078471",
+    "username": "mạnh",
+    "password": "$2b$10$48Kp5JMQ2.RrzcvfJNgoJ.Ip1K0.phHa1f1OUvI8FjA3Yz5HU/WKC",
+    "fullname": "Lê Hoàng Mạnh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T03:44:38.471Z"
+  },
+  {
+    "id": "user_1795320260057",
+    "username": "bo19122012",
+    "password": "$2b$10$V46u9crWGopoQwGHYPo71e8VNkjrAF78OomYrqmulugAuE7OtMYai",
+    "fullname": "Phan lê thành khôi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T04:04:20.057Z"
+  },
+  {
+    "id": "user_1795321083065",
+    "username": "tiến",
+    "password": "$2b$10$YQkGJ/naTFnx9FQqew/x5OTE0RAeYhFqHsdiLm99phBONO8yFxh26",
+    "fullname": "Tiếnh hồng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T04:18:03.065Z"
+  },
+  {
+    "id": "user_1795321231456",
+    "username": "tuấn",
+    "password": "$2b$10$XH2mVm2zkKSM486wXzcro.bZTp1lDOLDtjnNiRZ6/JBtvRZfj/oiy",
+    "fullname": "Tẩn anh tuấn",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T04:20:31.456Z"
+  },
+  {
+    "id": "user_1795321471356",
+    "username": "nguyen duy phúc",
+    "password": "$2b$10$dCkv2dzMF1aqfM0CiNR47uAfhh8lY2u9fj7mXtEOA5x5.CgkM0/gm",
+    "fullname": "Nguyễn Duy Phúc",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T04:24:31.356Z"
+  },
+  {
+    "id": "user_1795321495357",
+    "username": "trbinh",
+    "password": "$2b$10$KC08gso6kjHMeW7UtV4cxusONGO.m1ipPotovdEmCzBLr66UKL4/C",
+    "fullname": "Trbinh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T04:24:55.357Z"
+  },
+  {
+    "id": "user_1795321810969",
+    "username": "zh7",
+    "password": "$2b$10$.biJ8lyu90ep46H9o8cbPePojwPSTh0.yePdzsgaQm2kiqKDYVpU2",
+    "fullname": "Zh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T04:30:10.969Z"
+  },
+  {
+    "id": "user_1795323420457",
+    "username": "cac2mrt",
+    "password": "$2b$10$WcKI5QKWXvnrOeFVwppJHu47nCXTeanK1VBmqGcJuNy.KfrCwsZVi",
+    "fullname": "nbui",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T04:57:00.457Z"
+  },
+  {
+    "id": "user_1795324089158",
+    "username": "viet",
+    "password": "$2b$10$LLE2cFzpZs88/18eqRX40.pzHZVQ.5SPbVzq4SIPyrqn2T01.VN2W",
+    "fullname": "Nguyễn Quốc Việt",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T05:08:09.158Z"
+  },
+  {
+    "id": "user_1795324997268",
+    "username": "tuan",
+    "password": "$2b$10$qYP1e.AtpCR5GTi3VIPPgePP/h3Ofyso7H8PquYXh6NB1gpGW.S4W",
+    "fullname": "Mãi tuan",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T05:23:17.268Z"
+  },
+  {
+    "id": "user_1795325139669",
+    "username": "dangkhoaiuem",
+    "password": "$2b$10$w/EqiPJ2t48G2rjrS1b/MuObopod2DyX.ttBWqO3A3ZPiRD5/oBM2",
+    "fullname": "Nguyen Dang Khoa",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T05:25:39.669Z"
+  },
+  {
+    "id": "user_1795326863060",
+    "username": "https://shopnghiaz.store/",
+    "password": "$2b$10$xvbMoTd3KbYtFQutuTamwuToutdYUmS1pg1IYMxX5NsEcRtbCaZr2",
+    "fullname": "Lưu bị u",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T05:54:23.060Z"
+  },
+  {
+    "id": "user_1795326984469",
+    "username": "hoàng cotu",
+    "password": "$2b$10$GOHb3YMPx5a/lw3X0Napi.JWDRXFEGKfQ.o5mBT0.fm/mWJFaWvKO",
+    "fullname": "Viết Hoàng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T05:56:24.469Z"
+  },
+  {
+    "id": "user_1795327908659",
+    "username": "maikim9182",
+    "password": "$2b$10$ZANSq8ps5UCVQ1w.SWZYv.8DlK41QvFGkvErnSEUtzC9NZg134Iwe",
+    "fullname": "mai Hoàng Kim",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T06:11:48.659Z"
+  },
+  {
+    "id": "user_1795330490770",
+    "username": "bao",
+    "password": "$2b$10$qnUFDUuWeeYug40yh69NzOwTsmzk4vFIKLEhzS9wEcHJ7id2Ou9AC",
+    "fullname": "gia bảo",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T06:54:50.770Z"
+  },
+  {
+    "id": "user_1795331746368",
+    "username": "namcute100",
+    "password": "$2b$10$qfDtGk2g.Nu6VUjp9Qx9LeX83i3o1U/7IbwnI1LgkOsn51HJopqQ6",
+    "fullname": "Nguyễn Bảo Nam",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T07:15:46.368Z"
+  },
+  {
+    "id": "user_1795332277258",
+    "username": "elinhh",
+    "password": "$2b$10$ZglFGtLYblJkkFpxoA/K5OTdmRAodSYRtZQEcBvC8aGUXgJNgEMNa",
+    "fullname": "Nguyen Thi Gia Linh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T07:24:37.258Z"
+  },
+  {
+    "id": "user_1795332398071",
+    "username": "leon9999",
+    "password": "$2b$10$5HY1PvmxSaJmJvUaMXxyOeYhIOc.horw83sCpc0w/tfnip5E2sblq",
+    "fullname": "Leon66",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T07:26:38.071Z"
+  },
+  {
+    "id": "user_1795333879368",
+    "username": "gtdzai",
+    "password": "$2b$10$o0/eAEVWU.rFjrL9BYryU.fow0pXCjuxqELDDIt4ID1i3mIuXYJ8.",
+    "fullname": "Nguyễn Trần Gia Tuấn",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T07:51:19.368Z"
+  },
+  {
+    "id": "user_1795335582983",
+    "username": "aoodn",
+    "password": "$2b$10$0O4MwCNZstMbM05te7KHn.zvPfl3HTONBn9vQS/fQgj88tRie/onu",
+    "fullname": "Xooandm",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T08:19:42.983Z"
+  },
+  {
+    "id": "user_1795335610796",
+    "username": "lê anh vu",
+    "password": "$2b$10$St3KjklzvUDcVLpxyIrwo.BRnk36qOY.gMs6AqzPOONQWBb5IZdyO",
+    "fullname": "Lê anh vũ",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T08:20:10.796Z"
+  },
+  {
+    "id": "user_1795337415187",
+    "username": "namdeptrai",
+    "password": "$2b$10$lCB/DZsrg.nomqgfljN15ODWYpbvBWHZ9j4N0Pp9oGZmQyf3CBRWm",
+    "fullname": "Nguyenx trọng hiếu",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T08:50:15.187Z"
+  },
+  {
+    "id": "user_1795337870389",
+    "username": "phuctuuu",
+    "password": "$2b$10$rHwIgPh5uEMOIs6CD/CjeeYTPr20BuSQ0lPXNoGmsFPsv3jLiELKO",
+    "fullname": "Phuctuu",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T08:57:50.389Z"
+  },
+  {
+    "id": "user_1795338261086",
+    "username": "nhân",
+    "password": "$2b$10$MckpgHaqTZroQXnptF2J0eNWXX2DK2UgeLFf17FTldf7b3MPX8iN.",
+    "fullname": "Trần Trung Nhân",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T09:04:21.086Z"
+  },
+  {
+    "id": "user_1795339212583",
+    "username": "long",
+    "password": "$2b$10$BbzyqtOmnCjvCnx1ISxYL.jntvY.Q7Th0fc2FUDzDd/iJj0Nlt8uu",
+    "fullname": "N huy long",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T09:20:12.583Z"
+  },
+  {
+    "id": "user_1795339595895",
+    "username": "lực",
+    "password": "$2b$10$xIbgPBAn2KJy4LBV1sM1Zu4bmJeS1A2P8KTqjaiUp3gn9MscOvOjK",
+    "fullname": "Nguyễn Uy lực",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T09:26:35.895Z"
+  },
+  {
+    "id": "user_1795340195583",
+    "username": "khai2014",
+    "password": "$2b$10$gAaEW09D0cxsPVpQGOW6LuDeRSZiSArUe6wArsD14PIyQTJm5OXyK",
+    "fullname": "Bùi đình khải",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T09:36:35.583Z"
+  },
+  {
+    "id": "user_1795341518082",
+    "username": "thịnh",
+    "password": "$2b$10$MRfApm3oQWEeaKwwexTxtOCup5cqP9PMyVaa.KyNVwDs70/2j4/XS",
+    "fullname": "Hoàng Đức Thịnh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T09:58:38.082Z"
+  },
+  {
+    "id": "user_1795341577293",
+    "username": "2011",
+    "password": "$2b$10$X9s27MTeCxWYiTe1NYi7Rul2cKcZP18gUc74G/5TVkBV3A53X5tcK",
+    "fullname": "Khoa",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T09:59:37.293Z"
+  },
+  {
+    "id": "user_1795341818490",
+    "username": "binterset",
+    "password": "$2b$10$sKatuc3WiuB2nU7XjAyWfOLRq2e5vMZ09kU4onIJQCTo/bdvFQjkS",
+    "fullname": "Phạm Đình Tuấn",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T10:03:38.490Z"
+  },
+  {
+    "id": "user_1795342384694",
+    "username": "vinhcuto",
+    "password": "$2b$10$8sT3oLBO3vx8Ds2zsWMVUeHQLGhEhU5fsJZ.iZirGw/zjio/U/jE2",
+    "fullname": "Nguyễn Thành Vinh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T10:13:04.694Z"
+  },
+  {
+    "id": "user_1795342440381",
+    "username": "jdeuy_35",
+    "password": "$2b$10$oWBkKhlUXW4G9zbY/RkvZOu1BHaIYzMKIHzV5nRA/EVPFMjRcSA8K",
+    "fullname": "Jdeuy_35",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T10:14:00.381Z"
+  },
+  {
+    "id": "user_1795342801083",
+    "username": "dcum",
+    "password": "$2b$10$EuuEDId9MQ1xsnlLUairdudQmQRcT2sF2t66sf6SOxSRaytUBg.wW",
+    "fullname": "Kt",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T10:20:01.083Z"
+  },
+  {
+    "id": "user_1795343457195",
+    "username": "duongdz2012",
+    "password": "$2b$10$9g4KPJyN3k8iMVQG/6SZ5uLxvQJFIftZdL6O5PCXpqW2UOutfP9wC",
+    "fullname": "Phạm Gia Dương",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T10:30:57.195Z"
+  },
+  {
+    "id": "user_1795344409894",
+    "username": "siuuuuu",
+    "password": "$2b$10$uztSuK15Ir5jKxglAJDZJOW1NbojZc8RLCuc2pTsGOY6rKGEGrRcG",
+    "fullname": "Nguyễn thị mỹ nga",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T10:46:49.894Z"
+  },
+  {
+    "id": "user_1795345489881",
+    "username": "bách",
+    "password": "$2b$10$SA7RM2CfjBXa58NCUioLFe9Zr5z5himyye4.MchbzeONZs0xkpNqa",
+    "fullname": "Bách",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T11:04:49.881Z"
+  },
+  {
+    "id": "user_1795345935996",
+    "username": "nguyễn văn la",
+    "password": "$2b$10$Ss6BT4daJoZaNeGJpHL6E.l39z53A2LPMVUUkgocPIxNez0DRUbuK",
+    "fullname": "Nguyễn văn la",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T11:12:15.996Z"
+  },
+  {
+    "id": "user_1795346811183",
+    "username": "hxhxjxjsmddm",
+    "password": "$2b$10$YLKhqohbWmLBxDVr9SDgk.zOvGQj8x1EwraFVXXSmYgblWuN9lqQK",
+    "fullname": "Nguyễn đặng quốc hoàng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T11:26:51.183Z"
+  },
+  {
+    "id": "user_1795347267894",
+    "username": "3s2telzgd",
+    "password": "$2b$10$frziqysoDScsTEYVmvSOYus9rfEGcYkFebUeaYBGke2/su7ayXQu2",
+    "fullname": "Lê anh kiệt",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T11:34:27.894Z"
+  },
+  {
+    "id": "user_1795348695782",
+    "username": "phi lonh",
+    "password": "$2b$10$BSFoIsmLtyIbEh2DBxY8M.djhpq1Fe.QQ06UbqzKTaT9m.lbkfMsm",
+    "fullname": "Trần Phi Long",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T11:58:15.782Z"
+  },
+  {
+    "id": "user_1795348817381",
+    "username": "nguyen duy vinh",
+    "password": "$2b$10$l3C83lSC5by2xHTHYG6Q9e2gZKgLExvt9p2a4V8VDm0o6dVVYpdVO",
+    "fullname": "nguyen duy vinh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:00:17.381Z"
+  },
+  {
+    "id": "user_1795348874083",
+    "username": "aimiyoongsi",
+    "password": "$2b$10$JKRY0Dl/H059RqSENYC3/.XOS7PnIGoRDkKHc9GQANGhp/fiqf2D6",
+    "fullname": "Aimiyoongsi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:01:14.083Z"
+  },
+  {
+    "id": "user_1795348971087",
+    "username": "lương mod",
+    "password": "$2b$10$C2ZGEjE6NmFOcqqRI.nMgemVn.NVZN6zmaVlE8psZUYhKSgCWqgfy",
+    "fullname": "Hồ Nguyên lương",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:02:51.087Z"
+  },
+  {
+    "id": "user_1795349073395",
+    "username": "hnam",
+    "password": "$2b$10$NevFzdS96h9NS3D/sdJ/Fusx0MC7cPoEHC8PLyONY/AciaHGKKyF.",
+    "fullname": "Võ hoàng nam",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:04:33.395Z"
+  },
+  {
+    "id": "user_1795349096891",
+    "username": "toiyeupro",
+    "password": "$2b$10$Vv6Zz.DnDXA.OQbJTPbepOG/KGBqX4u9zs0jv9AySz.AyQsTrJBYa",
+    "fullname": "Noiwjd",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:04:56.891Z"
+  },
+  {
+    "id": "user_1795349343001",
+    "username": "bucutaoik",
+    "password": "$2b$10$wnnj05JunPi4oj0fzZ2MxOaPhbQSO2uJzjMI8k5Ockw3j4nc3ztNC",
+    "fullname": "Phạm Toàn Hên",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:09:03.001Z"
+  },
+  {
+    "id": "user_1795349536491",
+    "username": "thiện quý",
+    "password": "$2b$10$D0PmdH.YEPExG13HLjL8EuWcUF0MiUoNJAcaroejxCqBBxK84.f1a",
+    "fullname": "Nguyễn Thiện quý",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:12:16.491Z"
+  },
+  {
+    "id": "user_1795349576581",
+    "username": "quandztgok",
+    "password": "$2b$10$QFZ7QJEuD6yIhRFzZuy1FORNdN/jv6qz4Nn5RNRCMqKp.TovFnbPm",
+    "fullname": "Đặng Minh Quân",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:12:56.581Z"
+  },
+  {
+    "id": "user_1795349869785",
+    "username": "uuu",
+    "password": "$2b$10$IlNPKW0LKJXVC8ozyG5xMevrw16DAeMf8q5jodFivD1iSVf8AmubS",
+    "fullname": "Uuu",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:17:49.785Z"
+  },
+  {
+    "id": "user_1795349877892",
+    "username": "trung",
+    "password": "$2b$10$/I4FGzgZ1pmuu9CmsDX0C.3W.Zejx113L.vb1Wmm1tYqKQQx/MtxC",
+    "fullname": "Bùi thành trung",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:17:57.892Z"
+  },
+  {
+    "id": "user_1795350002390",
+    "username": "pham",
+    "password": "$2b$10$Smeaoek4F8XWXhI5rDLtqeaVtroUiYphQXcvMBhsmtaWMQBp1xJBm",
+    "fullname": "Dung",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:20:02.390Z"
+  },
+  {
+    "id": "user_1795350046994",
+    "username": "qkhai",
+    "password": "$2b$10$yxGyPxfx7f8AsjEvT0.EWumArHmFYAeRlyQKNKz7SOVR4gX6LmAJ.",
+    "fullname": "Khải",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:20:46.994Z"
+  },
+  {
+    "id": "user_1795350055994",
+    "username": "loe loẹt lèo",
+    "password": "$2b$10$4KabFtbotKBnGEHBoLK4b.4tx.uncEOaMFqjKAXUhEcOQGKuIflb2",
+    "fullname": "Phúc bồ ft",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:20:55.994Z"
+  },
+  {
+    "id": "user_1795350132184",
+    "username": "dat1234567",
+    "password": "$2b$10$jJ/XwVi7f4spjFVxkMbFHeOp5R1GwJ8K5VrKNhQ2ux.x8H/fL0e6S",
+    "fullname": "Tống minh đạt",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:22:12.184Z"
+  },
+  {
+    "id": "user_1795350171783",
+    "username": "meobeotoichoi",
+    "password": "$2b$10$ShIQpoLX1F9MLYrlZkMuvuT9nf4Wfb0z4wkJTCLU1i8O/Yalx/nQm",
+    "fullname": "NJajsn shsisid",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:22:51.783Z"
+  },
+  {
+    "id": "user_1795350249782",
+    "username": "shopnghiaz.store",
+    "password": "$2b$10$Oda2C4FjoCycbGsgSG4WbeDYtcUfnsf/BYE8kVaUbT1WOcrOqJzIy",
+    "fullname": "vũ ngọc duy",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:24:09.782Z"
+  },
+  {
+    "id": "user_1795350266584",
+    "username": "mạnh nghĩa",
+    "password": "$2b$10$humLH7HkW4QN/GkZy3oIG.fp/gwl0xjOg7BtDDDviJMhJzzYWDXj.",
+    "fullname": "Mạnh nghĩa",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:24:26.584Z"
+  },
+  {
+    "id": "user_1795350386894",
+    "username": "huyhoang123",
+    "password": "$2b$10$n//zD83SwFFTpaQd2wx.8uypKME19mfokBl0u43uxFsjmUx8r/adm",
+    "fullname": "Huy hoàng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:26:26.894Z"
+  },
+  {
+    "id": "user_1795350422182",
+    "username": "phu",
+    "password": "$2b$10$AZLWHoYiYufQMsnQKrAgfeepvNb/iu9.Dt518SfFJozDOdDCbJn8u",
+    "fullname": "Trần Văn Phú",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:27:02.182Z"
+  },
+  {
+    "id": "user_1795350484702",
+    "username": "hwheuej",
+    "password": "$2b$10$/vtSzK8.GoAlkRy6UpdRjeMTGr5xnoSYSGlCgm/gjp4NEosIbQWgO",
+    "fullname": "đcueje",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:28:04.702Z"
+  },
+  {
+    "id": "user_1795350582184",
+    "username": "khoi",
+    "password": "$2b$10$58gRhYflEK30GOB1Cx4eYe9CVbEalQ8/Mg8e0JnIQkVIwUuB7EFe2",
+    "fullname": "Võ Đăng Khôi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:29:42.184Z"
+  },
+  {
+    "id": "user_1795350705582",
+    "username": "duy56",
+    "password": "$2b$10$R5obL8JWXUXBOLFbSGzjM.lSvz6EdG6Q.x6WbCZsPw3Oo0Jf0qbte",
+    "fullname": "Duy56",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:31:45.582Z"
+  },
+  {
+    "id": "user_1795350737183",
+    "username": "abakaivc",
+    "password": "$2b$10$bO6/E2/Sdd/Pzpggp96hiesMAGjk93gFmATFJO5n8Q8Nexgkowo12",
+    "fullname": "abakai",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:32:17.183Z"
+  },
+  {
+    "id": "user_1795350790482",
+    "username": "bodzai",
+    "password": "$2b$10$rjnEgBI/tSnaWRtSNCuA.uGNKLlpfhx1FzQ37SMBbSWAf/p0GT17m",
+    "fullname": "Trịnh thế anh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:33:10.482Z"
+  },
+  {
+    "id": "user_1795350842791",
+    "username": "aiajshabsvs",
+    "password": "$2b$10$A71BhPnKxAN4/YlTSf.Gue2p0phxJ3lMde7AKGPh8.9Dvna4CqW1a",
+    "fullname": "phan trung nguyên",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:34:02.791Z"
+  },
+  {
+    "id": "user_1795351163588",
+    "username": "bencuteso1",
+    "password": "$2b$10$lkykNNR5GS9r5o8IKYFhiuRCS30PUIU/AtjVJC6SjenNAcgZocvtu",
+    "fullname": "Lê hoàng khánh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:39:23.588Z"
+  },
+  {
+    "id": "user_1795351355082",
+    "username": "kanzmuaacc",
+    "password": "$2b$10$xZmSASbB5ZEI0F/XnfVwoeQkEx1NzwZlTo9buKsuJ.BfP6UNfJ8xq",
+    "fullname": "Nghĩa bếu",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:42:35.082Z"
+  },
+  {
+    "id": "user_1795351400584",
+    "username": "qvuzzz",
+    "password": "$2b$10$yoqQBSZZ6kzDW2n40g8pEu2rs0hu3QWnflqLOIHuRtJTTBBOhPHZG",
+    "fullname": "QvuzZz",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:43:20.584Z"
+  },
+  {
+    "id": "user_1795351488683",
+    "username": "dangxuanbac",
+    "password": "$2b$10$5wrQiXRpIzDMjaRLvDyciOkROXrSIzD.blhEdPr7S1us.R8Df8XdO",
+    "fullname": "Đặng Xuân Bắc",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:44:48.683Z"
+  },
+  {
+    "id": "user_1795351504982",
+    "username": "nguyznmahh",
+    "password": "$2b$10$D35hXlKoL72VVeBKRZe2nOsOK5wbrVJfbsAqW3R.dEue3SyhPab9K",
+    "fullname": "nguyễn đức mah",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:45:04.982Z"
+  },
+  {
+    "id": "user_1795351650494",
+    "username": "thịnh peo",
+    "password": "$2b$10$L8Hd7XqPjE3AOiRV/e6lTeTvKeDCy8pLWjtYpMnFAff0I9o63Rex2",
+    "fullname": "Huỳnh Phước Thịnh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:47:30.494Z"
+  },
+  {
+    "id": "user_1795351709493",
+    "username": "hamtu123",
+    "password": "$2b$10$UlTZVH.aWrJzZqOZTKn2IOjJ6khXMygbeNUpwLj0x0b6r/iEhKaDG",
+    "fullname": "Nguyễn hàm tú",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:48:29.493Z"
+  },
+  {
+    "id": "user_1795351888084",
+    "username": "le4825294@gmail.com",
+    "password": "$2b$10$IAErVd5ug5xUGWa3ebbTXOQLXqxym.1Nkylr2GBz5dOOvZGwovIYa",
+    "fullname": "Lê thành",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:51:28.084Z"
+  },
+  {
+    "id": "user_1795351944082",
+    "username": "dhjjdjd",
+    "password": "$2b$10$Ljf./0g8vsZUIH/CHL26AufXhwWa7mrvVj2UpaOZQtTau66Oh5XlO",
+    "fullname": "Jekejje",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:52:24.082Z"
+  },
+  {
+    "id": "user_1795352102988",
+    "username": "491vxwcs",
+    "password": "$2b$10$FI2bXWvbSOzGqTdfGKOd1OUOuCD3shw7JfOqbrR2oRVG9krjEmCOe",
+    "fullname": "Nguyen hieu ngan",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:55:02.988Z"
+  },
+  {
+    "id": "user_1795352255695",
+    "username": "thanhvvv",
+    "password": "$2b$10$3z9ym46B2U7OcGTNetarGuM3xoYLVWdBNQlPMZC2NXJVXdtAWbg7e",
+    "fullname": "ThanhvAa",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:57:35.695Z"
+  },
+  {
+    "id": "user_1795352289393",
+    "username": "nam thân bảo",
+    "password": "$2b$10$3Ffx8IlzGz1xVR6zBpzbMOcv0YJ16UGvmzdiAnHXNZzW5gAt6r1/u",
+    "fullname": "Thân bảo Nam",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:58:09.393Z"
+  },
+  {
+    "id": "user_1795352307983",
+    "username": "phongdat",
+    "password": "$2b$10$BTZzH7PDLut8xE4J9cNuuOzHXTqkeLI/bu.nUTKnXdSv1vwDnRyhm",
+    "fullname": "Phongdat",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T12:58:27.983Z"
+  },
+  {
+    "id": "user_1795352400496",
+    "username": "tịnh",
+    "password": "$2b$10$PlgcR8odGefCPPPFK.VRd.pQot5l/L9n.d.2uO3c/WWgvE1kCLdYi",
+    "fullname": "nguyenthanhtinh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T13:00:00.496Z"
+  },
+  {
+    "id": "user_1795352980583",
+    "username": "truong192012",
+    "password": "$2b$10$ldtmCDsBZxvsNBe2N6IfGuly0Nae4DPC3ES4v7vw9J7MZIXm0oOEC",
+    "fullname": "Trường văn",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T13:09:40.583Z"
+  },
+  {
+    "id": "user_1795353198783",
+    "username": "0v6ccjd",
+    "password": "$2b$10$XHhjpJO53RiiX1MJyjKtauWWMxUSdYXAumfRMO9AO/gdKrL46//6O",
+    "fullname": "Yyggg",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T13:13:18.783Z"
+  },
+  {
+    "id": "user_1795353607293",
+    "username": "nghuydzai",
+    "password": "$2b$10$HfnArcqaFbxVp/I3r6orNu1iAEntAZCNg1k2NVs7tfOadZtWrZ0Fy",
+    "fullname": "Nguyễn Xuân Huy",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T13:20:07.293Z"
+  },
+  {
+    "id": "user_1795353686489",
+    "username": "chungsang454@gmail.com",
+    "password": "$2b$10$AB65EmLt9jNM74WBXgWOdu.ZSgDZXuyiFjxcsTeq0YAOgvCCvtnvG",
+    "fullname": "Chung Trường Sang",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T13:21:26.489Z"
+  },
+  {
+    "id": "user_1795355036597",
+    "username": "ssks",
+    "password": "$2b$10$0cfLxpqKVcJp9hQJ4htOGeSI3CYh2B7d9aS1hlwrMViR3boPk5z.6",
+    "fullname": "Jskskksk",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T13:43:56.597Z"
+  },
+  {
+    "id": "user_1795355189282",
+    "username": "quân",
+    "password": "$2b$10$rUGEsQKBRngDBJhg7WetCOyrBg4A7pv3ZU7r1ymNIyNM5OwNxHmcy",
+    "fullname": "Trần Anh quân",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T13:46:29.282Z"
+  },
+  {
+    "id": "user_1795355752098",
+    "username": "bbbbnnn",
+    "password": "$2b$10$umvt1PPG5oOjBK3Ya8vFHerX2tzmLJTjjYZ9zpnZ3z69brN3dtHpu",
+    "fullname": "Vvbbb",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T13:55:52.098Z"
+  },
+  {
+    "id": "user_1795356480281",
+    "username": "fff",
+    "password": "$2b$10$mud2dBdk3vzkHY.Wwo9.WOobvyBC4RCSYeuOt85ta7OJNBd6Lf.K6",
+    "fullname": "Phong",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T14:08:00.281Z"
+  },
+  {
+    "id": "user_1795356531681",
+    "username": "fffvgcg",
+    "password": "$2b$10$X7qeFDWgdQEJYUiDC1U8beoN4HhsrQED1jBDBoG8jdGe7IQfh2R5y",
+    "fullname": "Ha",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T14:08:51.681Z"
+  },
+  {
+    "id": "user_1795356781887",
+    "username": "dai0364",
+    "password": "$2b$10$iO3fr7ZimxOoHa8Vq0KTie2MTAodfpowyNjMXzzaAwHiSnUeaEYTm",
+    "fullname": "Nguyenquocdai",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T14:13:01.887Z"
+  },
+  {
+    "id": "user_1795357405894",
+    "username": "bomayvuadochoi",
+    "password": "$2b$10$8/lfvaUuvjcVoWlDa3FiUOmvCt0Y43aTl4TSwhgGYECFv9tYvRye6",
+    "fullname": "kkkkkkkkk",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T14:23:25.894Z"
+  },
+  {
+    "id": "user_1795357491387",
+    "username": "abcxyz1234",
+    "password": "$2b$10$wQzwD3F1WO5f3Z85sHSig.en4MSbVRRIc6chpEWCmq3QGY3K.D9N2",
+    "fullname": "Trần Khánh Nguyên",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T14:24:51.387Z"
+  },
+  {
+    "id": "user_1795357758290",
+    "username": "phuc",
+    "password": "$2b$10$byDMYFdox5Kxzvpm5tknA.XcWbmx1rLq7zJSHS.W2VuT6kdRHWb/.",
+    "fullname": "Lehoangphuc",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T14:29:18.290Z"
+  },
+  {
+    "id": "user_1795358216895",
+    "username": "hehhe",
+    "password": "$2b$10$/oimekCmx.U3Cer4RRbdUuG26G58t091B2Q36qKWzv/Q6ndZA.JEG",
+    "fullname": "hsyhs",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T14:36:56.895Z"
+  },
+  {
+    "id": "user_1795358603995",
+    "username": "huy110289",
+    "password": "$2b$10$XxTHzcHuowuTiLhxRklNwuFrhFVhO6Ti0DlLkj899wH2a0Fs4xOcW",
+    "fullname": "Huy",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T14:43:23.995Z"
+  },
+  {
+    "id": "user_1795359104987",
+    "username": "bukhu367",
+    "password": "$2b$10$g/UYXXezIyoFNWREnygEGeD/JyDO9m3rOaS0520r1DSMC2N3jlSji",
+    "fullname": "Nguyen Bu Khu",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T14:51:44.987Z"
+  },
+  {
+    "id": "user_1795359719185",
+    "username": "hoangky",
+    "password": "$2b$10$quJjFNYCXGCi0gDuHvvBy.6aFT14o81KPOQWSonyWG4/e3wrejdHa",
+    "fullname": "hoangdoanky",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T15:01:59.185Z"
+  },
+  {
+    "id": "user_1795360330495",
+    "username": "nghi",
+    "password": "$2b$10$K0Tvdv6N/178AC24NeTqvOIy1yYzi9rvAejC79j4HP2wE4VBYENKG",
+    "fullname": "Ngin",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T15:12:10.495Z"
+  },
+  {
+    "id": "user_1795360972084",
+    "username": "dcai",
+    "password": "$2b$10$m9R7LjsA4aMuF.hl/2cppOkhTcjvjCYpZmhkMLvSsrBM.3g8Kj5o2",
+    "fullname": "dvai",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T15:22:52.084Z"
+  },
+  {
+    "id": "user_1795361848294",
+    "username": "bin",
+    "password": "$2b$10$Ylfwk318g4/VRB8LPA8t9ef.LmQvEii43vBLBpA6AMSW9rnXxTcfG",
+    "fullname": "Trần việt khôi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T15:37:28.294Z"
+  },
+  {
+    "id": "user_1795362638989",
+    "username": "caklon",
+    "password": "$2b$10$TuvWKe7ra.sjMUdyJHZwiOejKfeqCYRvZUq3p97Aa1Wg9EAt2zAxu",
+    "fullname": "Nguyễn Minh Đức",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T15:50:38.989Z"
+  },
+  {
+    "id": "user_1795362657191",
+    "username": "khanhphidz",
+    "password": "$2b$10$eJJWiOjk0HnAw/xYsQ6GJOmZ1jl0zU9fLf7q.INvQrb894hLEkoiC",
+    "fullname": "khanhphi36",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T15:50:57.191Z"
+  },
+  {
+    "id": "user_1795362706691",
+    "username": "htu",
+    "password": "$2b$10$l9v9KuWO/Bs.X5UFiyRPIOs8sUC6pLReUdT.pdSzGhUWypuN/59Hq",
+    "fullname": "Kkkkk",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T15:51:46.691Z"
+  },
+  {
+    "id": "user_1795363657890",
+    "username": "12344",
+    "password": "$2b$10$1rM2FJHGjQYPkb.aKqR/ves9juKpPVL.9.oqVlbL0cC5BWGO5.zQK",
+    "fullname": "hopnghiaz",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T16:07:37.890Z"
+  },
+  {
+    "id": "user_1795365753694",
+    "username": "culongthon",
+    "password": "$2b$10$NIjkgMnJsFiOfK0UzGK1HeFb9mGUVXd40rKnKcjwWwzE8i.fSzyN2",
+    "fullname": "Con cu daif",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T16:42:33.694Z"
+  },
+  {
+    "id": "user_1795371378983",
+    "username": "hoaibao1104",
+    "password": "$2b$10$YyBrBVUYKcfJxLmFtKEtteqF5prof26kzLRAYqyME6YpQ9lmbf.4i",
+    "fullname": "Hoài  Bảo",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T18:16:18.983Z"
+  },
+  {
+    "id": "user_1795371895684",
+    "username": "nguyễn thị minh  khôi",
+    "password": "$2b$10$KL3yVSx5IwtfDfgFmvtpt.oBmx7yjAZRvTmXbcnORfxkirk/11yIy",
+    "fullname": "Nguyễn Thị Minh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T18:24:55.684Z"
+  },
+  {
+    "id": "user_1795387621528",
+    "username": "bảo khanh",
+    "password": "$2b$10$yIZNm02b3rozhmn8JHRWFOfKi/7Nte2aI/DyGIeoUOm7nT9bF3uAe",
+    "fullname": "Trần Bảo Khanh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T22:47:01.528Z"
+  },
+  {
+    "id": "user_1795387854031",
+    "username": "hieua12321",
+    "password": "$2b$10$OuI6VkwVveeLVhM80D/mMOGrlhUO.aPyHg.Ir6z/Oi6RCpo/REl.m",
+    "fullname": "NGUYỄN VĂN LỤM",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T22:50:54.031Z"
+  },
+  {
+    "id": "user_1795388743922",
+    "username": "trviehoang2107",
+    "password": "$2b$10$3itMIl8Xl71.dy4S5tVi4uhjxMvMPNRD9BlrB7WC3vXra9HNxdJE.",
+    "fullname": "Trương Việt Hoàng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T23:05:43.922Z"
+  },
+  {
+    "id": "user_1795389064118",
+    "username": "duyluxury",
+    "password": "$2b$10$wSBw.GZYS5F6K242/usijeejZ5MuLuuRT5VMQEJf3Ve352HCaFFWa",
+    "fullname": "Cao Đăng Duy",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-22T23:11:04.118Z"
+  },
+  {
+    "id": "user_1795396151001",
+    "username": "taome",
+    "password": "$2b$10$0sDji7A2AeJYSvX26tHsM.SVVg9sRS4p5xwXELJ6eLSAJ7VZy5UBa",
+    "fullname": "Anh bưo",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T01:09:11.001Z"
+  },
+  {
+    "id": "user_1795405169297",
+    "username": "vudep",
+    "password": "$2b$10$s4L5nEgL8nXlfltDXshPaeYx2M85WNXRN7MO4jB2UsOfDc3LL0op6",
+    "fullname": "Vudep45#@",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T03:39:29.297Z"
+  },
+  {
+    "id": "user_1795407127052",
+    "username": "namyeuem",
+    "password": "$2b$10$bA5u.9dmazHQHoJgYfW3eepzCPddX.HugDOza795oLH7HirAzvRpW",
+    "fullname": "Đinh vũ nam",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T04:12:07.052Z"
+  },
+  {
+    "id": "user_1795407967457",
+    "username": "xpzhu210",
+    "password": "$2b$10$FHHLr5.K98nJXKLzn8VyA.DjcFtM65xIPOGHrR8JGZwDOZ9Q0axRu",
+    "fullname": "Hồ Xuân Phú",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T04:26:07.457Z"
+  },
+  {
+    "id": "user_1795407972746",
+    "username": "duc",
+    "password": "$2b$10$KTDJI3XJ1bkNl/R6k0vOpen7lfrmPmhmpy2ANYEI5W3dvCeCcvXyG",
+    "fullname": "duc",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T04:26:12.746Z"
+  },
+  {
+    "id": "user_1795409369347",
+    "username": "sex",
+    "password": "$2b$10$ogI9EIFOafnQ05tJQbEnsuDWkIg1wiOH5R4Q0KvNdpK/TdDXfRC1i",
+    "fullname": "Phạm Văn Khiêm",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T04:49:29.347Z"
+  },
+  {
+    "id": "user_1795409815145",
+    "username": "poiuytrew09",
+    "password": "$2b$10$iVCMODovUamYzENIUYbuCuSnt2aGxLkVxxuxKycqohuOw9S6UKMpG",
+    "fullname": "Lê nam",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T04:56:55.145Z"
+  },
+  {
+    "id": "user_1795412744446",
+    "username": "kshajakwj",
+    "password": "$2b$10$DzgcrOD/Bx6J52QYC0UtIuK.CT9ZNBDCklHiJFNo00jf4JnrPfysm",
+    "fullname": "chan bos m di",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T05:45:44.446Z"
+  },
+  {
+    "id": "user_1795413643247",
+    "username": "vvcv",
+    "password": "$2b$10$GUIlH7V6GoWhX7uaKsuvl.zNVCJ/3Z5eTaa6eO1ZkHv1/11YgmUIe",
+    "fullname": "Vvcv",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T06:00:43.247Z"
+  },
+  {
+    "id": "user_1795415773258",
+    "username": "manhquan",
+    "password": "$2b$10$RhM7tI519xMA0qYup51wf.s9yjh5UpEbA5XgJgRxwAFkRvVsomE8S",
+    "fullname": "Manh Quan",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T06:36:13.258Z"
+  },
+  {
+    "id": "user_1795416257159",
+    "username": "vanha2012",
+    "password": "$2b$10$2UPEB.dQ0FwV8XnZ.8qMNe6RoZesHcT0R2Ss8mdrXd2iEaVSPjl4.",
+    "fullname": "Nguyễn Văn Hà",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T06:44:17.159Z"
+  },
+  {
+    "id": "user_1795416579756",
+    "username": "trviethoang",
+    "password": "$2b$10$bhVZqV.4BQj9I2Uid8cJheZ7eq.h9K8aPANpF183YbvBs88/HhPzO",
+    "fullname": "Trương Việt Hoàng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T06:49:39.756Z"
+  },
+  {
+    "id": "user_1795417843157",
+    "username": "nguyen",
+    "password": "$2b$10$mSjjJNGNMT2sjrXOWE10aOVe5sTjBtDRszCxN7WhX7RUx2jjqZ5OO",
+    "fullname": "Nguyen",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T07:10:43.157Z"
+  },
+  {
+    "id": "user_1795425474957",
+    "username": "a qvip-proxygv",
+    "password": "$2b$10$aFlxFUOUIPo2qmlDTnEWU.cRh7Ox1FhLocckoY6YhE/tCTO1c5Xqa",
+    "fullname": "Wywigw có tiền wlnsawi s",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T09:17:54.957Z"
+  },
+  {
+    "id": "user_1795427116865",
+    "username": "hahaat",
+    "password": "$2b$10$SDFNKY90ivL.96ojPhtEBuUZy7rC89tz4huJ5xsbVZUb3omnTmrt.",
+    "fullname": "Mai đức cặc",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T09:45:16.865Z"
+  },
+  {
+    "id": "user_1795427191044",
+    "username": "minh1309",
+    "password": "$2b$10$kZRhgLv8RANO8l6VWXPML.Rh9pUjxmdBm/1Up3UqF2NyolNKQ/ixu",
+    "fullname": "Mih1309",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T09:46:31.044Z"
+  },
+  {
+    "id": "user_1795427296247",
+    "username": "hoàng3322",
+    "password": "$2b$10$vtR8gJ7EKEsPng5Zd78v4OEL740OZvvU7eLjKqKok/KKzeXFwrSlm",
+    "fullname": "Đỗ minh hoàng",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T09:48:16.247Z"
+  },
+  {
+    "id": "user_1795427576862",
+    "username": "oxtlwdpl",
+    "password": "$2b$10$6KQplx7HYnzOvrVshGUaoeRjOEMrRxWEUtSIqSsS0eusjUcWMMh8G",
+    "fullname": "Mai tung Lam",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T09:52:56.862Z"
+  },
+  {
+    "id": "user_1795427633758",
+    "username": "skibidi",
+    "password": "$2b$10$Q/iRaZJy7sNzdA4W5zUd0OvdCSFCrfhh3m52cjhdW.pZpDmkEIDra",
+    "fullname": "Skibidi",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T09:53:53.758Z"
+  },
+  {
+    "id": "user_1795428217145",
+    "username": "longdzo34",
+    "password": "$2b$10$o/xlCYa84GEyK2RIfE.Vp.QG7Fqj0XV5618Ob46/8j9BJMNay9ojO",
+    "fullname": "Nguyễn Minh Châu",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T10:03:37.145Z"
+  },
+  {
+    "id": "user_1795428729044",
+    "username": "danbakhislo29@gmail.com",
+    "password": "$2b$10$teJlSTWeucj4GnPgxDBb0ehbQ3oVMUb92AmDW4O7GipQ7tgGAwye2",
+    "fullname": "Mình Quân Ngô",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T10:12:09.044Z"
+  },
+  {
+    "id": "user_1795429013347",
+    "username": "ducanh99",
+    "password": "$2b$10$dEVAfuIIV8/fFhvpSTXnteDyuHx2a342yurNZcvijkfLxZ6eeEt4i",
+    "fullname": "Đức anh",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T10:16:53.347Z"
+  },
+  {
+    "id": "user_1795433086945",
+    "username": "anhtuan",
+    "password": "$2b$10$C6/Lrdeg9OMjPLDXHVHSb.dexeOQ8f/KNYP/RVjcah6CB1YdJh9Pe",
+    "fullname": "Lanhanhtuan",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T11:24:46.946Z"
+  },
+  {
+    "id": "user_1795434629145",
+    "username": "nguyen trong ngjja",
+    "password": "$2b$10$u5IUNwurcT5/goE6kOmIV.utTpYwNhbrLpTQfPAuGDQTb.yAO6.1.",
+    "fullname": "nguyen trong ngjia",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T11:50:29.145Z"
+  },
+  {
+    "id": "user_1795434745258",
+    "username": "chabara",
+    "password": "$2b$10$yJgyVapQ3gFb23rnqQy9Reljjpb0Cc/hmKQNYag1Q7q4YVTbgyx.W",
+    "fullname": "Nguyễn cha",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T11:52:25.258Z"
+  },
+  {
+    "id": "user_1795434793659",
+    "username": "nqbzz",
+    "password": "$2b$10$anFLQqnoF5ijk7Zr54ieluguDuQqVOfOjKNzETqjsXSrNmvnGsbbK",
+    "fullname": "nông quốc bảo",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T11:53:13.659Z"
+  },
+  {
+    "id": "user_1795436535844",
+    "username": "loduykhoa",
+    "password": "$2b$10$nFO5h0o9TSxz2fLUxMs2Z.dk4flrDNRhoHXZTjNdujN3DxdrK.utC",
+    "fullname": "Lduykhoa",
+    "balance": 0,
+    "role": "user",
+    "createdAt": "2026-11-23T12:22:15.844Z"
   }
 ]

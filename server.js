@@ -52,6 +52,7 @@ app.get('/uploads/:filename', async (req, res, next) => {
   if (fs.existsSync(localFile)) {
     return next();
   }
+  try { await ensureDb(); } catch (_) {}
   if (db) {
     try {
       const imgDoc = await db.collection('images').findOne({ filename });
@@ -88,21 +89,30 @@ const PRODUCTS_FILE = path.join(DATA_DIR, 'products.json');
 const TRANSACTIONS_FILE = path.join(DATA_DIR, 'transactions.json');
 const SETTINGS_FILE = path.join(DATA_DIR, 'settings.json');
 
+// Bộ nhớ đệm dữ liệu (In-Memory Store) hỗ trợ Serverless & Realtime
+const memoryStore = {};
+
 // ========================================================
 // 1. ATOMIC FILE I/O & MONGODB CLOUD SYNCHRONIZATION
 // ========================================================
 
 /**
- * Đọc file JSON an toàn
+ * Đọc dữ liệu an toàn (ưu tiên memoryStore -> file JSON)
  */
 function readJSON(filePath, defaultValue = []) {
+  if (memoryStore[filePath] !== undefined) {
+    return memoryStore[filePath];
+  }
   try {
     if (!fs.existsSync(filePath)) {
       writeLocalJSON(filePath, defaultValue);
+      memoryStore[filePath] = defaultValue;
       return defaultValue;
     }
     const data = fs.readFileSync(filePath, 'utf8');
-    return JSON.parse(data || '[]');
+    const parsed = JSON.parse(data || '[]');
+    memoryStore[filePath] = parsed;
+    return parsed;
   } catch (err) {
     console.error(`[FS Error] Lỗi đọc ${filePath}:`, err.message);
     return defaultValue;
@@ -119,7 +129,7 @@ function writeLocalJSON(filePath, data) {
     fs.renameSync(tmpPath, filePath);
     return true;
   } catch (err) {
-    console.error(`[FS Error] Lỗi ghi atomic ${filePath}:`, err.message);
+    // Trên Vercel Serverless, hệ thống file là Read-Only nên chỉ bắt lỗi an toàn
     try {
       if (fs.existsSync(tmpPath)) fs.unlinkSync(tmpPath);
     } catch (_) {}
@@ -154,9 +164,10 @@ async function syncCollectionToMongo(colName, items, idField = 'id') {
 }
 
 /**
- * Ghi dữ liệu đồng thời vào file cục bộ và sao lưu lên MongoDB Cloud
+ * Ghi dữ liệu đồng thời vào memoryStore, file cục bộ và sao lưu lên MongoDB Cloud
  */
 function writeJSON(filePath, data) {
+  memoryStore[filePath] = data;
   const ok = writeLocalJSON(filePath, data);
   if (db) {
     if (filePath === PRODUCTS_FILE) {
@@ -322,10 +333,12 @@ async function initDatabase() {
     const mongoSettings = await db.collection('settings').findOne({ _id: 'global' });
     if (mongoSettings) {
       const { _id, ...cleanSettings } = mongoSettings;
+      memoryStore[SETTINGS_FILE] = cleanSettings;
       writeLocalJSON(SETTINGS_FILE, cleanSettings);
       console.log('[Database] Đã nạp cấu hình shop mới nhất từ MongoDB.');
     } else {
       const localSettings = readJSON(SETTINGS_FILE, {});
+      memoryStore[SETTINGS_FILE] = localSettings;
       await db.collection('settings').replaceOne({ _id: 'global' }, { _id: 'global', ...localSettings }, { upsert: true });
       console.log('[Database] Đã sao lưu cấu hình ban đầu lên MongoDB.');
     }
@@ -335,10 +348,12 @@ async function initDatabase() {
     if (prodCount > 0) {
       const mongoProducts = await db.collection('products').find({}).toArray();
       const cleanProducts = mongoProducts.map(({ _id, ...rest }) => rest);
+      memoryStore[PRODUCTS_FILE] = cleanProducts;
       writeLocalJSON(PRODUCTS_FILE, cleanProducts);
       console.log(`[Database] Đã nạp ${cleanProducts.length} sản phẩm từ MongoDB.`);
     } else {
       const localProducts = readJSON(PRODUCTS_FILE, []);
+      memoryStore[PRODUCTS_FILE] = localProducts;
       if (localProducts.length > 0) {
         await syncCollectionToMongo('products', localProducts, 'id');
         console.log(`[Database] Đã sao lưu ${localProducts.length} sản phẩm ban đầu lên MongoDB.`);
@@ -350,10 +365,12 @@ async function initDatabase() {
     if (userCount > 0) {
       const mongoUsers = await db.collection('users').find({}).toArray();
       const cleanUsers = mongoUsers.map(({ _id, ...rest }) => rest);
+      memoryStore[USERS_FILE] = cleanUsers;
       writeLocalJSON(USERS_FILE, cleanUsers);
       console.log(`[Database] Đã nạp ${cleanUsers.length} tài khoản người dùng từ MongoDB.`);
     } else {
       const localUsers = readJSON(USERS_FILE, []);
+      memoryStore[USERS_FILE] = localUsers;
       if (localUsers.length > 0) {
         await syncCollectionToMongo('users', localUsers, 'username');
         console.log(`[Database] Đã sao lưu ${localUsers.length} tài khoản ban đầu lên MongoDB.`);
@@ -365,10 +382,12 @@ async function initDatabase() {
     if (txCount > 0) {
       const mongoTx = await db.collection('transactions').find({}).toArray();
       const cleanTx = mongoTx.map(({ _id, ...rest }) => rest);
+      memoryStore[TRANSACTIONS_FILE] = cleanTx;
       writeLocalJSON(TRANSACTIONS_FILE, cleanTx);
       console.log(`[Database] Đã nạp ${cleanTx.length} giao dịch từ MongoDB.`);
     } else {
       const localTx = readJSON(TRANSACTIONS_FILE, []);
+      memoryStore[TRANSACTIONS_FILE] = localTx;
       if (localTx.length > 0) {
         await syncCollectionToMongo('transactions', localTx, 'id');
         console.log(`[Database] Đã sao lưu ${localTx.length} giao dịch ban đầu lên MongoDB.`);
@@ -377,6 +396,36 @@ async function initDatabase() {
   } catch (err) {
     console.error('[Database Error] Không thể kết nối MongoDB:', err.message);
     console.log('[Database] Dự phòng: Tiếp tục sử dụng file JSON cục bộ.');
+  }
+}
+
+/**
+ * Tự động làm mới cache từ MongoDB khi chạy trên Serverless
+ */
+let lastDbSync = 0;
+async function refreshFromMongo() {
+  if (!db) return;
+  try {
+    const mongoSettings = await db.collection('settings').findOne({ _id: 'global' });
+    if (mongoSettings) {
+      const { _id, ...cleanSettings } = mongoSettings;
+      memoryStore[SETTINGS_FILE] = cleanSettings;
+    }
+    const mongoProducts = await db.collection('products').find({}).toArray();
+    if (mongoProducts && mongoProducts.length > 0) {
+      memoryStore[PRODUCTS_FILE] = mongoProducts.map(({ _id, ...rest }) => rest);
+    }
+    const mongoUsers = await db.collection('users').find({}).toArray();
+    if (mongoUsers && mongoUsers.length > 0) {
+      memoryStore[USERS_FILE] = mongoUsers.map(({ _id, ...rest }) => rest);
+    }
+    const mongoTx = await db.collection('transactions').find({}).toArray();
+    if (mongoTx && mongoTx.length > 0) {
+      memoryStore[TRANSACTIONS_FILE] = mongoTx.map(({ _id, ...rest }) => rest);
+    }
+    lastDbSync = Date.now();
+  } catch (e) {
+    console.error('[Mongo Refresh Error]', e.message);
   }
 }
 
@@ -462,6 +511,40 @@ function seedDefaultProducts() {
     console.log('[OK] Đã khởi tạo 4 sản phẩm mặc định cho shopnghiaz.');
   }
 }
+
+// Khởi tạo Database sẵn sàng trước khi phục vụ mọi request
+let isDatabaseReady = false;
+let dbInitPromise = null;
+
+async function ensureDb() {
+  if (isDatabaseReady && db) {
+    if (Date.now() - lastDbSync > 10000) {
+      lastDbSync = Date.now();
+      refreshFromMongo().catch(err => console.error('[Background Mongo Refresh]', err.message));
+    }
+    return;
+  }
+  if (!dbInitPromise) {
+    dbInitPromise = (async () => {
+      await initDatabase();
+      seedAdminUser();
+      seedDefaultProducts();
+      isDatabaseReady = true;
+      lastDbSync = Date.now();
+    })();
+  }
+  await dbInitPromise;
+}
+
+// Middleware bắt buộc khởi tạo database trước khi vào bất kỳ route nào
+app.use(async (req, res, next) => {
+  try {
+    await ensureDb();
+  } catch (err) {
+    console.error('[ensureDb Middleware Error]', err.message);
+  }
+  next();
+});
 
 // ========================================================
 // 4. API TÀI KHOẢN & XÁC THỰC (AUTH)
@@ -1724,25 +1807,6 @@ app.post('/api/admin/simulate-card-callback', requireAdmin, async (req, res) => 
 // ========================================================
 // 11. KHỞI CHẠY SERVER VỚI CLOUD DATABASE & VERCEL SUPPORT
 // ========================================================
-
-let isDatabaseReady = false;
-async function ensureDb() {
-  if (!isDatabaseReady) {
-    await initDatabase();
-    seedAdminUser();
-    seedDefaultProducts();
-    isDatabaseReady = true;
-  }
-}
-
-app.use(async (req, res, next) => {
-  try {
-    if (!isDatabaseReady) {
-      await ensureDb();
-    }
-  } catch (_) {}
-  next();
-});
 
 async function startServer() {
   try {
