@@ -1722,19 +1722,34 @@ app.post('/api/admin/simulate-card-callback', requireAdmin, async (req, res) => 
 });
 
 // ========================================================
-// 11. KHỞI CHẠY SERVER VỚI CLOUD DATABASE
+// 11. KHỞI CHẠY SERVER VỚI CLOUD DATABASE & VERCEL SUPPORT
 // ========================================================
+
+let isDatabaseReady = false;
+async function ensureDb() {
+  if (!isDatabaseReady) {
+    await initDatabase();
+    seedAdminUser();
+    seedDefaultProducts();
+    isDatabaseReady = true;
+  }
+}
+
+app.use(async (req, res, next) => {
+  try {
+    if (!isDatabaseReady) {
+      await ensureDb();
+    }
+  } catch (_) {}
+  next();
+});
 
 async function startServer() {
   try {
     // 1. Khởi động & nạp dữ liệu từ Cloud Database (MongoDB)
-    await initDatabase();
+    await ensureDb();
 
-    // 2. Đồng bộ khởi tạo quyền Admin & sản phẩm cơ sở
-    seedAdminUser();
-    seedDefaultProducts();
-
-    // 3. Khởi chạy Express Server
+    // 2. Khởi chạy Express Server
     app.listen(PORT, () => {
       console.log(`=======================================================`);
       console.log(`  ShopNghiaZ Server (Secured V2.0 + Cloud DB) đang chạy:`);
@@ -1747,4 +1762,8 @@ async function startServer() {
   }
 }
 
-startServer();
+if (!process.env.VERCEL) {
+  startServer();
+}
+
+module.exports = app;
